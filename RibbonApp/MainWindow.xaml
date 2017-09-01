@@ -1,0 +1,109 @@
+﻿<Fluent:RibbonWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+                     xmlns:FluentTest="clr-namespace:RibbonApp"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                
+                     x:Name="window"
+                     x:Class="RibonApp.MainWindow"
+                     Title="Ribbon Applicaton"
+                     FlowDirection="LeftToRight"
+                     Height="768"
+                     Width="1024"
+                     MinWidth="80"
+                     MinHeight="60"
+                     mc:Ignorable="d"
+                     WindowState="Normal">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <Fluent:Ribbon Grid.Row="0">
+
+
+            <!--Backstage-->
+            <Fluent:Ribbon.Menu>
+                <Fluent:Backstage Header="Soubor">
+                    <Fluent:BackstageTabControl>
+                        <Fluent:BackstageTabItem Header="New" />
+                        <Fluent:BackstageTabItem Header="Print" />
+                        <Fluent:Button Header="Konec" />
+                    </Fluent:BackstageTabControl>
+                </Fluent:Backstage>
+            </Fluent:Ribbon.Menu>
+
+
+            <!--Tabs-->
+            <Fluent:RibbonTabItem Header="Hlavní">
+                <Fluent:RibbonGroupBox Header="Group">
+                    <Fluent:Button Header="Green"
+                                  Icon="pack://application:,,,/RibbonApp;component/Images/Save.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Save.png" />
+                    <Fluent:Button Header="Grey" 
+                                  Icon="pack://application:,,,/RibbonApp;component/Images/Save.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Save.png" />
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox>
+                    <Fluent:Button Header="Button with rectangle as icon" >
+                        <Fluent:Button.Icon>
+                            <Rectangle Fill="Green"
+                                        />
+                        </Fluent:Button.Icon>
+                        <Fluent:Button.LargeIcon>
+                            <Rectangle Fill="Blue"
+                                      />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+
+            <Fluent:RibbonTabItem Header="Druhá">
+                <Fluent:RibbonGroupBox Header="Skupina 1">
+                    <Fluent:Button Header="Green"
+                                  Icon="pack://application:,,,/RibbonApp;component/Images/Save.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Save.png" />
+                    <Fluent:Button Header="Grey" 
+                                Icon="pack://application:,,,/RibbonApp;component/Images/Save.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Save.png" />
+                </Fluent:RibbonGroupBox>
+
+            </Fluent:RibbonTabItem>
+
+
+        </Fluent:Ribbon>
+
+        <Grid Grid.Row="1">
+            <TextBlock>My first window containing a Ribbon and something else.</TextBlock>
+        </Grid>
+
+
+        <Fluent:StatusBar HorizontalAlignment="Stretch"
+                          VerticalAlignment="Bottom"
+                          Grid.Row="2"
+                          >
+            <Fluent:StatusBarItem Title="Words Width"
+                                  Value="150"
+                                  HorizontalAlignment="Left">
+                <TextBlock Text="150 px" />
+            </Fluent:StatusBarItem>
+
+            <Separator HorizontalAlignment="Left" />
+
+            <Fluent:StatusBarItem Title="Selected Words"
+                                  Value="15"
+                                  ToolTip="This is Selected Words"
+                                  Content="15 words"
+                                  HorizontalAlignment="Left" />
+        </Fluent:StatusBar>
+    </Grid>
+
+
+
+</Fluent:RibbonWindow>

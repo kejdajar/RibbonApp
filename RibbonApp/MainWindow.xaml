@@ -3,21 +3,21 @@
                      xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
                      xmlns:FluentTest="clr-namespace:RibbonApp"
                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                
-                     x:Name="window"
-                     x:Class="RibonApp.MainWindow"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"                
+                     x:Name="Window"
+                     x:Class="RibbonApp.MainWindow"
                      Title="Ribbon Applicaton"
                      FlowDirection="LeftToRight"
-                     Height="768"
-                     Width="1024"
+                     Height="600"
+                     Width="800"
                      MinWidth="80"
                      MinHeight="60"
                      mc:Ignorable="d"
-                     WindowState="Normal">
+                     WindowState="Normal"      
+                     Loaded="Window_Loaded"
+                     >
 
-
-    <Grid>
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -42,12 +42,12 @@
             <!--Tabs-->
             <Fluent:RibbonTabItem Header="Hlavní">
                 <Fluent:RibbonGroupBox Header="Group">
-                    <Fluent:Button Header="Green"
-                                  Icon="pack://application:,,,/RibbonApp;component/Images/Save.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Save.png" />
-                    <Fluent:Button Header="Grey" 
-                                  Icon="pack://application:,,,/RibbonApp;component/Images/Save.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Save.png" />
+                    <Fluent:Button Header="První" Click="Button_Click"
+                                  Icon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png" />
+                    <Fluent:Button Header="Druhá"  Click="Button_Click_1"
+                                  Icon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png" />
                 </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox>
                     <Fluent:Button Header="Button with rectangle as icon" >
@@ -64,24 +64,23 @@
             </Fluent:RibbonTabItem>
 
 
-            <Fluent:RibbonTabItem Header="Druhá">
+            <Fluent:RibbonTabItem Header="Druhá" >
                 <Fluent:RibbonGroupBox Header="Skupina 1">
                     <Fluent:Button Header="Green"
-                                  Icon="pack://application:,,,/RibbonApp;component/Images/Save.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Save.png" />
+                                  Icon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png" />
                     <Fluent:Button Header="Grey" 
-                                Icon="pack://application:,,,/RibbonApp;component/Images/Save.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Save.png" />
+                                Icon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png" />
                 </Fluent:RibbonGroupBox>
-
             </Fluent:RibbonTabItem>
 
 
         </Fluent:Ribbon>
 
-        <Grid Grid.Row="1">
-            <TextBlock>My first window containing a Ribbon and something else.</TextBlock>
-        </Grid>
+        <!-- Frame je kontejner, kam se dosazují instance stránek (jsou ve složce Pages) -->
+        <Frame x:Name="frDefult" NavigationUIVisibility="Hidden" Grid.Row="1"></Frame>
+       
 
 
         <Fluent:StatusBar HorizontalAlignment="Stretch"

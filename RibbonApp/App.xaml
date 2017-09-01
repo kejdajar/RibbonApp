@@ -5,7 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
      
-            <!-- Attach default Fluent Theme -->
+            <!-- Připojení default Fluent Theme -->
             <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Generic.xaml" />
         
     </Application.Resources>

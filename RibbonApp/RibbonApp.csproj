@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iconIco.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlzEx, Version=2.2.0.4, Culture=neutral, PublicKeyToken=f08b075e934b7045, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.2.2.0.4\lib\net45\ControlzEx.dll</HintPath>
@@ -65,6 +68,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Database\Serialization.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="Pages\DefaultPage.xaml.cs">
+      <DependentUpon>DefaultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SecondPage.xaml.cs">
+      <DependentUpon>SecondPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EntityViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,8 +89,17 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\DefaultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SecondPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Entity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -105,58 +126,63 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Images\BlackTheme.png" />
-    <Resource Include="Images\Blue.png" />
-    <Resource Include="Images\BlueLarge.png" />
-    <Resource Include="Images\BlueTheme.png" />
-    <Resource Include="Images\Bold.png" />
-    <Resource Include="Images\Box.png" />
-    <Resource Include="Images\Brown.png" />
-    <Resource Include="Images\BrownLarge.png" />
-    <Resource Include="Images\ChangeCase.png" />
-    <Resource Include="Images\ClearFormatting.png" />
-    <Resource Include="Images\Copy.png" />
-    <Resource Include="Images\Cut.png" />
-    <Resource Include="Images\Default.png" />
-    <Resource Include="Images\Exit.png" />
-    <Resource Include="Images\FontColor.png" />
-    <Resource Include="Images\FormatPainter.png" />
-    <Resource Include="Images\GalleryLarge.png" />
-    <Resource Include="Images\Gray.png" />
-    <Resource Include="Images\GrayLarge.png" />
-    <Resource Include="Images\Green.png" />
-    <Resource Include="Images\GreenLarge.png" />
-    <Resource Include="Images\GrowFont.png" />
-    <Resource Include="Images\Help.png" />
-    <Resource Include="Images\Italic.png" />
-    <Resource Include="Images\Orange.png" />
-    <Resource Include="Images\OrangeLarge.png" />
-    <Resource Include="Images\Paste.png" />
-    <Resource Include="Images\PasteFormating.png" />
-    <Resource Include="Images\PasteImage.png" />
-    <Resource Include="Images\PasteLarge.png" />
-    <Resource Include="Images\PasteSourceFormating.png" />
-    <Resource Include="Images\PasteText.png" />
-    <Resource Include="Images\PasteTextOnly.png" />
-    <Resource Include="Images\Pink.png" />
-    <Resource Include="Images\PinkLarge.png" />
-    <Resource Include="Images\Red.png" />
-    <Resource Include="Images\RedLarge.png" />
-    <Resource Include="Images\Save.png" />
-    <Resource Include="Images\ShrinkFont.png" />
-    <Resource Include="Images\SilverTheme.png" />
-    <Resource Include="Images\Strikethrough.png" />
-    <Resource Include="Images\Subscript.png" />
-    <Resource Include="Images\Superscript.png" />
-    <Resource Include="Images\Test16.png" />
-    <Resource Include="Images\Test32.png" />
-    <Resource Include="Images\TextEffects.png" />
-    <Resource Include="Images\TextHighlightColor.png" />
-    <Resource Include="Images\Underline.png" />
-    <Resource Include="Images\Yellow.png" />
-    <Resource Include="Images\YellowLarge.png" />
+    <Resource Include="Images\Interface\BlackTheme.png" />
+    <Resource Include="Images\Interface\Blue.png" />
+    <Resource Include="Images\Interface\BlueLarge.png" />
+    <Resource Include="Images\Interface\BlueTheme.png" />
+    <Resource Include="Images\Interface\Bold.png" />
+    <Resource Include="Images\Interface\Box.png" />
+    <Resource Include="Images\Interface\Brown.png" />
+    <Resource Include="Images\Interface\BrownLarge.png" />
+    <Resource Include="Images\Interface\ChangeCase.png" />
+    <Resource Include="Images\Interface\ClearFormatting.png" />
+    <Resource Include="Images\Interface\Copy.png" />
+    <Resource Include="Images\Interface\Cut.png" />
+    <Resource Include="Images\Interface\Default.png" />
+    <Resource Include="Images\Interface\Exit.png" />
+    <Resource Include="Images\Interface\FontColor.png" />
+    <Resource Include="Images\Interface\FormatPainter.png" />
+    <Resource Include="Images\Interface\GalleryLarge.png" />
+    <Resource Include="Images\Interface\Gray.png" />
+    <Resource Include="Images\Interface\GrayLarge.png" />
+    <Resource Include="Images\Interface\Green.png" />
+    <Resource Include="Images\Interface\GreenLarge.png" />
+    <Resource Include="Images\Interface\GrowFont.png" />
+    <Resource Include="Images\Interface\Help.png" />
+    <Resource Include="Images\Interface\Italic.png" />
+    <Resource Include="Images\Interface\Orange.png" />
+    <Resource Include="Images\Interface\OrangeLarge.png" />
+    <Resource Include="Images\Interface\Paste.png" />
+    <Resource Include="Images\Interface\PasteFormating.png" />
+    <Resource Include="Images\Interface\PasteImage.png" />
+    <Resource Include="Images\Interface\PasteLarge.png" />
+    <Resource Include="Images\Interface\PasteSourceFormating.png" />
+    <Resource Include="Images\Interface\PasteText.png" />
+    <Resource Include="Images\Interface\PasteTextOnly.png" />
+    <Resource Include="Images\Interface\Pink.png" />
+    <Resource Include="Images\Interface\PinkLarge.png" />
+    <Resource Include="Images\Interface\Red.png" />
+    <Resource Include="Images\Interface\RedLarge.png" />
+    <Resource Include="Images\Interface\Save.png" />
+    <Resource Include="Images\Interface\ShrinkFont.png" />
+    <Resource Include="Images\Interface\SilverTheme.png" />
+    <Resource Include="Images\Interface\Strikethrough.png" />
+    <Resource Include="Images\Interface\Subscript.png" />
+    <Resource Include="Images\Interface\Superscript.png" />
+    <Resource Include="Images\Interface\Test16.png" />
+    <Resource Include="Images\Interface\Test32.png" />
+    <Resource Include="Images\Interface\TextEffects.png" />
+    <Resource Include="Images\Interface\TextHighlightColor.png" />
+    <Resource Include="Images\Interface\Underline.png" />
+    <Resource Include="Images\Interface\Yellow.png" />
+    <Resource Include="Images\Interface\YellowLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="iconIco.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

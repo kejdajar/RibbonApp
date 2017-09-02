@@ -29,8 +29,10 @@ namespace RibbonApp.Database
 
         private static void FillWithTestData()
         {
-            Database.Entities.Add(new Entity() { Name = "test", Date = DateTime.Now, Check = false });
-            Database.ConcreteEntities.Add(new ConcreteEntity() { Name = "test", Date = DateTime.Now, Check = false, ConcreteInfo = "some info" });
+            Database.Entities.Add(new Entity() { Name = "Motor 01", Date = DateTime.Now, Check = false });
+            Database.Entities.Add(new Entity() { Name = "Palivový článek 02", Date = DateTime.Now + TimeSpan.FromHours(1), Check = true });
+            Database.Entities.Add(new Entity() { Name = "Karburátor 03", Date = DateTime.Now +  TimeSpan.FromHours(2), Check = false });
+            Database.Entities.Add(new Entity() { Name = "Parní turbína", Date = DateTime.Now + TimeSpan.FromHours(3), Check = true });
             Database.SaveChanges();
         }
     }

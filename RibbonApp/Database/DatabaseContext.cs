@@ -16,6 +16,6 @@ namespace RibbonApp.Database
         }
 
         public virtual DbSet<Entity> Entities {get;set;}
-        public virtual DbSet<ConcreteEntity> ConcreteEntities { get; set; }
+       
     }
 }

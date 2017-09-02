@@ -71,7 +71,13 @@ namespace RibbonApp
 
             // ViewModel je spojovací článek mezi grafickým rozhraním (.xaml soubory) a datovými modely (složka Models)
             // View model může provádět dodatečné formátování dat (např čas, měna apod.)
-            EntityViewModel viewModel = new EntityViewModel(database.Entities.ToList(), database.ConcreteEntities.ToList());
+            EntityViewModel viewModel = new EntityViewModel(database.Entities.ToList(),
+                (obj, arg) =>
+            {
+                Configuration.DatabaseHelper.EditEntity(obj as EntityNotify);
+                MessageBox.Show("edited");
+            }
+                );
                 
                 
                 

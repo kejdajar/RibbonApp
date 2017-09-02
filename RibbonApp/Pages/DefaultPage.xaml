@@ -9,12 +9,9 @@
       Title="DefaultPage">
 
     <StackPanel>
-        <DataGrid AutoGenerateColumns="True" x:Name="grid1" ItemsSource="{Binding Path=data1}" >
+        <DataGrid AutoGenerateColumns="True" x:Name="grid1" ItemsSource="{Binding Path=data1}"  Style="{StaticResource dataGridStyle}" CellStyle="{StaticResource datagridCell}">
 
         </DataGrid>
-        <Separator/>
-        <DataGrid AutoGenerateColumns="True" x:Name="grid2" ItemsSource="{Binding Path=data2}" Style="{StaticResource dataGridStyle}" CellStyle="{StaticResource datagridCell}"> 
-
-        </DataGrid>
+        
     </StackPanel>
 </Page>

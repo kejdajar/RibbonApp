@@ -11,7 +11,8 @@ namespace RibbonApp.Database
     public static class Configuration
     {
 
-        public static DatabaseContext Database { get; set; } = null;
+        public static DatabaseContext Database { get; set; }
+        public static DatabaseHelper DatabaseHelper { get; set; } 
 
         public static void Initialize()
         {
@@ -22,6 +23,8 @@ namespace RibbonApp.Database
                 Database.Database.Create();
                 FillWithTestData();
             }
+
+            DatabaseHelper = new DatabaseHelper(Database);
         }
 
         private static void FillWithTestData()

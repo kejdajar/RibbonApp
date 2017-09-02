@@ -66,14 +66,18 @@ namespace RibbonApp
             //frDefult.Navigate(defaultPage); // musíme říci rámu, co má zobrazit
 
             Configuration.Initialize();
-            DatabaseContext database = Configuration.Database;         
-                
+            DatabaseContext database = Configuration.Database;
+
 
             // ViewModel je spojovací článek mezi grafickým rozhraním (.xaml soubory) a datovými modely (složka Models)
             // View model může provádět dodatečné formátování dat (např čas, měna apod.)
-            EntityViewModel viewModel = new EntityViewModel();
-            viewModel.data1 = database.Entities.ToList() ; // naplnění viewModelu daty
-            viewModel.data2 = database.ConcreteEntities.ToList(); // naplnění viewModelu daty
+            EntityViewModel viewModel = new EntityViewModel(database.Entities.ToList(), database.ConcreteEntities.ToList());
+                
+                
+                
+                
+           
+            
 
             // Grafickému rozhraní pošleme ViewModel, z žádného jiného místa již do GUI data neposíláme
             // Data, která zadá uživatel, se budou opět promítat jen do ViewModelu.  

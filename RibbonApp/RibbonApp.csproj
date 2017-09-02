@@ -70,6 +70,9 @@
     </ApplicationDefinition>
     <Compile Include="Database\Serialization.cs" />
     <Compile Include="Exceptions.cs" />
+    <Compile Include="Pages\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DefaultPage.xaml.cs">
       <DependentUpon>DefaultPage.xaml</DependentUpon>
     </Compile>
@@ -77,6 +80,10 @@
       <DependentUpon>SecondPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\EntityViewModel.cs" />
+    <Page Include="DesignResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +96,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\DefaultPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +194,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UserControls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icon\iconPng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icon\point.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

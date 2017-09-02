@@ -31,9 +31,13 @@
             <Fluent:Ribbon.Menu>
                 <Fluent:Backstage Header="Soubor">
                     <Fluent:BackstageTabControl>
-                        <Fluent:BackstageTabItem Header="New" />
-                        <Fluent:BackstageTabItem Header="Print" />
-                        <Fluent:Button Header="Konec" />
+                        <Fluent:BackstageTabItem Header="Nový" />
+                        <Fluent:BackstageTabItem Header="Tisk" />
+                        <Fluent:BackstageTabItem Header="O programu" >
+                            <Frame Source="Pages/AboutPage.xaml" HorizontalAlignment="Left" ></Frame>
+                        </Fluent:BackstageTabItem>
+                        <!--<Fluent:Button Header="Zpět" />-->
+                        <Fluent:Button Header="Ukončit program" Click="Button_Click_2" />
                     </Fluent:BackstageTabControl>
                 </Fluent:Backstage>
             </Fluent:Ribbon.Menu>

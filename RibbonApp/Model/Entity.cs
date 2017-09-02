@@ -12,6 +12,8 @@ namespace RibbonApp.Model
         
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool Check { get; set; }
+        public DateTime Date { get; set; }
     }
 
     [Serializable]

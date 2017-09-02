@@ -79,5 +79,10 @@ namespace RibbonApp
            SecondPage secondPage = new SecondPage();
             frDefult.Navigate(secondPage);
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

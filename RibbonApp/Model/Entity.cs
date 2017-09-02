@@ -19,8 +19,13 @@ namespace RibbonApp.Model
     }
 
     [Serializable]
-    public class ConcreteEntity : Entity
+    public class ConcreteEntity
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool Check { get; set; }
+        public DateTime Date { get; set; }
         public string ConcreteInfo { get; set; }
     }
 }

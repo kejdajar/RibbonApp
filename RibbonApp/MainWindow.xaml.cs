@@ -75,7 +75,7 @@ namespace RibbonApp
                 (obj, arg) =>
             {
                 Configuration.DatabaseHelper.EditEntity(obj as EntityNotify);
-                MessageBox.Show("edited");
+                MessageBox.Show("saved to Db");
             }
                 );
                 

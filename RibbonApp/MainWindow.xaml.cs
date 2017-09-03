@@ -74,7 +74,8 @@ namespace RibbonApp
             EntityViewModel viewModel = new EntityViewModel(database.Entities.ToList(),
                 (obj, arg) =>
             {
-                Configuration.DatabaseHelper.EditEntity(obj as EntityNotify);
+                //Configuration.DatabaseHelper.EditEntity(obj as EntityNotify);
+                Configuration.DatabaseHelper.EditOnlySinglePropertyOfEntity(obj as EntityNotify, arg.PropertyName);
                 MessageBox.Show("saved to Db");
             }
                 );

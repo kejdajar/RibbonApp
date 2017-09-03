@@ -28,6 +28,27 @@ namespace RibbonApp.Database
             _database.SaveChanges();
         }
 
+        public void EditOnlySinglePropertyOfEntity(EntityNotify entityThatWasEdited, string changedPropertyName)
+        {
+            int propertyBeingEditedId = entityThatWasEdited.Id;
+            Entity entityToEditFromDb = _database.Entities.Where(e => e.Id == propertyBeingEditedId).Single();
+
+            object editedPropertyValue = GetPropValue(entityThatWasEdited, changedPropertyName);
+            SetProperty(entityToEditFromDb, changedPropertyName, editedPropertyValue);
+            _database.SaveChanges();
+            System.Diagnostics.Debug.WriteLine(changedPropertyName + "saved!!!");
+        }
+
+        public static object GetPropValue(object src, string propName)
+        {
+            return src.GetType().GetProperty(propName).GetValue(src, null);
+        }
+
+        public void SetProperty(object source,String propertyName, object value)
+        {
+            source.GetType().GetProperty(propertyName).SetValue(source, value);
+        }
+
         public EntityNotify AddNewEntity(EntityNotify newEntity)
         {
             Entity converted = new Entity()

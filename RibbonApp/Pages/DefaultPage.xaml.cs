@@ -36,6 +36,7 @@ namespace RibbonApp.Pages
             itemCreatedByGrid.Date = DateTime.Now;
             itemCreatedByGrid.Name = "Jméno";
             itemCreatedByGrid.Check = false;
+            itemCreatedByGrid.PropertyChanged += (obj,args) => { Configuration.DatabaseHelper.EditOnlySinglePropertyOfEntity(obj as EntityNotify, args.PropertyName); };
 
             EntityNotify entityAlreadySavedInDb= Configuration.DatabaseHelper.AddNewEntity(itemCreatedByGrid);
             itemCreatedByGrid.Id = entityAlreadySavedInDb.Id; // Aktualizujeme Id dle databáze

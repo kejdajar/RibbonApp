@@ -31,40 +31,15 @@ namespace RibbonApp.ViewModel
                 item.PropertyChanged += PropertyChanged;
             }
 
-            //foreach (var item in transform)
-            //{
-            //    item.EnableNotification = true;
-            //}
+            
 
-            data1 = new ObservableCollection<EntityNotify>(transform);
+            Data = new ObservableCollection<EntityNotify>(transform);
 
-            data1.CollectionChanged += (sender, e) => {
-
-                if(e.NewItems != null)
-                {
-                    foreach(EntityNotify item in e.NewItems)
-                    {
-                        //Configuration.DatabaseHelper.AddNewEntity(item);
-                       
-                    }
-                    
-                }
-            };
+           
 
         }
 
-        public ObservableCollection<EntityNotify> data1 { get; set; }
-       
-
-       
-
-
-
-
-
-
-
-
+        public ObservableCollection<EntityNotify> Data { get; set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

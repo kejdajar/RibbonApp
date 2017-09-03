@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_06ADB56CB539439E90F1AA7DA775AFE6"
+        "MsmKey" = "8:_120EAA1943CC470498418B8126A9F270"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_103F98ABE3114433BC8FD62C5E62426F"
+        "MsmKey" = "8:_1C59D0A9181D407A9E4DA1FF22232D68"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -35,6 +35,12 @@
         {
         "MsmKey" = "8:_2BA897381E8B66F16BA1D8D5055BA7B9"
         "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_400AE23465F149149657FBC88D6126EB"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -63,20 +69,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_59ACCAA7422347F19BFC38BF4D01882B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5CB119FACD504D808087201686D42DA9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_684DF22FAD791C414D048E3C070E3669"
         "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7BBDF4B01396472CA8ECD99A860F3D0C"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -99,18 +99,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9DC8A33D838649BF86224B5AFDF3BD87"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C479B39ED17345B2BABCD1C78A76E05D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C7F6AC1A72A25F0655B1EDB720A22735"
         "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
         "MsmSig" = "8:_UNDEFINED"
@@ -119,6 +107,12 @@
         {
         "MsmKey" = "8:_CA55B3C63790DCE93C04A414E9266F6B"
         "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CD4A52A573FB42E78F49057420817980"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -147,14 +141,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F0A1FF2615244A178A1911577402C0FA"
+        "MsmKey" = "8:_E1B9E91CAACF4337A84611A52244E4FC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4BAB8F6BB57685F2EBAF25E615E9F492"
+        "MsmKey" = "8:_FAB7E1F1E8884D1AAA5AF597DA24A384"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -211,6 +205,12 @@
         "OwnerKey" = "8:_684DF22FAD791C414D048E3C070E3669"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4BAB8F6BB57685F2EBAF25E615E9F492"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -229,6 +229,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -245,6 +261,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -274,10 +298,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_06ADB56CB539439E90F1AA7DA775AFE6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_120EAA1943CC470498418B8126A9F270"
             {
-            "SourcePath" = "8:..\\RibbonApp\\sqlceoledb40.dll"
-            "TargetName" = "8:sqlceoledb40.dll"
+            "SourcePath" = "8:..\\RibbonApp\\CompactDbDll\\sqlcecompact40.dll"
+            "TargetName" = "8:sqlcecompact40.dll"
             "Tag" = "8:"
             "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
             "Condition" = "8:"
@@ -294,10 +318,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_103F98ABE3114433BC8FD62C5E62426F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1C59D0A9181D407A9E4DA1FF22232D68"
             {
-            "SourcePath" = "8:..\\RibbonApp\\sqlceer40EN.dll"
-            "TargetName" = "8:sqlceer40EN.dll"
+            "SourcePath" = "8:..\\RibbonApp\\CompactDbDll\\sqlceca40.dll"
+            "TargetName" = "8:sqlceca40.dll"
             "Tag" = "8:"
             "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
             "Condition" = "8:"
@@ -343,6 +367,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_400AE23465F149149657FBC88D6126EB"
+            {
+            "SourcePath" = "8:..\\RibbonApp\\CompactDbDll\\sqlceqp40.dll"
+            "TargetName" = "8:sqlceqp40.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4BAB8F6BB57685F2EBAF25E615E9F492"
@@ -407,46 +451,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_59ACCAA7422347F19BFC38BF4D01882B"
-            {
-            "SourcePath" = "8:..\\RibbonApp\\sqlcecompact40.dll"
-            "TargetName" = "8:sqlcecompact40.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5CB119FACD504D808087201686D42DA9"
-            {
-            "SourcePath" = "8:..\\RibbonApp\\sqlcese40.dll"
-            "TargetName" = "8:sqlcese40.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_684DF22FAD791C414D048E3C070E3669"
             {
             "AssemblyRegister" = "3:1"
@@ -478,6 +482,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7BBDF4B01396472CA8ECD99A860F3D0C"
+            {
+            "SourcePath" = "8:..\\RibbonApp\\CompactDbDll\\sqlcese40.dll"
+            "TargetName" = "8:sqlcese40.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_94020ED194CDDAE3432A7474A3A89131"
             {
             "AssemblyRegister" = "3:1"
@@ -507,46 +531,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9DC8A33D838649BF86224B5AFDF3BD87"
-            {
-            "SourcePath" = "8:..\\RibbonApp\\sqlceqp40.dll"
-            "TargetName" = "8:sqlceqp40.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C479B39ED17345B2BABCD1C78A76E05D"
-            {
-            "SourcePath" = "8:..\\RibbonApp\\sqlceca40.dll"
-            "TargetName" = "8:sqlceca40.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C7F6AC1A72A25F0655B1EDB720A22735"
@@ -611,6 +595,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CD4A52A573FB42E78F49057420817980"
+            {
+            "SourcePath" = "8:..\\RibbonApp\\CompactDbDll\\sqlceme40.dll"
+            "TargetName" = "8:sqlceme40.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CE2B097EC27772391606EB18B1324F48"
             {
             "AssemblyRegister" = "3:1"
@@ -673,10 +677,30 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F0A1FF2615244A178A1911577402C0FA"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E1B9E91CAACF4337A84611A52244E4FC"
             {
-            "SourcePath" = "8:..\\RibbonApp\\sqlceme40.dll"
-            "TargetName" = "8:sqlceme40.dll"
+            "SourcePath" = "8:..\\RibbonApp\\CompactDbDll\\sqlceoledb40.dll"
+            "TargetName" = "8:sqlceoledb40.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FAB7E1F1E8884D1AAA5AF597DA24A384"
+            {
+            "SourcePath" = "8:..\\RibbonApp\\CompactDbDll\\sqlceer40EN.dll"
+            "TargetName" = "8:sqlceer40EN.dll"
             "Tag" = "8:"
             "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
             "Condition" = "8:"
@@ -750,7 +774,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SetupProject"
         "ProductCode" = "8:{82B9C09E-A805-4B0A-A65E-FCF8BCF0A534}"
-        "PackageCode" = "8:{B5AC2252-BF68-437C-AC3D-D025DAD284BA}"
+        "PackageCode" = "8:{AED61666-2F15-4D7D-85E9-F348BCF82C2A}"
         "UpgradeCode" = "8:{4B441289-0AAF-415C-88D8-D6FC15F6FF22}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

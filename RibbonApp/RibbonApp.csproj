@@ -124,6 +124,7 @@
     <Compile Include="Pages\SecondPage.xaml.cs">
       <DependentUpon>SecondPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Printing\PrintHelper.cs" />
     <Compile Include="ViewModel\EntityViewModel.cs" />
     <Page Include="DesignResourceDictionary.xaml">
       <SubType>Designer</SubType>
@@ -264,6 +265,11 @@
     <Content Include="CompactDbDll\sqlceoledb40.dll" />
     <Content Include="CompactDbDll\sqlceqp40.dll" />
     <Content Include="CompactDbDll\sqlcese40.dll" />
+    <Resource Include="Images\Icon\list.png" />
+    <Resource Include="Images\Icon\database.png" />
+    <Resource Include="Images\Icon\html.png" />
+    <Resource Include="Images\Icon\xml.png" />
+    <Resource Include="Printing\template.xsl" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

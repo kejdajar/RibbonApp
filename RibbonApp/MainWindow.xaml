@@ -15,6 +15,8 @@
                      mc:Ignorable="d"
                      WindowState="Normal"      
                      Loaded="Window_Loaded"
+                    
+                     xmlns:sys="clr-namespace:System;assembly=mscorlib"   
                      >
 
     <Grid >
@@ -44,16 +46,34 @@
 
 
             <!--Tabs-->
-            <Fluent:RibbonTabItem Header="Hlavní">
-                <Fluent:RibbonGroupBox Header="Group">
-                    <Fluent:Button Header="První" Click="Button_Click"
-                                  Icon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png" />
-                    <Fluent:Button Header="Druhá"  Click="Button_Click_1"
+            <!-- Přepínání pomocé IsSelected = true-->
+            <Fluent:RibbonTabItem Header="Hlavní" >
+                <Fluent:RibbonGroupBox Header="Stránky">
+                    <Fluent:Button Header="Seznam" Click="Button_Click"
+                                  Icon="pack://application:,,,/RibbonApp;component/Images/Icon/list.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/list.png" />
+                    <Fluent:Button Header="???"  Click="Button_Click_1"
                                   Icon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png"
                                 LargeIcon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="Export">
+                    <Fluent:Button Header="XML" x:Name="XMLButton" Click="XMLButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/xml.png" />
+                        </Fluent:Button.LargeIcon>                    
+
+                    </Fluent:Button>
+                    <Fluent:Button Header="HTML" x:Name="HTMLButton" Click="HTMLButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/html.png" />
+                        </Fluent:Button.LargeIcon>
+
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+
+
+                <!--<Fluent:RibbonGroupBox>
                     <Fluent:Button Header="Button with rectangle as icon" >
                         <Fluent:Button.Icon>
                             <Rectangle Fill="Green"
@@ -64,18 +84,18 @@
                                       />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
-                </Fluent:RibbonGroupBox>
+                </Fluent:RibbonGroupBox>-->
+                
             </Fluent:RibbonTabItem>
 
 
-            <Fluent:RibbonTabItem Header="Druhá" >
-                <Fluent:RibbonGroupBox Header="Skupina 1">
-                    <Fluent:Button Header="Green"
-                                  Icon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png" />
-                    <Fluent:Button Header="Grey" 
-                                Icon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png" />
+            <Fluent:RibbonTabItem Header="Pokročilé" IsSelected="True" >
+                <Fluent:RibbonGroupBox Header="Databáze">
+                    <Fluent:Button x:Name="openDatabaseFolder" Header="Otevřít složku DB"
+                                 Click="openDatabaseFolder_Click"
+                                   Icon="pack://application:,,,/RibbonApp;component/Images/Icon/database.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/database.png" />
+                    
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
 
@@ -94,15 +114,15 @@
             <Fluent:StatusBarItem Title="Words Width"
                                   Value="150"
                                   HorizontalAlignment="Left">
-                <TextBlock Text="150 px" />
+                <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dd/MM/yyyy  }'}"/>
             </Fluent:StatusBarItem>
 
             <Separator HorizontalAlignment="Left" />
 
             <Fluent:StatusBarItem Title="Selected Words"
                                   Value="15"
-                                  ToolTip="This is Selected Words"
-                                  Content="15 words"
+                                  ToolTip="random hint"
+                                  Content="random text"
                                   HorizontalAlignment="Left" />
         </Fluent:StatusBar>
     </Grid>

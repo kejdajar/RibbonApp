@@ -17,6 +17,10 @@ using RibbonApp.Model;
 using RibbonApp.ViewModel;
 using Fluent;
 using RibbonApp.Pages;
+using RibbonApp.Printing;
+using System.IO;
+using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace RibbonApp
 {
@@ -68,7 +72,9 @@ namespace RibbonApp
         // Prozatím testovací metody - office-like grafické rozhraní podporuje klasické události:
         private void Button_Click(object sender, RoutedEventArgs e)
         {            
-             frDefult.Navigate(defaultPage); // návrat na hlavní stránku
+            frDefult.Navigate(defaultPage); // návrat na hlavní stránku
+
+           
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -81,6 +87,28 @@ namespace RibbonApp
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             this.Close(); // zavře celý program
+        }
+
+        private void XMLButton_Click(object sender, RoutedEventArgs e)
+        {
+            EntityViewModel vm = defaultPage.DataContext as EntityViewModel;
+            PrintHelper printHelper = new PrintHelper(vm.Data.ToList());
+            XDocument ms = printHelper.GenerateXmlFile();
+            MessageBox.Show(printHelper.XDocumentToFullString(ms));
+        }
+
+        private void HTMLButton_Click(object sender, RoutedEventArgs e)
+        {
+            EntityViewModel vm = defaultPage.DataContext as EntityViewModel;
+            PrintHelper printHelper = new PrintHelper(vm.Data.ToList());
+            XDocument ms = printHelper.GenerateXmlFile();
+            MessageBox.Show(printHelper.XDocumentToFullString(printHelper.DemoXslt(ms)));
+        }
+
+        private void openDatabaseFolder_Click(object sender, RoutedEventArgs e)
+        {
+            string databaseFileFolder = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), RibbonApp.Database.Configuration.NameOfApplication);
+            Process.Start(databaseFileFolder);
         }
     }
 }

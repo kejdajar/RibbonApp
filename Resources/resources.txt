@@ -4,6 +4,18 @@ https://github.com/fluentribbon/Fluent.Ribbon
 ### iconIco.ico, iconPng.png
 https://www.flaticon.com/free-icon/nuts-and-bolts_71220#term=cog&page=1&position=43
 
+xml icon
+https://www.flaticon.com/free-icon/xml_136526#term=xml&page=1&position=2
+
+html icon
+https://www.flaticon.com/free-icon/html_136528#term=html&page=1&position=8
+
+database icon
+https://www.flaticon.com/free-icon/database_138933#term=database&page=1&position=24
+
+list
+https://www.flaticon.com/free-icon/list_138849#term=check list&page=1&position=5
+
 ### Res3
 
 ## Res4

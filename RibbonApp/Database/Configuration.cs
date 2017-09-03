@@ -32,6 +32,7 @@ namespace RibbonApp.Database
         /// </summary>
         public static void Initialize()
         {
+            CreateFolderForDatabase();
             Database = new DatabaseContext();
            
             if(!Database.Database.Exists())
@@ -46,10 +47,10 @@ namespace RibbonApp.Database
 
         private static void CreateFolderForDatabase()
         {
-            string databasePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); // %APPDATA%
+            string databasePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),NameOfApplication); // %APPDATA%
             if(!Directory.Exists(databasePath))
             {
-                Directory.CreateDirectory(System.IO.Path.Combine(databasePath, NameOfApplication));
+                Directory.CreateDirectory(databasePath);
             }
         }
 

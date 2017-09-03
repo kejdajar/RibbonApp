@@ -237,9 +237,7 @@
   <ItemGroup>
     <Resource Include="iconIco.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Icon\iconPng.png" />
   </ItemGroup>

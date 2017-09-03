@@ -27,5 +27,32 @@ namespace RibbonApp.Database
             _database.Entry(entityToEditFromDb).CurrentValues.SetValues(converted);
             _database.SaveChanges();
         }
+
+        public EntityNotify AddNewEntity(EntityNotify newEntity)
+        {
+            Entity converted = new Entity()
+            {               
+                Check = newEntity.Check,
+                Date = newEntity.Date,
+                Name = newEntity.Name
+            };
+
+            _database.Entities.Add(converted);
+            _database.SaveChanges();
+
+            Entity entityWithDbGeneratedId =  _database.Entities.Where(e => e.Id == converted.Id).Single();
+            return new EntityNotify
+            {
+                Id = entityWithDbGeneratedId.Id,
+                Check = entityWithDbGeneratedId.Check,
+                Date = entityWithDbGeneratedId.Date,
+                Name = entityWithDbGeneratedId.Name,
+
+            };
+        }
+
+
+
+
     }
 }

@@ -37,11 +37,35 @@ namespace RibbonApp.ViewModel
             //}
 
             data1 = new ObservableCollection<EntityNotify>(transform);
-          
+
+            data1.CollectionChanged += (sender, e) => {
+
+                if(e.NewItems != null)
+                {
+                    foreach(EntityNotify item in e.NewItems)
+                    {
+                        //Configuration.DatabaseHelper.AddNewEntity(item);
+                       
+                    }
+                    
+                }
+            };
+
         }
 
         public ObservableCollection<EntityNotify> data1 { get; set; }
        
+
+       
+
+
+
+
+
+
+
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

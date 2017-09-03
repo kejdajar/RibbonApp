@@ -10,7 +10,7 @@ namespace RibbonApp.Database
 {
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext() : base(System.IO.Path.Combine(Environment.CurrentDirectory,"database.sdf"))
+        public DatabaseContext() : base(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "database.sdf"))
         {
 
         }

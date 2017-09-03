@@ -1,8 +1,7 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<!-- VLASTNÍ VZHLED GRAFICKÉHO ROZHRANÍ -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:RibbonApp">
-
-
 
     <!-- Datagrid cell-->
     <Style x:Key="datagridCell"
@@ -39,9 +38,6 @@
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             </Style>
-
-
-
 
             <Style TargetType="{x:Type DataGridColumnHeader}">
                 <Setter Property="FontWeight"

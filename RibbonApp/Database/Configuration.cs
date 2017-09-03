@@ -5,28 +5,57 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using RibbonApp.Model;
+using System.IO;
 
 namespace RibbonApp.Database
 {
+    /// <summary>
+    /// Tato konfigurační třída má statické proměnné nebo třídy, které
+    /// poskytují objekty potřebné pro celý program. Nikde jinde by 
+    /// v programu neměly být statické třídy a proměnné, pouze zde.
+    /// </summary>
     public static class Configuration
     {
+        // Do složky s tímto názvem se bude ukládat Databázový soubor
+        public static readonly string NameOfApplication = "RibbonApp";
 
+        // Samotná databáze (Code-first třída, ze které se automatiky po spuštění vytvoří databáze)
         public static DatabaseContext Database { get; set; }
+        
+        // Pomocná třída pro ukládání a čtení dat z databáze
+        // Veškerý přístup do databáze jen skrze tuto třídu!
         public static DatabaseHelper DatabaseHelper { get; set; } 
 
+        /// <summary>
+        /// Vytvoří instanci databáze pro celý program. Pokud databáze neexistuje, je vytvořena 
+        /// nová databáze s testovacími daty.
+        /// </summary>
         public static void Initialize()
         {
             Database = new DatabaseContext();
-            //Database.Database.CreateIfNotExists();
+           
             if(!Database.Database.Exists())
             {
                 Database.Database.Create();
                 FillWithTestData();
             }
-
+            
+            // Pomocná třída pro CRUD operace
             DatabaseHelper = new DatabaseHelper(Database);
         }
 
+        private static void CreateFolderForDatabase()
+        {
+            string databasePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); // %APPDATA%
+            if(!Directory.Exists(databasePath))
+            {
+                Directory.CreateDirectory(System.IO.Path.Combine(databasePath, NameOfApplication));
+            }
+        }
+
+        /// <summary>
+        /// Naplní databázi testovacími daty.
+        /// </summary>
         private static void FillWithTestData()
         {
             Database.Entities.Add(new Entity() { Name = "Motor 01", Date = DateTime.Now, Check = false });

@@ -4,25 +4,20 @@
              xmlns:local="clr-namespace:RibbonApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-     
-        
 
+
+        <!-- Jelikož používáme cizí vzhled v aplikaci, je potřeba ho spojit se vzhledem vlastním -->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                    <!-- Připojení default Fluent Theme -->
+                   
+                <!-- Připojení default Fluent Theme -->
              <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Generic.xaml" />
+                
+                <!-- vlastní vzhled -->
                 <ResourceDictionary Source="pack://application:,,,/RibbonApp;component/DesignResourceDictionary.xaml" />
+                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
-       
-
-
-
-
-
-       
-
 
 
     </Application.Resources>

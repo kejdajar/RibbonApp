@@ -113,7 +113,7 @@
     <Compile Include="Database\Configuration.cs" />
     <Compile Include="Database\DatabaseContext.cs" />
     <Compile Include="Database\DatabaseHelper.cs" />
-    <Compile Include="Database\Serialization.cs" />
+    <Compile Include="Database\LegacyCode\Serialization.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>

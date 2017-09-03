@@ -8,10 +8,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RibbonApp.Model
 {
-    [Serializable]
+    /// <summary>
+    /// Jedná se o jeden záznam v databázi.
+    /// </summary>
+    [Serializable] // Serializable pouze kvůli zpětné kompatibilitě se složkou LegacyCode
     public class Entity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Databáze sama přiřadí Id
         public int Id { get; set; }
         public string Name { get; set; }
         public bool Check { get; set; }

@@ -6,16 +6,40 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-
+using RibbonApp.ViewModel;
 
 namespace RibbonApp.Database
 {
     /// <summary>
     /// Třída starající se o ukládání dat do souborů -  BINÁRNÍ SERIALIZACE
     /// </summary>
+    [Obsolete("Stará třída pro ukládání dat",false)]
     public class Serialization
     {
-        
+        /// <summary>
+        /// Ukázková metoda, jak se pracuje s touto třídou.
+        /// </summary>
+        public void Demo()
+        {
+            // Vytvoření dat, která chceme uložit (mohou být libovolného typu)
+            Entity e1 = new Entity() { Id = 1, Name = "petrol engine" };          
+
+            // Adresář, kam se ukládají soubory
+            string path = Environment.CurrentDirectory;
+
+            // Serializační třída starajícící se o serializaci dat do binární podoby
+            Serialization serializationClass = new Serialization(path);
+
+            // Uložení entity prvního typu
+            List<Entity> entitesToSave = new List<Entity>();
+            entitesToSave.Add(e1);
+            serializationClass.Save(entitesToSave);
+
+            // Načtení dat
+             List<Entity> data = serializationClass.Load<Entity>();
+            
+        }
+
         /// <param name="directoryPath">Nastavuje adresář, kam se budou ukádat serializovaná data.</param>
         public Serialization(string directoryPath)
         {

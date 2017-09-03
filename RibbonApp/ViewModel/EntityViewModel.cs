@@ -12,52 +12,60 @@ using RibbonApp.Database;
 
 namespace RibbonApp.ViewModel
 {
+   
+    /// Tato třída se stará o konverzi dat z datagridu do formátu, který přijme databáze.
+    /// Datagridy používají speciální třídu pro data, která implementuje rozhraní INotifyPropertyChanged.
+    /// Díky tomu se do třídy ihned promítnou změny, když někdo něco upraví v datagridu. Data v datgridu jsou v kolekci typu
+    /// ObservableCollection, takže když někdo změní data v kódu, tak se to hned promítne do grafického rozhraní.
     class EntityViewModel
     {
-       
+       /// <summary>
+       ///  Druhý parametr je metoda, která se volá pokaždé, když někdo upraví data v datagridu. Tato
+       ///  metoda ví, jaký prvek a jaká jeho vlastnost byla změněna.
+       /// </summary>
+       /// <param name="_data1"></param>
+       /// <param name="propertyChanged"></param>
         public EntityViewModel(List<Entity> _data1, PropertyChangedEventHandler propertyChanged)
-        {
-            this.PropertyChanged += propertyChanged;
+        {          
 
+            // přeměníme databázová data na jejich obdobu, které rozumí datagrid
             var transform = _data1.Select(d => new EntityNotify {
                 Id = d.Id,
                 Check = d.Check,
                 Date = d.Date,
                 Name = d.Name,         
                 
-            }).ToList();
+            }).ToList(); // ! .ToList() okamžitě vykoná tento příkaz, nedochází k tzv. deffered execution
+
+            // událost změny vlastnosti přiřadíme až zde,
+            // jinak by se změny hlásily již při plnění dat výše
             foreach(var item in transform)
             {
-                item.PropertyChanged += PropertyChanged;
-            }
+                item.PropertyChanged += propertyChanged;
+            }            
 
-            
-
-            Data = new ObservableCollection<EntityNotify>(transform);
-
-           
+            // Touto kolekcí se plní datagrid
+            Data = new ObservableCollection<EntityNotify>(transform);           
 
         }
 
-        public ObservableCollection<EntityNotify> Data { get; set; }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
+        // Touto kolekcí se plní datagrid
+        // ObservableCollection = datagrid reaguje automaticky na změnu dat ve třídě
+        // EntityNotify = entita oznamuje automaticky, že v ní uživatel něco skrze datagrid změnil
+        public ObservableCollection<EntityNotify> Data { get; set; }        
 
     }
 
+    /// <summary>
+    /// Pouze modifikovaná třída Entity, která umí hlásit změnu svých datových složek.
+    /// </summary>
     public class EntityNotify: INotifyPropertyChanged
-    {
-        //public bool EnableNotification = false;
-
+    {     
         private int _id { get; set; }
         private string _name { get; set; }
         private bool _check { get; set; }
-        private DateTime _date { get; set; }
-
+        private DateTime _date { get; set; }       
         
-
-
         public int Id
         {
             get
@@ -70,7 +78,7 @@ namespace RibbonApp.ViewModel
                 if (_id != value)
                 {
                     _id = value;
-                    RaisePropertyChanged("Id");
+                    RaisePropertyChanged("Id"); // pokud se hodnota změnila, vyvolá to upozornění na změnu hodnoty
 
                 }
             }
@@ -133,10 +141,9 @@ namespace RibbonApp.ViewModel
 
 
         public event PropertyChangedEventHandler PropertyChanged;
+        // Tato metoda spustí metodu, která hlásí, co se změnilo
         private void RaisePropertyChanged(string property)
-        {
-            
-
+        {   
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(property));

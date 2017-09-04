@@ -91,18 +91,20 @@ namespace RibbonApp
 
         private void XMLButton_Click(object sender, RoutedEventArgs e)
         {
-            EntityViewModel vm = defaultPage.DataContext as EntityViewModel;
-            PrintHelper printHelper = new PrintHelper(vm.Data.ToList());
-            XDocument ms = printHelper.GenerateXmlFile();
-            MessageBox.Show(printHelper.XDocumentToFullString(ms));
+            EntityViewModel vm = defaultPage.DataContext as EntityViewModel;          
+            ExportWindow ew = new ExportWindow();
+            ew.Data = vm.Data.ToList();
+            ew.ExportType = ExportType.XML;
+            ew.ShowDialog();
         }
 
         private void HTMLButton_Click(object sender, RoutedEventArgs e)
         {
             EntityViewModel vm = defaultPage.DataContext as EntityViewModel;
-            PrintHelper printHelper = new PrintHelper(vm.Data.ToList());
-            XDocument ms = printHelper.GenerateXmlFile();
-            MessageBox.Show(printHelper.XDocumentToFullString(printHelper.DemoXslt(ms)));
+            ExportWindow ew = new ExportWindow();
+            ew.Data = vm.Data.ToList();
+            ew.ExportType = ExportType.HTML;
+            ew.ShowDialog();
         }
 
         private void openDatabaseFolder_Click(object sender, RoutedEventArgs e)

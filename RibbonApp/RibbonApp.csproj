@@ -124,6 +124,9 @@
     <Compile Include="Pages\SecondPage.xaml.cs">
       <DependentUpon>SecondPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Printing\ExportWindow.xaml.cs">
+      <DependentUpon>ExportWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Printing\PrintHelper.cs" />
     <Compile Include="ViewModel\EntityViewModel.cs" />
     <Page Include="DesignResourceDictionary.xaml">
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SecondPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Printing\ExportWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -265,6 +272,7 @@
     <Content Include="CompactDbDll\sqlceoledb40.dll" />
     <Content Include="CompactDbDll\sqlceqp40.dll" />
     <Content Include="CompactDbDll\sqlcese40.dll" />
+    <Resource Include="Images\Icon\previous.png" />
     <Resource Include="Images\Icon\edit.png" />
     <Resource Include="Images\Icon\database.png" />
     <Resource Include="Images\Icon\html.png" />

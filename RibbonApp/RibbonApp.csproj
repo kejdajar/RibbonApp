@@ -137,6 +137,9 @@
       <DependentUpon>CustomerEditUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\EntityViewModel.cs" />
+    <Compile Include="Windows\NewCustomerWindow.xaml.cs">
+      <DependentUpon>NewCustomerWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="DesignResourceDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,6 +179,10 @@
     <Page Include="UserControls\CustomerEditUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\NewCustomerWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -21,6 +21,7 @@ using RibbonApp.Printing;
 using System.IO;
 using System.Xml.Linq;
 using System.Diagnostics;
+using RibbonApp.Windows;
 
 namespace RibbonApp
 {
@@ -93,6 +94,7 @@ namespace RibbonApp
         {
             EntityViewModel vm = defaultPage.DataContext as EntityViewModel;          
             ExportWindow ew = new ExportWindow();
+            ew.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ew.Data = vm.Data.ToList();
             ew.ExportType = ExportType.XML;
             ew.ShowDialog();
@@ -102,6 +104,7 @@ namespace RibbonApp
         {
             EntityViewModel vm = defaultPage.DataContext as EntityViewModel;
             ExportWindow ew = new ExportWindow();
+            ew.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ew.Data = vm.Data.ToList();
             ew.ExportType = ExportType.HTML;
             ew.ShowDialog();
@@ -121,7 +124,9 @@ namespace RibbonApp
 
         private void customerAddBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NewCustomerWindow newCustomerWindow = new NewCustomerWindow();
+            newCustomerWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            newCustomerWindow.ShowDialog();
         }
     }
 }

@@ -122,6 +122,18 @@ namespace RibbonApp.Database
             else return null;
         }
 
+        public void AddNewCustomer(Customer newCustomer)
+        {
+            _database.Customers.Add(newCustomer);
+            _database.SaveChanges();
+        }
+
+        public void DeleteCustomer(int customerId)
+        {
+            Customer customerToBeRemoved = _database.Customers.Where(c => c.Id == customerId).Single();
+            _database.Customers.Remove(customerToBeRemoved);
+            _database.SaveChanges();
+        }
 
     }
 }

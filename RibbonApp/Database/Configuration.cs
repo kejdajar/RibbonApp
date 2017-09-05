@@ -63,6 +63,18 @@ namespace RibbonApp.Database
             Database.Entities.Add(new Entity() { Name = "Palivový článek 02", Date = DateTime.Now + TimeSpan.FromHours(1), Check = true });
             Database.Entities.Add(new Entity() { Name = "Karburátor 03", Date = DateTime.Now +  TimeSpan.FromHours(2), Check = false });
             Database.Entities.Add(new Entity() { Name = "Parní turbína", Date = DateTime.Now + TimeSpan.FromHours(3), Check = true });
+
+            Database.Customers.AddRange(new List<Customer>() {
+                new Customer(){Name="Erika", Surname="Myers",Orders= new List<Order>() { new Order() { Comment="Erika Myers - první poznámka"}, new Order() { Comment= "Erika Myers - druhá poznámka" }, new Order() { Comment= "Erika Myers - třetí poznámka" } } },
+                  new Customer(){Name="Hans", Surname="Fischer",Orders= new List<Order>() { new Order() { Comment="Hans Fischer - první poznámka"}, new Order() { Comment= "Hans Fischer - druhá poznámka" }, new Order() { Comment= "Hans Fischer - třetí poznámka" } } },
+                    new Customer(){Name="Walter", Surname="Müller",Orders= new List<Order>() { new Order() { Comment="Walter Müller - první poznámka"}, new Order() { Comment= "Walter Müller - druhá poznámka" }, new Order() { Comment= "Walter Müller - třetí poznámka" } } },
+                     new Customer(){Name="Maria", Surname="Richter",Orders= new List<Order>() {} },
+            });
+
+
+
+
+
             Database.SaveChanges();
         }
     }

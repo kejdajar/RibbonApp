@@ -103,7 +103,24 @@ namespace RibbonApp.Database
             };
         }
 
+        // Customers
+        public List<Customer> GetAllCustomers()
+        {
+            if (_database.Customers.Any())
+            {
+                return _database.Customers.ToList();
+            }
+            else return null;
+        }
 
+        public Customer GetCustomer(int Id)
+        {
+            if (_database.Customers.Any())
+            {
+                return _database.Customers.Where(c => c.Id == Id).Single();
+            }
+            else return null;
+        }
 
 
     }

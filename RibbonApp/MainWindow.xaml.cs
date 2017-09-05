@@ -112,5 +112,16 @@ namespace RibbonApp
             string databaseFileFolder = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), RibbonApp.Database.Configuration.NameOfApplication);
             Process.Start(databaseFileFolder);
         }
+
+        private void customersListBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CustomersListPage customersListPage = new CustomersListPage();
+            frDefult.Navigate(customersListPage);
+        }
+
+        private void customerAddBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

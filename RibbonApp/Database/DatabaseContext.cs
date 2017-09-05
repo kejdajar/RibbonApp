@@ -27,6 +27,10 @@ namespace RibbonApp.Database
         // Toto představuje jednu tabulku v databázi
         // Musí to být vždy public a virtual
         public virtual DbSet<Entity> Entities {get;set;}
+
+        public virtual DbSet<Customer> Customers { get; set; }
+
+        public virtual DbSet<Order> Orders { get; set; }
        
     }
 }

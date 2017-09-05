@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="RibbonApp.UserControls.CustomerEditUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RibbonApp.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" x:Name="Control" Loaded="Control_Loaded">
+    <Grid >
+        <Grid x:Name="mainContainer" Visibility="Visible">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="tbNameOfCustomer" Text="Jméno zákazníka" FontSize="30"></TextBlock>
+         <GroupBox Header="Podrobné informace " Grid.Row="1" FontSize="15">
+            <StackPanel >
+               
+            <DockPanel LastChildFill="True" >
+                <Label Content="Id" Width="80" FontWeight="SemiBold"></Label>
+                <TextBlock  x:Name="tbId"></TextBlock>
+            </DockPanel>
+            <DockPanel LastChildFill="True" >
+                <Label Content="Jméno" Width="80" FontWeight="SemiBold"></Label>
+                <TextBlock x:Name="tbName"></TextBlock>
+            </DockPanel>
+            <DockPanel LastChildFill="True" >
+                <Label Content="Příjmení" Width="80" FontWeight="SemiBold"></Label>
+                <TextBlock x:Name="tbSurname"></TextBlock>
+            </DockPanel>
+                    <Button Content="Upravit" Width="200" HorizontalAlignment="Left"></Button>
+            </StackPanel>
+            </GroupBox>
+            <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" FontSize="20">Objednávky</TextBlock>
+            <DataGrid Grid.Row="1" x:Name="dgCustomerOrders" AutoGenerateColumns="True" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single"
+                      Style="{StaticResource dataGridStyle}"
+                  CellStyle="{StaticResource datagridCell}" 
+                      >
+
+            </DataGrid>
+                <TextBlock Grid.Row="1" FontStyle="Italic" x:Name="noneOrdersMessage" Visibility="Hidden" >Žádné objednávky nejsou k dispozici </TextBlock>
+        </Grid>
+        </Grid>
+        
+         <Grid x:Name="noneUserContainer" Visibility="Hidden">
+            
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" FontStyle="Italic"> ---Zvolte zákazníka--- </TextBlock>
+           </Grid>
+    </Grid>
+   
+</UserControl>

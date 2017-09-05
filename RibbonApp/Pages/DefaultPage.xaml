@@ -11,7 +11,7 @@
     <StackPanel>
         <DataGrid AutoGenerateColumns="True" x:Name="grid1" ItemsSource="{Binding Path=Data}"  
                   Style="{StaticResource dataGridStyle}" CellStyle="{StaticResource datagridCell}" 
-                 InitializingNewItem="grid1_InitializingNewItem"
+                 InitializingNewItem="grid1_InitializingNewItem" SelectionMode="Single"
                   >
 
         </DataGrid>

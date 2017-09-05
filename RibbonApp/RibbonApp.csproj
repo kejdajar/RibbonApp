@@ -115,8 +115,13 @@
     <Compile Include="Database\DatabaseHelper.cs" />
     <Compile Include="Database\LegacyCode\Serialization.cs" />
     <Compile Include="Exceptions.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Order.cs" />
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CustomersListPage.xaml.cs">
+      <DependentUpon>CustomersListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\DefaultPage.xaml.cs">
       <DependentUpon>DefaultPage.xaml</DependentUpon>
@@ -128,6 +133,9 @@
       <DependentUpon>ExportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Printing\PrintHelper.cs" />
+    <Compile Include="UserControls\CustomerEditUserControl.xaml.cs">
+      <DependentUpon>CustomerEditUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\EntityViewModel.cs" />
     <Page Include="DesignResourceDictionary.xaml">
       <SubType>Designer</SubType>
@@ -149,6 +157,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CustomersListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\DefaultPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Printing\ExportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CustomerEditUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -272,6 +288,8 @@
     <Content Include="CompactDbDll\sqlceoledb40.dll" />
     <Content Include="CompactDbDll\sqlceqp40.dll" />
     <Content Include="CompactDbDll\sqlcese40.dll" />
+    <Resource Include="Images\Icon\customer.png" />
+    <Resource Include="Images\Icon\customers.png" />
     <Resource Include="Images\Icon\previous.png" />
     <Resource Include="Images\Icon\edit.png" />
     <Resource Include="Images\Icon\database.png" />

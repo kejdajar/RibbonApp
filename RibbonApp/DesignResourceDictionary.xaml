@@ -19,7 +19,7 @@
 
     <Style TargetType="DataGrid" x:Key="dataGridStyle">
         <Setter Property="FontSize" Value="14"></Setter>
-        <Setter Property="Margin" Value="0 10 0 10"></Setter>
+        <!--<Setter Property="Margin" Value="0 10 0 10"></Setter>-->
         <!--<Setter Property="CanUserSortColumns" Value="False"></Setter>-->
         <!--<Setter Property="IsReadOnly" Value="True"></Setter>-->
         <Setter Property="FontFamily" Value="Segoe UI"></Setter>

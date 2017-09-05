@@ -57,6 +57,19 @@
                                 LargeIcon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png" />
                 </Fluent:RibbonGroupBox>
 
+                <Fluent:RibbonGroupBox Header="Zákazníci">
+                    <Fluent:Button x:Name="customersListBtn" Header="Seznam" Click="customersListBtn_Click"
+                                Icon="pack://application:,,,/RibbonApp;component/Images/Icon/customers.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/customers.png" />
+                   
+                    <Fluent:Button x:Name="customerAddBtn" Header="Nový" Click="customerAddBtn_Click"
+                                Icon="pack://application:,,,/RibbonApp;component/Images/Icon/customer.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/customer.png" />
+                </Fluent:RibbonGroupBox>
+
+
+
+
                 <Fluent:RibbonGroupBox Header="Export">
                     <Fluent:Button Header="XML" x:Name="XMLButton" Click="XMLButton_Click">
                         <Fluent:Button.LargeIcon>
@@ -89,15 +102,17 @@
             </Fluent:RibbonTabItem>
 
 
-            <Fluent:RibbonTabItem Header="Pokročilé" IsSelected="True" >
+
+            <Fluent:RibbonTabItem Header="Pokročilé" >
                 <Fluent:RibbonGroupBox Header="Databáze">
                     <Fluent:Button x:Name="openDatabaseFolder" Header="Otevřít složku DB"
                                  Click="openDatabaseFolder_Click"
                                    Icon="pack://application:,,,/RibbonApp;component/Images/Icon/database.png"
                                 LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/database.png" />
-                    
+
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
+
 
 
         </Fluent:Ribbon>

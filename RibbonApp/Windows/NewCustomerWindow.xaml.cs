@@ -32,7 +32,7 @@ namespace RibbonApp.Windows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void btnNewCustomer_Click(object sender, RoutedEventArgs e)

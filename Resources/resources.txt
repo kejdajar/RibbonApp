@@ -25,3 +25,5 @@ https://www.flaticon.com/free-icon/user_125707#term=human&page=2&position=36
 customers.png
 https://www.flaticon.com/free-icon/team_56950#term=business people&page=1&position=40
 
+editCustomer.png
+https://www.flaticon.com/free-icon/edit_149368#term=edit&page=1&position=3

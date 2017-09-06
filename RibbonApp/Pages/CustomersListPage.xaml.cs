@@ -29,7 +29,13 @@ namespace RibbonApp.Pages
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            ReloadDatagrid();
+        }
+
+        public void ReloadDatagrid()
+        {
             customersGrid.ItemsSource = Configuration.DatabaseHelper.GetAllCustomers();
+            
         }
 
         private void customersGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

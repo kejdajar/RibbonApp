@@ -52,9 +52,7 @@
                     <Fluent:Button Header="Seznam" Click="Button_Click"
                                   Icon="pack://application:,,,/RibbonApp;component/Images/Icon/edit.png"
                                 LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/edit.png" />
-                    <Fluent:Button Header="Stránka XY"  Click="Button_Click_1"
-                                  Icon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Interface/Save.png" />
+                    
                 </Fluent:RibbonGroupBox>
 
                 <Fluent:RibbonGroupBox Header="Zákazníci">

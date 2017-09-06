@@ -17,6 +17,7 @@
         </Setter>
     </Style>
 
+    <!-- Data Grid -->
     <Style TargetType="DataGrid" x:Key="dataGridStyle">
         <Setter Property="FontSize" Value="14"></Setter>
         <!--<Setter Property="Margin" Value="0 10 0 10"></Setter>-->
@@ -29,25 +30,24 @@
         <Setter Property="AlternatingRowBackground" Value="LightSteelBlue"></Setter>
         <Setter Property="RowHeight" Value="40"></Setter>
         <!--<Setter Property="SelectionMode" Value="Single"></Setter>-->
-
         <!--   <Setter Property="GridLinesVisibility" Value="Horizontal"></Setter>-->
-
         <Style.Resources>
             <Style TargetType="{x:Type DataGridCell}">
-
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             </Style>
-
             <Style TargetType="{x:Type DataGridColumnHeader}">
                 <Setter Property="FontWeight"
                   Value="Bold" />
             </Style>
-
-
-
         </Style.Resources>
-
+    </Style>
+    
+    
+    
+    <!-- Nadpisy -->
+    <Style TargetType="TextBlock" x:Key="header1">
+        <Setter Property="FontSize" Value="30"></Setter>
     </Style>
 
 </ResourceDictionary>

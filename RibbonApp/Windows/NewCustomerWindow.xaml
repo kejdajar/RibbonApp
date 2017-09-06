@@ -1,36 +1,22 @@
 ﻿<Fluent:RibbonWindow 
-                    
-                     xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
-                    
-                   
-                    
-                   
-                   
-                  
-                     FlowDirection="LeftToRight"
-                  
+                     xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"                    
+                     FlowDirection="LeftToRight"                  
                      MinWidth="80"
                      MinHeight="60"
-                 
-                      
-                
-                     
-                     
-                     
-       x:Class="RibbonApp.Windows.NewCustomerWindow"
+        x:Class="RibbonApp.Windows.NewCustomerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RibbonApp.Windows"
         mc:Ignorable="d" 
-       x:Name="Window" Loaded="Window_Loaded"
-        Title="Přidat nového zákazníka" Height="400" Width="600">
+        x:Name="Window" Loaded="Window_Loaded"
+        Title="Přidat nového zákazníka"  SizeToContent="WidthAndHeight" ResizeMode="NoResize">
 
 
 
 
-    <Grid Margin="10">
+    <Grid Margin="10" Width="400">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />           
         </Grid.RowDefinitions>
@@ -45,9 +31,18 @@
                 <RowDefinition Height="auto"></RowDefinition>
 
             </Grid.RowDefinitions>
-            <TextBlock Text="Nový zákazník" FontSize="30" ></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/customer.png" Width="35" Height="35"></Image>
+                <TextBlock Text="Nový zákazník" Margin="10 0 0 0" Style="{StaticResource header1}" ></TextBlock>
+            </StackPanel>
+            
 
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1" TextElement.FontSize="15">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type DockPanel}">
+                        <Setter Property="Margin" Value="0 0 0 10"></Setter>
+                    </Style>
+                </StackPanel.Resources>
                 <DockPanel LastChildFill="True" >
                     <Label Content="Jméno" Width="80" FontWeight="SemiBold"></Label>
                     <TextBox x:Name="tbName"></TextBox>

@@ -31,8 +31,8 @@ namespace RibbonApp
     public partial class MainWindow
     {
         public MainWindow() 
-        {            
-             
+        {
+            InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -73,17 +73,10 @@ namespace RibbonApp
         // Prozatím testovací metody - office-like grafické rozhraní podporuje klasické události:
         private void Button_Click(object sender, RoutedEventArgs e)
         {            
-            frDefult.Navigate(defaultPage); // návrat na hlavní stránku
-
-           
+            frDefult.Navigate(defaultPage); // návrat na hlavní stránku           
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            // Přepnutí na jinou stránku
-            SecondPage secondPage = new SecondPage();
-            frDefult.Navigate(secondPage);
-        }
+       
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -116,9 +109,11 @@ namespace RibbonApp
             Process.Start(databaseFileFolder);
         }
 
+
+        CustomersListPage customersListPage = new CustomersListPage();
+
         private void customersListBtn_Click(object sender, RoutedEventArgs e)
-        {
-            CustomersListPage customersListPage = new CustomersListPage();
+        {            
             frDefult.Navigate(customersListPage);
         }
 
@@ -127,6 +122,7 @@ namespace RibbonApp
             NewCustomerWindow newCustomerWindow = new NewCustomerWindow();
             newCustomerWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             newCustomerWindow.ShowDialog();
+            customersListPage.ReloadDatagrid();
         }
     }
 }

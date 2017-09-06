@@ -1,0 +1,69 @@
+﻿<Fluent:RibbonWindow 
+                     xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"                    
+                     FlowDirection="LeftToRight"                  
+                     MinWidth="80"
+                     MinHeight="60"
+        x:Class="RibbonApp.Windows.EditCustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RibbonApp.Windows"
+        mc:Ignorable="d" 
+        x:Name="Window" Loaded="Window_Loaded"
+        Title="Upravit zákazníka"  SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+
+
+
+
+    <Grid Margin="10" Width="400">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />           
+        </Grid.RowDefinitions>
+        
+       
+
+
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/editCustomer.png" Width="35" Height="35"></Image>
+                <TextBlock x:Name="tblockNameOfCustomer" Text="Jméno zákazníka" Margin="10 0 0 0" Style="{StaticResource header1}" ></TextBlock>
+            </StackPanel>
+            
+
+            <StackPanel Grid.Row="1" TextElement.FontSize="15">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type DockPanel}">
+                        <Setter Property="Margin" Value="0 0 0 10"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <DockPanel LastChildFill="True" >
+                    <Label Content="Jméno" Width="80" FontWeight="SemiBold"></Label>
+                    <TextBox x:Name="tbName"></TextBox>
+                </DockPanel>
+                <DockPanel LastChildFill="True" >
+                    <Label Content="Příjmení" Width="80" FontWeight="SemiBold"></Label>
+                    <TextBox x:Name="tbSurname"></TextBox>
+                </DockPanel>
+                <Button Content="Uložit změny" x:Name="btnEditCustomer" Click="btnEditCustomer_Click" ></Button>
+            </StackPanel>
+
+
+
+
+        </Grid>
+
+
+
+
+    </Grid>
+
+
+
+</Fluent:RibbonWindow>

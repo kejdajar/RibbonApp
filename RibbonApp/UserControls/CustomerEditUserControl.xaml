@@ -29,8 +29,9 @@
                 <Label Content="Příjmení" Width="80" FontWeight="SemiBold"></Label>
                 <TextBlock x:Name="tbSurname"></TextBlock>
             </DockPanel>
-                    <Button Content="Upravit" Width="200" HorizontalAlignment="Left"></Button>
-            </StackPanel>
+                    <Button Content="Upravit informace" Width="200" HorizontalAlignment="Left" x:Name="btnCustomerEdit" Click="btnCustomerEdit_Click" Margin="0 0 0 5"></Button>
+                    <Button Content="Upravit objednávky" Width="200" HorizontalAlignment="Left" x:Name="btnCustomerEditOrder"></Button>
+                </StackPanel>
             </GroupBox>
             <Grid Grid.Row="2">
             <Grid.RowDefinitions>

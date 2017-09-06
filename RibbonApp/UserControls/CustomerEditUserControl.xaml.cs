@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RibbonApp.Database;
 using RibbonApp.Model;
+using RibbonApp.Windows;
 
 namespace RibbonApp.UserControls
 {
@@ -74,5 +75,11 @@ namespace RibbonApp.UserControls
             
         }
 
+        private void btnCustomerEdit_Click(object sender, RoutedEventArgs e)
+        {
+            EditCustomerWindow editCustomerWindow = new EditCustomerWindow();
+            editCustomerWindow.CustomerId = CustomerId;
+            editCustomerWindow.ShowDialog();
+        }
     }
 }

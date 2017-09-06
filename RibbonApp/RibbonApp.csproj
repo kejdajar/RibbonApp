@@ -134,6 +134,9 @@
       <DependentUpon>CustomerEditUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\EntityViewModel.cs" />
+    <Compile Include="Windows\EditCustomerWindow.xaml.cs">
+      <DependentUpon>EditCustomerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\NewCustomerWindow.xaml.cs">
       <DependentUpon>NewCustomerWindow.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
     <Page Include="UserControls\CustomerEditUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditCustomerWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\NewCustomerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -288,6 +295,7 @@
     <Content Include="CompactDbDll\sqlceoledb40.dll" />
     <Content Include="CompactDbDll\sqlceqp40.dll" />
     <Content Include="CompactDbDll\sqlcese40.dll" />
+    <Resource Include="Images\Icon\editCustomer.png" />
     <Resource Include="Images\Icon\customer.png" />
     <Resource Include="Images\Icon\customers.png" />
     <Resource Include="Images\Icon\previous.png" />

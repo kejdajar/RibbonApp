@@ -135,5 +135,13 @@ namespace RibbonApp.Database
             _database.SaveChanges();
         }
 
+        public void EditCustomer(int customerId,Customer newData)
+        {
+            Customer customerToBeEditedFromDb = _database.Customers.Where(c=>c.Id == customerId).Single();
+            customerToBeEditedFromDb.Name = newData.Name;
+            customerToBeEditedFromDb.Surname = newData.Surname;
+            _database.SaveChanges();
+        }
+
     }
 }

@@ -51,7 +51,7 @@
                     <Label Content="Příjmení" Width="80" FontWeight="SemiBold"></Label>
                     <TextBox x:Name="tbSurname"></TextBox>
                 </DockPanel>
-                <Button Content="Uložit změny" x:Name="btnEditCustomer" Click="btnEditCustomer_Click" ></Button>
+                <Button Style="{StaticResource standardButton}" Content="Uložit změny" x:Name="btnEditCustomer" Click="btnEditCustomer_Click" ></Button>
             </StackPanel>
 
 

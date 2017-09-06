@@ -35,14 +35,57 @@ namespace RibbonApp.Pages
 
         public void ReloadDatagrid()
         {
-            customersGrid.ItemsSource = Configuration.DatabaseHelper.GetAllCustomers();
-            
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+              customersGrid.ItemsSource = Configuration.DatabaseHelper.GetAllCustomers();    
+            }
+            else
+            {
+                Search();
+            }
+                    
         }
 
         private void customersGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            customerDetailsUserControl.CustomerId = (customersGrid.SelectedItem as Customer).Id;
+            customerDetailsUserControl.Customer = (customersGrid.SelectedItem as Customer);
             customerDetailsUserControl.Reload();
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+            Search();
+           
+        }
+
+        private void Search()
+        {
+            string search = tbSearch.Text;
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                List<Customer> dataGridDataSource = Configuration.DatabaseHelper.GetAllCustomers();
+                List<Customer> searchResult = dataGridDataSource.Where(c => c.Name.ToLower().Contains(search.ToLower()) || c.Surname.ToLower().Contains(search.ToLower())).ToList();
+                customersGrid.ItemsSource = searchResult;
+            }
+            else
+            {
+                customersGrid.ItemsSource = Configuration.DatabaseHelper.GetAllCustomers();
+            }
+        }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key== Key.Enter)
+            {
+                Search();
+            }
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            tbSearch.Text = string.Empty;
+            Search();
         }
     }
 }

@@ -51,7 +51,7 @@
                     <Label Content="Příjmení" Width="80" FontWeight="SemiBold"></Label>
                     <TextBox x:Name="tbSurname"></TextBox>
                 </DockPanel>
-                <Button Content="Přidat zákazníka" x:Name="btnNewCustomer" Click="btnNewCustomer_Click"></Button>
+                <Button  Style="{StaticResource standardButton}"  Content="Přidat zákazníka" x:Name="btnNewCustomer" Click="btnNewCustomer_Click"></Button>
             </StackPanel>
 
 

@@ -10,11 +10,11 @@
       xmlns:controls="clr-namespace:RibbonApp.UserControls"
       >
 
-    <Grid>
+    <Grid >
        
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"> </RowDefinition>
+            <RowDefinition Height="auto"> </RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -23,7 +23,17 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
  <GridSplitter Grid.Column="0" Grid.Row="1" Width="3"  />
-        <TextBlock FontSize="30" Grid.Row="0" Grid.ColumnSpan="2" Margin="10 0 0 0">Zákazníci</TextBlock>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="10 0 10 10">
+            <TextBlock FontSize="30"  Margin="10 0 0 0">Zákazníci</TextBlock>
+            <DockPanel LastChildFill="True"  Margin="0 10 0 0">  
+                <Button Style="{StaticResource standardButton}" x:Name="btnSearch" Click="btnSearch_Click" >Hledat </Button>
+                <Button Style="{StaticResource clearButton}" x:Name="btnClear" IsEnabled="{Binding ElementName=tbSearch, Path=Text.Length}" Click="btnClear_Click">x</Button>
+                <TextBox x:Name="tbSearch" KeyDown="tbSearch_KeyDown"></TextBox>              
+            </DockPanel>
+        </StackPanel>
+        
+        
         <DataGrid Grid.Row="1"  Margin="10 0 10 10" IsReadOnly="True"
                   x:Name="customersGrid"  SelectionMode="Single"
                   AutoGenerateColumns="True"

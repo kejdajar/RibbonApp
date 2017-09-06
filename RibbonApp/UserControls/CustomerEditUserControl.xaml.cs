@@ -28,12 +28,12 @@ namespace RibbonApp.UserControls
             InitializeComponent();
         }
 
-        public int? CustomerId { get; set; } = null;
+        public Customer Customer { get; set; } = null;
 
         private void Control_Loaded(object sender, RoutedEventArgs e)
         {
 
-            if(CustomerId==null)
+            if(Customer==null)
             {
                 mainContainer.Visibility = Visibility.Hidden;
                 noneUserContainer.Visibility = Visibility.Visible;
@@ -48,12 +48,14 @@ namespace RibbonApp.UserControls
 
        public void Reload()
         {
-            
+            if (Customer == null) return;
+
+
             mainContainer.Visibility = Visibility.Visible;
             noneUserContainer.Visibility = Visibility.Hidden;
             noneOrdersMessage.Visibility = Visibility.Hidden;
 
-            Customer customer = Configuration.DatabaseHelper.GetCustomer(CustomerId ?? default(int));
+            Customer customer = Customer;
 
             tbNameOfCustomer.Text = customer.Name + " " + customer.Surname;
 
@@ -78,7 +80,7 @@ namespace RibbonApp.UserControls
         private void btnCustomerEdit_Click(object sender, RoutedEventArgs e)
         {
             EditCustomerWindow editCustomerWindow = new EditCustomerWindow();
-            editCustomerWindow.CustomerId = CustomerId;
+            editCustomerWindow.Customer = Customer;
             editCustomerWindow.Owner = RibbonApp.Database.Configuration.MainWindow;
             editCustomerWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             editCustomerWindow.ShowDialog();

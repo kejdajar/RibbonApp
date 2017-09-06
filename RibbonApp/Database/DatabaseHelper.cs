@@ -135,13 +135,30 @@ namespace RibbonApp.Database
             _database.SaveChanges();
         }
 
-        public void EditCustomer(int customerId,Customer newData)
+        //public void EditCustomer(int customerId,Customer detachedCustomer)
+        //{
+        //    Customer customerToBeEditedFromDb = _database.Customers.Where(c=>c.Id == customerId).Single();
+        //    customerToBeEditedFromDb.Name = detachedCustomer.Name;
+        //    customerToBeEditedFromDb.Surname = detachedCustomer.Surname;
+        //    _database.SaveChanges();
+        //}
+
+        public void EditCustomer(Customer customerWithDbId)
         {
-            Customer customerToBeEditedFromDb = _database.Customers.Where(c=>c.Id == customerId).Single();
-            customerToBeEditedFromDb.Name = newData.Name;
-            customerToBeEditedFromDb.Surname = newData.Surname;
+            Customer customerToBeEditedFromDb = _database.Customers.Where(c => c.Id == customerWithDbId.Id).Single();
+            customerToBeEditedFromDb.Name = customerWithDbId.Name;
+            customerToBeEditedFromDb.Surname = customerWithDbId.Surname;
             _database.SaveChanges();
         }
 
+        // Orders
+        public List<Order> GetAllOrders()
+        {
+            if (_database.Orders.Any())
+            {
+                return _database.Orders.ToList();
+            }
+            else return null;
+        }
     }
 }

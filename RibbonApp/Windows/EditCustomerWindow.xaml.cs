@@ -29,13 +29,13 @@ namespace RibbonApp.Windows
             InitializeComponent();
         }
 
-       public int? CustomerId { get; set; } = null;
+       public Customer Customer { get; set; } = null;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if(CustomerId != null)
+            if(Customer != null)
             {
-                Customer c = Configuration.DatabaseHelper.GetCustomer(CustomerId ?? default(int));
+                Customer c = Customer;
 
                 tblockNameOfCustomer.Text = c.Name + " " + c.Surname;
                 tbName.Text = c.Name;
@@ -45,8 +45,8 @@ namespace RibbonApp.Windows
 
         private void btnEditCustomer_Click(object sender, RoutedEventArgs e)
         {
-            Customer editedCustomerData = new Customer() { Name = tbName.Text, Surname = tbSurname.Text };
-            Configuration.DatabaseHelper.EditCustomer(CustomerId ?? default(int), editedCustomerData);
+            Customer editedCustomerData = new Customer() {Id = Customer.Id, Name = tbName.Text, Surname = tbSurname.Text };
+            Configuration.DatabaseHelper.EditCustomer(editedCustomerData);
             this.Close();
 
             // Možná lze aktualizaci GUI vyřešit lépe

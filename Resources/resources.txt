@@ -27,3 +27,6 @@ https://www.flaticon.com/free-icon/team_56950#term=business people&page=1&positi
 
 editCustomer.png
 https://www.flaticon.com/free-icon/edit_149368#term=edit&page=1&position=3
+
+orderList.png
+https://www.flaticon.com/free-icon/diagram_541344#term=orders&page=1&position=43

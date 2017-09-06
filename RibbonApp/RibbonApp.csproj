@@ -126,6 +126,9 @@
     <Compile Include="Pages\DefaultPage.xaml.cs">
       <DependentUpon>DefaultPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrderListPage.xaml.cs">
+      <DependentUpon>OrderListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Printing\ExportWindow.xaml.cs">
       <DependentUpon>ExportWindow.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\DefaultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OrderListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,6 +302,7 @@
     <Content Include="CompactDbDll\sqlceoledb40.dll" />
     <Content Include="CompactDbDll\sqlceqp40.dll" />
     <Content Include="CompactDbDll\sqlcese40.dll" />
+    <Resource Include="Images\Icon\orderList.png" />
     <Resource Include="Images\Icon\editCustomer.png" />
     <Resource Include="Images\Icon\customer.png" />
     <Resource Include="Images\Icon\customers.png" />

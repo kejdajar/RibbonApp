@@ -39,7 +39,7 @@
                             <Frame Source="Pages/AboutPage.xaml" HorizontalAlignment="Left" ></Frame>
                         </Fluent:BackstageTabItem>
                         <!--<Fluent:Button Header="Zpět" />-->
-                        <Fluent:Button Header="Ukončit program" Click="Button_Click_2" />
+                        <Fluent:Button Header="Ukončit program" x:Name="BtnShutDown" Click="BtnShutDown_Click" />
                     </Fluent:BackstageTabControl>
                 </Fluent:Backstage>
             </Fluent:Ribbon.Menu>
@@ -48,24 +48,29 @@
             <!--Tabs-->
             <!-- Přepínání pomocé IsSelected = true-->
             <Fluent:RibbonTabItem Header="Hlavní" >
-                <Fluent:RibbonGroupBox Header="Stránky">
+                <Fluent:RibbonGroupBox Header="Úlohy">
                     <Fluent:Button Header="Seznam" Click="Button_Click"
                                   Icon="pack://application:,,,/RibbonApp;component/Images/Icon/edit.png"
                                 LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/edit.png" />
                     
-                </Fluent:RibbonGroupBox>
+                
 
-                <Fluent:RibbonGroupBox Header="Zákazníci">
-                    <Fluent:Button x:Name="customersListBtn" Header="Seznam" Click="customersListBtn_Click"
+                
+                    <Fluent:Button x:Name="CustomersListBtn" Header="Seznam zákazníků" Click="CustomersListBtn_Click"
                                 Icon="pack://application:,,,/RibbonApp;component/Images/Icon/customers.png"
                                 LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/customers.png" />
                    
-                    <Fluent:Button x:Name="customerAddBtn" Header="Nový" Click="customerAddBtn_Click"
+                    <Fluent:Button x:Name="CustomerAddBtn" Header="Nový zákazník" Click="CustomerAddBtn_Click"
                                 Icon="pack://application:,,,/RibbonApp;component/Images/Icon/customer.png"
                                 LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/customer.png" />
+                
+
+               
+                    <Fluent:Button x:Name="OrderListBtn" Header="Objednávky" Click="OrderListBtn_Click"
+                                Icon="pack://application:,,,/RibbonApp;component/Images/Icon/orderList.png"
+                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/orderList.png" />
+
                 </Fluent:RibbonGroupBox>
-
-
 
 
                 <Fluent:RibbonGroupBox Header="Export">
@@ -103,8 +108,8 @@
 
             <Fluent:RibbonTabItem Header="Pokročilé" >
                 <Fluent:RibbonGroupBox Header="Databáze">
-                    <Fluent:Button x:Name="openDatabaseFolder" Header="Otevřít složku DB"
-                                 Click="openDatabaseFolder_Click"
+                    <Fluent:Button x:Name="OpenDatabaseFolder" Header="Otevřít složku DB"
+                                 Click="OpenDatabaseFolder_Click"
                                    Icon="pack://application:,,,/RibbonApp;component/Images/Icon/database.png"
                                 LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/database.png" />
 

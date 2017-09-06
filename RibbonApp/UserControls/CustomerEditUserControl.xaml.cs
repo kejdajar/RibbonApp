@@ -53,7 +53,7 @@ namespace RibbonApp.UserControls
             noneUserContainer.Visibility = Visibility.Hidden;
             noneOrdersMessage.Visibility = Visibility.Hidden;
 
-            Customer customer = Configuration.DatabaseHelper.GetCustomer(CustomerId ?? throw new NotImplementedException());
+            Customer customer = Configuration.DatabaseHelper.GetCustomer(CustomerId ?? default(int));
 
             tbNameOfCustomer.Text = customer.Name + " " + customer.Surname;
 
@@ -79,6 +79,8 @@ namespace RibbonApp.UserControls
         {
             EditCustomerWindow editCustomerWindow = new EditCustomerWindow();
             editCustomerWindow.CustomerId = CustomerId;
+            editCustomerWindow.Owner = RibbonApp.Database.Configuration.MainWindow;
+            editCustomerWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             editCustomerWindow.ShowDialog();
         }
     }

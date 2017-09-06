@@ -48,7 +48,10 @@ namespace RibbonApp.Windows
             Customer editedCustomerData = new Customer() { Name = tbName.Text, Surname = tbSurname.Text };
             Configuration.DatabaseHelper.EditCustomer(CustomerId ?? default(int), editedCustomerData);
             this.Close();
-            
+
+            // Možná lze aktualizaci GUI vyřešit lépe
+            Configuration.MainWindow.customersListPage.ReloadDatagrid();
+            Configuration.MainWindow.customersListPage.customerDetailsUserControl.Reload();
         }
     }
 

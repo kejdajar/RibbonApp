@@ -14,9 +14,9 @@
                      MinHeight="60"
                      mc:Ignorable="d"
                      WindowState="Normal"      
-                     Loaded="Window_Loaded"
-                    
+                     Loaded="Window_Loaded"                    
                      xmlns:sys="clr-namespace:System;assembly=mscorlib"   
+                     WindowStartupLocation="CenterScreen"
                      >
 
     <Grid >

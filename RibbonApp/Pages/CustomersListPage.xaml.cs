@@ -29,6 +29,7 @@ namespace RibbonApp.Pages
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+           
             ReloadDatagrid();
         }
 
@@ -40,7 +41,6 @@ namespace RibbonApp.Pages
 
         private void customersGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
             customerDetailsUserControl.CustomerId = (customersGrid.SelectedItem as Customer).Id;
             customerDetailsUserControl.Reload();
         }

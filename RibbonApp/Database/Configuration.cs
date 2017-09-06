@@ -16,6 +16,9 @@ namespace RibbonApp.Database
     /// </summary>
     public static class Configuration
     {
+        // Hlavní okno programu
+        public static MainWindow MainWindow { get; set; }
+
         // Do složky s tímto názvem se bude ukládat Databázový soubor
         public static readonly string NameOfApplication = "RibbonApp";
 
@@ -30,8 +33,9 @@ namespace RibbonApp.Database
         /// Vytvoří instanci databáze pro celý program. Pokud databáze neexistuje, je vytvořena 
         /// nová databáze s testovacími daty.
         /// </summary>
-        public static void Initialize()
+        public static void Initialize(MainWindow mainWindow)
         {
+            MainWindow = mainWindow;
             CreateFolderForDatabase();
             Database = new DatabaseContext();
            

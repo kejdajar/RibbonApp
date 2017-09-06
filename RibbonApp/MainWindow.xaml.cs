@@ -37,7 +37,7 @@ namespace RibbonApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {          
-            Configuration.Initialize();
+            Configuration.Initialize(this);
 
             // Přístup do Db opět jen skrze DatabaseHelper třídu
             List<Entity> allEntitiesInDb = Configuration.DatabaseHelper.GetAllEntities();
@@ -61,13 +61,13 @@ namespace RibbonApp
 
             // Grafickému rozhraní pošleme ViewModel, z žádného jiného místa již do GUI data neposíláme
             // Data, která zadá uživatel, se budou opět promítat jen do ViewModelu.  
-            defaultPage = new DefaultPage(); // vytvoříme stránku, která se dosazuje do Frame v souboru MainWindow.xaml
+            //defaultPage = new DefaultPage(); // vytvoříme stránku, která se dosazuje do Frame v souboru MainWindow.xaml
             defaultPage.DataContext = viewModel; // pošleme do stránky data skrze ViewModel
             frDefult.Navigate(defaultPage); // musíme říci rámu, že se má přepnout na danou stránku
 
         }
 
-        DefaultPage defaultPage; // hlavní stránka po zapnutní programu
+       public DefaultPage defaultPage = new DefaultPage(); // hlavní stránka po zapnutní programu
         
 
         // Prozatím testovací metody - office-like grafické rozhraní podporuje klasické události:
@@ -110,7 +110,7 @@ namespace RibbonApp
         }
 
 
-        CustomersListPage customersListPage = new CustomersListPage();
+        public CustomersListPage customersListPage = new CustomersListPage();
 
         private void customersListBtn_Click(object sender, RoutedEventArgs e)
         {            
@@ -120,7 +120,8 @@ namespace RibbonApp
         private void customerAddBtn_Click(object sender, RoutedEventArgs e)
         {
             NewCustomerWindow newCustomerWindow = new NewCustomerWindow();
-            newCustomerWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            newCustomerWindow.Owner = Configuration.MainWindow;
+            newCustomerWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             newCustomerWindow.ShowDialog();
             customersListPage.ReloadDatagrid();
         }

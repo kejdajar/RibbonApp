@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RibbonApp.Database;
 using RibbonApp.Model;
+using System.Collections.ObjectModel;
 
 namespace RibbonApp.Pages
 {
@@ -35,14 +36,14 @@ namespace RibbonApp.Pages
 
         public void ReloadDatagrid()
         {
-            if (string.IsNullOrWhiteSpace(tbSearch.Text))
-            {
-              customersGrid.ItemsSource = Configuration.DatabaseHelper.GetAllCustomers();    
-            }
-            else
-            {
-                Search();
-            }
+            var data = new ObservableCollection<Customer>( Configuration.DatabaseHelper.GetAllCustomers());
+            customersGrid.ItemsSource = data;           
+
+            // Inicializace vyhledávače
+            ControlPanel.DataToTransform = data;
+            ControlPanel.GetAllDataMethod += () => { return new ObservableCollection<Customer>(Configuration.DatabaseHelper.GetAllCustomers()); };
+            ControlPanel.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Customer>(dataGridDataSource.Where(c => c.Name.ToLower().Contains(search.ToLower()) || c.Surname.ToLower().Contains(search.ToLower())).ToList()); };
+            ControlPanel.Transform();
                     
         }
 
@@ -52,40 +53,6 @@ namespace RibbonApp.Pages
             customerDetailsUserControl.Reload();
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
-
-            Search();
-           
-        }
-
-        private void Search()
-        {
-            string search = tbSearch.Text;
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                List<Customer> dataGridDataSource = Configuration.DatabaseHelper.GetAllCustomers();
-                List<Customer> searchResult = dataGridDataSource.Where(c => c.Name.ToLower().Contains(search.ToLower()) || c.Surname.ToLower().Contains(search.ToLower())).ToList();
-                customersGrid.ItemsSource = searchResult;
-            }
-            else
-            {
-                customersGrid.ItemsSource = Configuration.DatabaseHelper.GetAllCustomers();
-            }
-        }
-
-        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key== Key.Enter)
-            {
-                Search();
-            }
-        }
-
-        private void btnClear_Click(object sender, RoutedEventArgs e)
-        {
-            tbSearch.Text = string.Empty;
-            Search();
-        }
+       
     }
 }

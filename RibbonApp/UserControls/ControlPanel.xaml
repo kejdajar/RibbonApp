@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="RibbonApp.UserControls.ControlPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RibbonApp.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <Grid>
+        <StackPanel>
+        <DockPanel LastChildFill="True"  Margin="0 0 0 0">
+            <Button Style="{StaticResource standardButton}" x:Name="btnSearch" Click="btnSearch_Click" >Hledat</Button>
+            <Button Style="{StaticResource clearButton}" x:Name="btnClear" IsEnabled="{Binding ElementName=tbSearch, Path=Text.Length}" Click="btnClear_Click">x</Button>
+            <TextBox x:Name="tbSearch" KeyDown="tbSearch_KeyDown"></TextBox>
+        </DockPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Height="23" Name="btnFirst" Width="40" Content="&lt;&lt;" Click="btnFirst_Click" Opacity="0.75" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <Button Height="23"  Name="btnPrev" Width="40" Click="btnPrev_Click" Opacity="0.75" Content="&lt;" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <Label x:Name="lblpageInformation"  Height="30" Width="70" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <Button Height="23"  Name="btnNext" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40" Content="&gt;" Click="btnNext_Click" Opacity="0.75"/>
+            <Button Height="23" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Name="btnLast" Click="btnLast_Click" Opacity="0.75" Content="&gt;&gt;"/>
+                <ComboBox x:Name="cbNumberOfRecords" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="60"  SelectedIndex="0" SelectionChanged="cbNumberOfRecords_SelectionChanged" Opacity="0.75">
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

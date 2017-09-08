@@ -52,14 +52,14 @@
     
     <!-- Tlačítka -->
     <Style TargetType="Button" x:Key="standardButton">
-        <Setter Property="FontSize" Value="15"></Setter>
+        <!--<Setter Property="FontSize" Value="15"></Setter>
         <Setter Property="Foreground" Value="White"></Setter>
         <Setter Property="Background" Value="CornflowerBlue"></Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="Black"></Setter>
             </Trigger>
-        </Style.Triggers>
+        </Style.Triggers>-->
     </Style>
 
     <Style TargetType="Button" x:Key="clearButton">

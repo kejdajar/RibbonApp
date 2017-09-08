@@ -73,6 +73,13 @@ namespace RibbonApp.Database
                   new Customer(){Name="Hans", Surname="Fischer",Orders= new List<Order>() { new Order() { Comment="Hans Fischer - první poznámka"}, new Order() { Comment= "Hans Fischer - druhá poznámka" }, new Order() { Comment= "Hans Fischer - třetí poznámka" } } },
                     new Customer(){Name="Walter", Surname="Müller",Orders= new List<Order>() { new Order() { Comment="Walter Müller - první poznámka"}, new Order() { Comment= "Walter Müller - druhá poznámka" }, new Order() { Comment= "Walter Müller - třetí poznámka" } } },
                      new Customer(){Name="Maria", Surname="Richter",Orders= new List<Order>() {} },
+                       new Customer(){Name="Jack", Surname="Smith",Orders= new List<Order>() {} },
+                         new Customer(){Name="James", Surname="Jones",Orders= new List<Order>() {} },
+                           new Customer(){Name="Maria", Surname="Taylor",Orders= new List<Order>() {} },
+                             new Customer(){Name="Matthew", Surname="Walker",Orders= new List<Order>() {} },
+                               new Customer(){Name="Emily", Surname="Walker",Orders= new List<Order>() {} },
+                                 new Customer(){Name="Katie", Surname="Walker",Orders= new List<Order>() {} },
+                                   new Customer(){Name="Rachel", Surname="Walker",Orders= new List<Order>() {} },
             });
 
 

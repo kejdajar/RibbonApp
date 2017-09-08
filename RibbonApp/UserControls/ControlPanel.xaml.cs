@@ -47,17 +47,24 @@ namespace RibbonApp.UserControls
         {
             string search = tbSearch.Text;
             if (!string.IsNullOrWhiteSpace(search))
-            {
-                ObservableCollection<Customer> dataGridDataSource = DataToTransform;
-                ObservableCollection<Customer> searchResult = SearchMethod(DataToTransform,search);
+            {               
 
+                ObservableCollection<Customer> searchResult = SearchMethod(GetAllDataMethod(),search);            
+                _totalRecords = searchResult.Count();
                 Pagination(searchResult);
             }
             else
             {
-                var allData = GetAllDataMethod();               
-                Pagination(allData);
+                ResetAll();
             }
+        }
+
+
+        private void ResetAll()
+        {
+            var allData = GetAllDataMethod();
+            _totalRecords = allData.Count();
+            Pagination(allData);
         }
 
         public void Pagination(ObservableCollection<Customer> data)
@@ -86,7 +93,8 @@ namespace RibbonApp.UserControls
         private void tbSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
-            {
+            {              
+                _pageNumber = 1;
                 Search();
             }
         }
@@ -94,7 +102,9 @@ namespace RibbonApp.UserControls
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             tbSearch.Text = string.Empty;
-            Search();
+            _pageNumber = 1;
+            //  Search();
+            ResetAll();
         }
 
         private void btnFirst_Click(object sender, RoutedEventArgs e)
@@ -112,12 +122,16 @@ namespace RibbonApp.UserControls
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             _pageNumber++;
-            Search();
+             Search();
+          
         }
 
         private void btnLast_Click(object sender, RoutedEventArgs e)
         {
-
+            double divide = Convert.ToDouble(_totalRecords) / Convert.ToDouble(_numberOfRecordsPerPage);
+            double totalPages = Math.Ceiling(divide);
+            _pageNumber =Convert.ToInt32( totalPages);
+            Search();
         }
 
         private void cbNumberOfRecords_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -126,6 +140,7 @@ namespace RibbonApp.UserControls
 
             if (GetAllDataMethod != null)
             {
+                _pageNumber = 1;
                 Search();
             }
            
@@ -144,8 +159,32 @@ namespace RibbonApp.UserControls
 
         private void  UpdateLabel()
         {
- double divide = Convert.ToDouble(_totalRecords) / Convert.ToDouble(_numberOfRecordsPerPage);
+            double divide = Convert.ToDouble(_totalRecords) / Convert.ToDouble(_numberOfRecordsPerPage);
             double totalPages = Math.Ceiling(divide);
+
+            if (totalPages == _pageNumber)
+            {
+                btnNext.IsEnabled = false;
+                btnLast.IsEnabled = false;
+            }
+            else
+            {
+                btnNext.IsEnabled = true;
+                btnLast.IsEnabled = true;
+            }
+
+            if(_pageNumber == 1)
+            {
+                btnFirst.IsEnabled = false;
+                btnPrev.IsEnabled = false;
+            }
+            else
+            {
+                btnFirst.IsEnabled = true;
+                btnPrev.IsEnabled = true;
+            }
+
+
             lblpageInformation.Content = _pageNumber.ToString() + " / " + (totalPages).ToString();
         }
     }

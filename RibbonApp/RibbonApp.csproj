@@ -309,6 +309,11 @@
     <Content Include="CompactDbDll\sqlceoledb40.dll" />
     <Content Include="CompactDbDll\sqlceqp40.dll" />
     <Content Include="CompactDbDll\sqlcese40.dll" />
+    <Resource Include="Images\Icon\cross.png" />
+    <Resource Include="Images\Icon\double-left-arrow.png" />
+    <Resource Include="Images\Icon\double-right-arrow.png" />
+    <Resource Include="Images\Icon\left-arrow.png" />
+    <Resource Include="Images\Icon\right-arrow.png" />
     <Resource Include="Images\Icon\orderList.png" />
     <Resource Include="Images\Icon\editCustomer.png" />
     <Resource Include="Images\Icon\customer.png" />

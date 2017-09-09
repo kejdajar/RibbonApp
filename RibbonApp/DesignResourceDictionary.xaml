@@ -65,8 +65,8 @@
 
     <Style TargetType="Button" x:Key="clearButton">
         <Setter Property="FontSize" Value="15"></Setter>
-        <Setter Property="Foreground" Value="White"></Setter>
-        <Setter Property="Background" Value="#FF1744"></Setter>       
+        <!--<Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Background" Value="#FF1744"></Setter>-->       
         <Setter Property="Padding" Value="2"></Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
@@ -74,5 +74,17 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+
+
+    
+        <Style x:Key="ImageFading" TargetType="Image">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.25"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+ 
 
 </ResourceDictionary>

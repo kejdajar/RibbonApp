@@ -45,13 +45,38 @@ namespace RibbonApp.UserControls
 
         private void Search()
         {
+            cbNumberOfRecords.IsEnabled = true;
             string search = tbSearch.Text;
             if (!string.IsNullOrWhiteSpace(search))
             {               
 
-                ObservableCollection<Customer> searchResult = SearchMethod(GetAllDataMethod(),search);            
-                _totalRecords = searchResult.Count();
-                Pagination(searchResult);
+                ObservableCollection<Customer> searchResult = SearchMethod(GetAllDataMethod(),search);
+            //  searchResult = new ObservableCollection<Customer>(searchResult.OrderByDescending(i => i.Name));
+
+                if(searchResult.Any())
+                {
+                    if (SearchResultIsNotEmpty != null)
+                    {
+                        SearchResultIsNotEmpty();
+                    }
+
+                    _totalRecords = searchResult.Count();
+                    Pagination(searchResult);
+                }
+                else
+                {                    
+                    lblpageInformation.Content = "0 výsledků";
+                    btnFirst.IsEnabled = false;
+                    btnNext.IsEnabled = false;
+                    btnLast.IsEnabled = false;
+                    btnPrev.IsEnabled = false;
+                    cbNumberOfRecords.IsEnabled = false;
+                    if(SearchResultIsEmpty !=null)
+                    {
+                        SearchResultIsEmpty();
+                    }
+                }
+
             }
             else
             {
@@ -59,11 +84,24 @@ namespace RibbonApp.UserControls
             }
         }
 
+        public event Action SearchResultIsEmpty;
+        public event Action SearchResultIsNotEmpty;
 
         private void ResetAll()
         {
             var allData = GetAllDataMethod();
             _totalRecords = allData.Count();
+
+            cbNumberOfRecords.IsEnabled = true;
+            btnPrev.IsEnabled = true;
+            btnNext.IsEnabled = true;
+            btnFirst.IsEnabled = true;
+            btnLast.IsEnabled = true;
+
+            if (SearchResultIsNotEmpty != null && _totalRecords > 0)
+            {
+                SearchResultIsNotEmpty();
+            }
             tbSearch.Text = string.Empty;
             Pagination(allData);
         }

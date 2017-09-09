@@ -51,7 +51,7 @@
         
          <Grid x:Name="noneUserContainer" Visibility="Hidden">
             
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" FontStyle="Italic"> ---Zvolte zákazníka--- </TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" FontStyle="Italic"> žádný zákazník nebyl zvolen </TextBlock>
            </Grid>
     </Grid>
    

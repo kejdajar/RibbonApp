@@ -30,3 +30,9 @@ https://www.flaticon.com/free-icon/edit_149368#term=edit&page=1&position=3
 
 orderList.png
 https://www.flaticon.com/free-icon/diagram_541344#term=orders&page=1&position=43
+
+navigation arrows
+https://www.flaticon.com/free-icon/right-arrow_137517#term=arrow next&page=1&position=19
+
+cross.png
+https://www.flaticon.com/free-icon/multiply_149158#term=cross&page=1&position=4

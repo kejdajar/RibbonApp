@@ -43,6 +43,8 @@
 
            
         </DataGrid>
+        <TextBlock Grid.Row="1" Grid.Column="0" x:Name="tblockEmptySearchResult" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" FontStyle="Italic">žádný záznam nebyl nalezen</TextBlock>
+        
         <controls:CustomerEditUserControl Margin="10 0 10 10" x:Name="customerDetailsUserControl"  Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"></controls:CustomerEditUserControl>
     </Grid>
 </Page>

@@ -68,6 +68,8 @@ namespace RibbonApp.Database
             Database.Entities.Add(new Entity() { Name = "Karburátor 03", Date = DateTime.Now +  TimeSpan.FromHours(2), Check = false });
             Database.Entities.Add(new Entity() { Name = "Parní turbína", Date = DateTime.Now + TimeSpan.FromHours(3), Check = true });
 
+            for (int i = 1; i <= 20;i++)
+            { 
             Database.Customers.AddRange(new List<Customer>() {
                 new Customer(){Name="Erika", Surname="Myers",Orders= new List<Order>() { new Order() { Comment="Erika Myers - první poznámka"}, new Order() { Comment= "Erika Myers - druhá poznámka" }, new Order() { Comment= "Erika Myers - třetí poznámka" } } },
                   new Customer(){Name="Hans", Surname="Fischer",Orders= new List<Order>() { new Order() { Comment="Hans Fischer - první poznámka"}, new Order() { Comment= "Hans Fischer - druhá poznámka" }, new Order() { Comment= "Hans Fischer - třetí poznámka" } } },
@@ -79,9 +81,9 @@ namespace RibbonApp.Database
                              new Customer(){Name="Matthew", Surname="Walker",Orders= new List<Order>() {} },
                                new Customer(){Name="Emily", Surname="Walker",Orders= new List<Order>() {} },
                                  new Customer(){Name="Katie", Surname="Walker",Orders= new List<Order>() {} },
-                                   new Customer(){Name="Rachel", Surname="Walker",Orders= new List<Order>() {} },
+                         new Customer(){Name="Rachel", Surname="Walker",Orders= new List<Order>() {} },
             });
-
+   } 
 
 
 

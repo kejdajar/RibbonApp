@@ -50,7 +50,11 @@
                     <ComboBoxItem>10</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                     <ComboBoxItem>30</ComboBoxItem>
-                </ComboBox>
+                     <ComboBoxItem>100</ComboBoxItem>
+                    <ComboBoxItem>500</ComboBoxItem>
+                        <ComboBoxItem>1000</ComboBoxItem>
+                        <ComboBoxItem>10000</ComboBoxItem>
+                    </ComboBox>
             </StackPanel>
         </StackPanel>
             </Border>

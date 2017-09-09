@@ -44,14 +44,19 @@ namespace RibbonApp.UserControls
 
 
         private void Search()
-        {
-            cbNumberOfRecords.IsEnabled = true;
-            string search = tbSearch.Text;
-            if (!string.IsNullOrWhiteSpace(search))
-            {               
+        {                    
+            cbNumberOfRecords.IsEnabled = true;            
+            btnPrev.IsEnabled = true;
+            btnNext.IsEnabled = true;
+            btnFirst.IsEnabled = true;
+            btnLast.IsEnabled = true;
 
+            string search = tbSearch.Text;
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {    
                 ObservableCollection<Customer> searchResult = SearchMethod(GetAllDataMethod(),search);
-            //  searchResult = new ObservableCollection<Customer>(searchResult.OrderByDescending(i => i.Name));
+                //  searchResult = new ObservableCollection<Customer>(searchResult.OrderByDescending(i => i.Name));
 
                 if(searchResult.Any())
                 {

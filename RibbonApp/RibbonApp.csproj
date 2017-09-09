@@ -136,6 +136,7 @@
     <Compile Include="UserControls\ControlPanel.xaml.cs">
       <DependentUpon>ControlPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ControlPanelGeneric.cs" />
     <Compile Include="UserControls\CustomerEditUserControl.xaml.cs">
       <DependentUpon>CustomerEditUserControl.xaml</DependentUpon>
     </Compile>

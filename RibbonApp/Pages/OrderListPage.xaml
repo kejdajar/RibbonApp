@@ -5,16 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RibbonApp.Pages"
       mc:Ignorable="d"  x:Name="Window" Loaded="Window_Loaded"
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="400" d:DesignWidth="400"
+       xmlns:controls="clr-namespace:RibbonApp.UserControls"
       Title="OrderListPage">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Text="Objednávky" Style="{StaticResource header1}" Grid.Row="0"></TextBlock>
-        <DataGrid Grid.Row="1"  Style="{StaticResource dataGridStyle}" IsReadOnly="True"
+        <controls:ControlPanel  x:Name="controlPanel"  Grid.Row="1" Grid.Column="0"></controls:ControlPanel>
+        <DataGrid Grid.Row="2"  Style="{StaticResource dataGridStyle}" IsReadOnly="True"
                   CellStyle="{StaticResource datagridCell}"  x:Name="dgOrders" AutoGenerateColumns="True" CanUserAddRows="False" SelectionMode="Single"></DataGrid>
     </Grid>
 </Page>

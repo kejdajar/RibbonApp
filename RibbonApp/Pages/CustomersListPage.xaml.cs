@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using RibbonApp.Database;
 using RibbonApp.Model;
 using System.Collections.ObjectModel;
+using RibbonApp.UserControls;
 
 namespace RibbonApp.Pages
 {
@@ -36,17 +37,26 @@ namespace RibbonApp.Pages
 
         public void ReloadDatagrid()
         {
-            var data = new ObservableCollection<Customer>( Configuration.DatabaseHelper.GetAllCustomers());
-            customersGrid.ItemsSource = data;           
+           
 
             // Inicializace vyhledávače
-            ControlPanel.DataToTransform = data;
-            ControlPanel.GetAllDataMethod += () => { return new ObservableCollection<Customer>(Configuration.DatabaseHelper.GetAllCustomers()); };
-            ControlPanel.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Customer>(dataGridDataSource.Where(c => c.Name.ToLower().Contains(search.ToLower()) || c.Surname.ToLower().Contains(search.ToLower())).ToList()); };
-            ControlPanel.SearchResultIsEmpty += () => { customersGrid.Visibility = Visibility.Hidden; tblockEmptySearchResult.Visibility = Visibility.Visible; };
-            ControlPanel.SearchResultIsNotEmpty += () => { customersGrid.Visibility = Visibility.Visible; tblockEmptySearchResult.Visibility = Visibility.Hidden; };
-            ControlPanel.Transform();
-                    
+            //ControlPanel.DataToTransform = data;
+            //ControlPanel.GetAllDataMethod += () => { return new ObservableCollection<Customer>(Configuration.DatabaseHelper.GetAllCustomers()); };
+            //ControlPanel.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Customer>(dataGridDataSource.Where(c => c.Name.ToLower().Contains(search.ToLower()) || c.Surname.ToLower().Contains(search.ToLower())).ToList()); };
+            //ControlPanel.SearchResultIsEmpty += () => { customersGrid.Visibility = Visibility.Hidden; tblockEmptySearchResult.Visibility = Visibility.Visible; };
+            //ControlPanel.SearchResultIsNotEmpty += () => { customersGrid.Visibility = Visibility.Visible; tblockEmptySearchResult.Visibility = Visibility.Hidden; };
+            //ControlPanel.Transform();
+
+            var data = new ObservableCollection<Customer>( Configuration.DatabaseHelper.GetAllCustomers());
+            customersGrid.ItemsSource = data;
+            ControlPanelGeneric<Customer> genericContainer = new ControlPanelGeneric<Customer>(ControlPanel);
+            genericContainer.DataToTransform = data;
+            genericContainer.GetAllDataMethod += () => { return new ObservableCollection<Customer>(Configuration.DatabaseHelper.GetAllCustomers()); };
+            genericContainer.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Customer>(dataGridDataSource.Where(c => c.Name.ToLower().Contains(search.ToLower()) || c.Surname.ToLower().Contains(search.ToLower())).ToList()); };
+            genericContainer.SearchResultIsEmpty += () => { customersGrid.Visibility = Visibility.Hidden; tblockEmptySearchResult.Visibility = Visibility.Visible; };
+            genericContainer.SearchResultIsNotEmpty += () => { customersGrid.Visibility = Visibility.Visible; tblockEmptySearchResult.Visibility = Visibility.Hidden; };
+            genericContainer.Transform();
+
         }
 
         private void customersGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -1,6 +1,9 @@
 ﻿using RibbonApp.Database;
+using RibbonApp.Model;
+using RibbonApp.UserControls;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +32,17 @@ namespace RibbonApp.Pages
 
        public void ReloadGrid()
         {
-            dgOrders.ItemsSource = Configuration.DatabaseHelper.GetAllOrders();
+            var data = new ObservableCollection<Order>(Configuration.DatabaseHelper.GetAllOrders());
+            dgOrders.ItemsSource = data;         
+           
+            ControlPanelGeneric<Order> genericContainer = new ControlPanelGeneric<Order>(controlPanel);
+            genericContainer.DataToTransform = data;
+            genericContainer.GetAllDataMethod += () => { return new ObservableCollection<Order>(Configuration.DatabaseHelper.GetAllOrders()); };
+            genericContainer.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Order>(dataGridDataSource.Where(c => c.Comment.ToLower().Contains(search.ToLower()))); };
+            genericContainer.SearchResultIsEmpty += () => { dgOrders.Visibility = Visibility.Hidden;  };
+            genericContainer.SearchResultIsNotEmpty += () => {dgOrders.Visibility = Visibility.Visible; };
+            genericContainer.Transform();
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

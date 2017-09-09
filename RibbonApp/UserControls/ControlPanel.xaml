@@ -5,45 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RibbonApp.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="400" Loaded="UserControl_Loaded">
+             d:DesignHeight="100" d:DesignWidth="400">
     <Grid>
 
         <Border BorderThickness="3" BorderBrush="#F0F0F0" Padding="5">
         <StackPanel>
            
         <DockPanel LastChildFill="True"  Margin="0 0 0 0">
-            <Button Style="{StaticResource standardButton}" x:Name="btnSearch" Click="btnSearch_Click" Margin="0 0 20 0" Width="83">Hledat</Button>
-                    <Button Style="{StaticResource clearButton}" x:Name="btnClear" IsEnabled="{Binding ElementName=tbSearch, Path=Text.Length}" Click="btnClear_Click" Width="20" ToolTip="vyčistit vyhledávání">
+            <Button Style="{StaticResource standardButton}" x:Name="btnSearch"  Margin="0 0 20 0" Width="83">Hledat</Button>
+                    <Button Style="{StaticResource clearButton}" x:Name="btnClear" IsEnabled="{Binding ElementName=tbSearch, Path=Text.Length}"  Width="20" ToolTip="vyčistit vyhledávání">
                         <Button.Content>
                             <Image Margin="0" Source="pack://application:,,,/RibbonApp;component/Images/Icon/cross.png" Style="{StaticResource ImageFading}"></Image>
                         </Button.Content>
                     </Button>
-            <TextBox x:Name="tbSearch" KeyDown="tbSearch_KeyDown" Padding="1" FontSize="15"></TextBox>
+            <TextBox x:Name="tbSearch"  Padding="1" FontSize="15"></TextBox>
         </DockPanel>
         <StackPanel Orientation="Horizontal" Margin="0 2 0 0">
-                    <Button Height="23" Name="btnFirst" Width="40"  Click="btnFirst_Click" Opacity="0.75" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0 0 3 0" ToolTip="začátek" >
+                    <Button Height="23" Name="btnFirst" Width="40"   Opacity="0.75" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0 0 3 0" ToolTip="začátek" >
                         <Button.Content>
                             <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/double-left-arrow.png" Style="{StaticResource ImageFading}"></Image>
                         </Button.Content>
                     </Button>
-                    <Button Height="23"  Name="btnPrev" Width="40" Click="btnPrev_Click" Opacity="0.75" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0 0 3 0" ToolTip="předchozí">
+                    <Button Height="23"  Name="btnPrev" Width="40" Opacity="0.75" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0 0 3 0" ToolTip="předchozí">
                         <Button.Content>
                             <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/left-arrow.png" Style="{StaticResource ImageFading}"></Image>
                         </Button.Content>
                     </Button>
                     <Label x:Name="lblpageInformation"  Height="auto" Width="auto" MinWidth="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="3" />
-                    <Button Height="23"  Name="btnNext" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40"  Click="btnNext_Click" Opacity="0.75" Margin="0 0 3 0" ToolTip="další">
+                    <Button Height="23"  Name="btnNext" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40" Opacity="0.75" Margin="0 0 3 0" ToolTip="další">
                         <Button.Content>
                             <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/right-arrow.png" Style="{StaticResource ImageFading}"></Image> 
                         </Button.Content>
                         </Button>
 
-                    <Button Height="23" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Name="btnLast" Click="btnLast_Click" Opacity="0.75"  Margin=" 0 0 3 0" ToolTip="konec">
+                    <Button Height="23" x:Name="btnLast" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40"  Opacity="0.75"  Margin=" 0 0 3 0" ToolTip="konec">
                         <Button.Content>
                             <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/double-right-arrow.png" Style="{StaticResource ImageFading}"></Image>
                         </Button.Content>
                     </Button>
-                    <ComboBox x:Name="cbNumberOfRecords" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="60"  SelectedIndex="3" SelectionChanged="cbNumberOfRecords_SelectionChanged" Opacity="0.75" Margin="0 0 0 0" Padding="3.55" ToolTip="počet výsledků na stránku">
+                    <ComboBox x:Name="cbNumberOfRecords" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="60"  SelectedIndex="3"  Opacity="0.75" Margin="0 0 0 0" Padding="3.55" ToolTip="počet výsledků na stránku">
                     <ComboBoxItem>1</ComboBoxItem>
                     <ComboBoxItem>2</ComboBoxItem>
                     <ComboBoxItem>5</ComboBoxItem>

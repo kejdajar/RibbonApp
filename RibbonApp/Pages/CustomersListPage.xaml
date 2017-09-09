@@ -8,6 +8,7 @@
       d:DesignHeight="500" d:DesignWidth="500" x:Name="Window" Loaded="Window_Loaded"
       Title="CustomersListPage"
       xmlns:controls="clr-namespace:RibbonApp.UserControls"
+     
       >
 
     <Grid >
@@ -22,7 +23,7 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
- <GridSplitter Grid.Column="0" Grid.Row="1" Width="3"  />
+ <GridSplitter Grid.Column="0" Grid.Row="0" Width="3" Grid.RowSpan="2" />
 
         <StackPanel Orientation="Vertical" Grid.Row="0" Margin="10 0 10 10">
             <TextBlock FontSize="30"  Margin="10 0 0 0">Zákazníci</TextBlock>

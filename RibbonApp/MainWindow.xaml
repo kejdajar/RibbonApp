@@ -17,6 +17,7 @@
                      Loaded="Window_Loaded"                    
                      xmlns:sys="clr-namespace:System;assembly=mscorlib"   
                      WindowStartupLocation="CenterScreen"
+                     
                      >
 
     <Grid >

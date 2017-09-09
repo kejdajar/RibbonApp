@@ -64,6 +64,7 @@ namespace RibbonApp.UserControls
         {
             var allData = GetAllDataMethod();
             _totalRecords = allData.Count();
+            tbSearch.Text = string.Empty;
             Pagination(allData);
         }
 
@@ -152,8 +153,9 @@ namespace RibbonApp.UserControls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            _totalRecords = GetAllDataMethod().Count();
-            UpdateLabel();
+            //_totalRecords = GetAllDataMethod().Count();
+            //UpdateLabel();
+            ResetAll();
            
         }
 

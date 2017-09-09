@@ -7,19 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
     <Grid>
+
+        <Border BorderThickness="3" BorderBrush="#F0F0F0" Padding="5">
         <StackPanel>
+           
         <DockPanel LastChildFill="True"  Margin="0 0 0 0">
-            <Button Style="{StaticResource standardButton}" x:Name="btnSearch" Click="btnSearch_Click" >Hledat</Button>
-            <Button Style="{StaticResource clearButton}" x:Name="btnClear" IsEnabled="{Binding ElementName=tbSearch, Path=Text.Length}" Click="btnClear_Click">x</Button>
-            <TextBox x:Name="tbSearch" KeyDown="tbSearch_KeyDown"></TextBox>
+            <Button Style="{StaticResource standardButton}" x:Name="btnSearch" Click="btnSearch_Click" Margin="0 0 20 0" Width="83">Hledat</Button>
+            <Button Style="{StaticResource clearButton}" x:Name="btnClear" IsEnabled="{Binding ElementName=tbSearch, Path=Text.Length}" Click="btnClear_Click" Width="20">x</Button>
+            <TextBox x:Name="tbSearch" KeyDown="tbSearch_KeyDown" Padding="1" FontSize="15"></TextBox>
         </DockPanel>
         <StackPanel Orientation="Horizontal">
-            <Button Height="23" Name="btnFirst" Width="40" Content="&lt;&lt;" Click="btnFirst_Click" Opacity="0.75" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
-            <Button Height="23"  Name="btnPrev" Width="40" Click="btnPrev_Click" Opacity="0.75" Content="&lt;" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
-            <Label x:Name="lblpageInformation"  Height="30" Width="70" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-            <Button Height="23"  Name="btnNext" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40" Content="&gt;" Click="btnNext_Click" Opacity="0.75"/>
-            <Button Height="23" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Name="btnLast" Click="btnLast_Click" Opacity="0.75" Content="&gt;&gt;"/>
-                <ComboBox x:Name="cbNumberOfRecords" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="60"  SelectedIndex="3" SelectionChanged="cbNumberOfRecords_SelectionChanged" Opacity="0.75">
+            <Button Height="23" Name="btnFirst" Width="40" Content="&lt;&lt;" Click="btnFirst_Click" Opacity="0.75" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0 0 3 0" />
+            <Button Height="23"  Name="btnPrev" Width="40" Click="btnPrev_Click" Opacity="0.75" Content="&lt;" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0 0 3 0"/>
+            <Label x:Name="lblpageInformation"  Height="23" Width="auto" MinWidth="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="3" />
+            <Button Height="23"  Name="btnNext" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40" Content="&gt;" Click="btnNext_Click" Opacity="0.75" Margin="0 0 3 0" />
+            <Button Height="23" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Name="btnLast" Click="btnLast_Click" Opacity="0.75" Content="&gt;&gt;" Margin=" 0 0 3 0" />
+                <ComboBox x:Name="cbNumberOfRecords" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="60"  SelectedIndex="3" SelectionChanged="cbNumberOfRecords_SelectionChanged" Opacity="0.75" Margin="0 0 0 0" Padding="3.55">
                     <ComboBoxItem>1</ComboBoxItem>
                     <ComboBoxItem>2</ComboBoxItem>
                     <ComboBoxItem>5</ComboBoxItem>
@@ -29,5 +32,7 @@
                 </ComboBox>
             </StackPanel>
         </StackPanel>
-    </Grid>
+            </Border>
+        </Grid>
+    
 </UserControl>

@@ -36,3 +36,9 @@ https://www.flaticon.com/free-icon/right-arrow_137517#term=arrow next&page=1&pos
 
 cross.png
 https://www.flaticon.com/free-icon/multiply_149158#term=cross&page=1&position=4
+
+order-alphabetical.png
+https://www.flaticon.com/free-icon/alphabetical-order_31283#term=order ascending&page=1&position=4
+
+order-reverse-alphabetical.png
+https://www.flaticon.com/free-icon/sort-from-a-to-z-in-alphabetical-ascending-order_31013#term=order ascending&page=1&position=6

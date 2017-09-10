@@ -55,6 +55,34 @@ namespace RibbonApp.Pages
             genericContainer.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Customer>(dataGridDataSource.Where(c => c.Name.ToLower().Contains(search.ToLower()) || c.Surname.ToLower().Contains(search.ToLower())).ToList()); };
             genericContainer.SearchResultIsEmpty += () => { customersGrid.Visibility = Visibility.Hidden; tblockEmptySearchResult.Visibility = Visibility.Visible; };
             genericContainer.SearchResultIsNotEmpty += () => { customersGrid.Visibility = Visibility.Visible; tblockEmptySearchResult.Visibility = Visibility.Hidden; };
+
+            genericContainer.OrderByCriteria = new List<string>() { "Jméno", "Příjmení" };
+
+            genericContainer.OrderByAlphabetical += (dataToSort, criterion) => 
+            {   if (criterion == "Jméno")
+                {
+                    return new ObservableCollection<Customer>(dataToSort.OrderBy(c => c.Name));
+                }
+                else if (criterion == "Příjmení")
+                {
+                    return new ObservableCollection<Customer>(dataToSort.OrderBy(c => c.Surname));
+                }
+                else return dataToSort;
+              };
+
+            genericContainer.OrderByReverseAlphabetical += (dataToSort, criterion) =>
+            {
+                if (criterion == "Jméno")
+                {
+                    return new ObservableCollection<Customer>(dataToSort.OrderByDescending(c => c.Name));
+                }
+                else if (criterion == "Příjmení")
+                {
+                    return new ObservableCollection<Customer>(dataToSort.OrderByDescending(c => c.Surname));
+                }
+                else return dataToSort;
+            };  
+
             genericContainer.Transform();
 
         }

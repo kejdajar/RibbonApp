@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RibbonApp.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="400">
+             d:DesignHeight="100" d:DesignWidth="500">
     <Grid>
 
         <Border BorderThickness="3" BorderBrush="#F0F0F0" Padding="5">
@@ -43,7 +43,32 @@
                             <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/double-right-arrow.png" Style="{StaticResource ImageFading}"></Image>
                         </Button.Content>
                     </Button>
-                    <ComboBox x:Name="cbNumberOfRecords" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="60"  SelectedIndex="3"  Opacity="0.75" Margin="0 0 0 0" Padding="3.55" ToolTip="počet výsledků na stránku">
+
+
+                    <ToggleButton Height="23"  IsChecked="True"  Name="btnOrderAlphabetical" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="23" Opacity="0.75" Margin="0 0 3 0" ToolTip="řadit A-Z">
+                        <ToggleButton.Content>
+                            <Image Margin="0" Source="pack://application:,,,/RibbonApp;component/Images/Icon/order-alphabetical.png" Style="{StaticResource ImageFading}"></Image>
+                        </ToggleButton.Content>
+                    </ToggleButton>
+
+                    <ToggleButton Height="23"  Name="btnOrderReverseAlphabetical" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="23" Opacity="0.75" Margin="0 0 3 0" ToolTip="řadit Z-A">
+                        <ToggleButton.Content>
+                            <Image Margin="0"  Source="pack://application:,,,/RibbonApp;component/Images/Icon/order-reverse-alphabetical.png" Style="{StaticResource ImageFading}"></Image>
+                        </ToggleButton.Content>
+                    </ToggleButton>
+
+                    <TextBlock VerticalAlignment="Center" Margin="0 0 3 0">Řadit dle: </TextBlock>
+                    <ComboBox x:Name="cbOrderBy" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="auto"  SelectedIndex="0"  Opacity="0.75" Margin="0 0 3 0" Padding="3.55" ToolTip="kritérium řazení" >
+                      
+                        
+                    </ComboBox>
+
+
+
+
+                    <TextBlock VerticalAlignment="Center" Margin="0 0 3 0">Počet na stránku:</TextBlock>
+
+                    <ComboBox x:Name="cbNumberOfRecords" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="auto"  SelectedIndex="3"  Opacity="0.75" Margin="0 0 0 0" Padding="3.55" ToolTip="počet výsledků na stránku">
                     <ComboBoxItem>1</ComboBoxItem>
                     <ComboBoxItem>2</ComboBoxItem>
                     <ComboBoxItem>5</ComboBoxItem>
@@ -55,7 +80,11 @@
                         <ComboBoxItem>1000</ComboBoxItem>
                         <ComboBoxItem>10000</ComboBoxItem>
                     </ComboBox>
-            </StackPanel>
+
+                  
+
+
+                </StackPanel>
         </StackPanel>
             </Border>
         </Grid>

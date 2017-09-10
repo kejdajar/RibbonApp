@@ -43,11 +43,13 @@ namespace RibbonApp.Pages
             genericContainer.SearchResultIsNotEmpty += () => {dgOrders.Visibility = Visibility.Visible; };
             genericContainer.Transform();
 
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ReloadGrid();
+            
         }
     }
 }

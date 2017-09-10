@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -32,8 +33,52 @@ namespace RibbonApp.UserControls
             _cp.btnSearch.Click += btnSearch_Click;
             _cp.tbSearch.KeyDown += tbSearch_KeyDown;
             _cp.Loaded += UserControl_Loaded;
+
+            //sorting
+            _cp.btnOrderAlphabetical.Checked += btnOrderAlphabetical_Checked;
+            _cp.btnOrderAlphabetical.Unchecked += btnOrderAlphabetical_Unchecked;
+            _cp.btnOrderReverseAlphabetical.Checked += btnOrderReverseAlphabetical_Checked;
+            _cp.btnOrderReverseAlphabetical.Unchecked += btnOrderReverseAlphabetical_Unchecked;
+            _cp.cbOrderBy.SelectionChanged += cbOrderBy_SelectionChanged;
+
             _numberOfRecordsPerPage = Convert.ToInt32(((ComboBoxItem)_cp.cbNumberOfRecords.SelectedItem).Content);
 
+        }
+
+        public List<string> OrderByCriteria { get; set; }
+
+
+        private void cbOrderBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ResetAll();
+        }
+
+        private void btnOrderAlphabetical_Checked(object sender, RoutedEventArgs e)
+        {
+            _orderBy = UserControls.OrderBy.Alphabetical;
+            _cp.btnOrderReverseAlphabetical.IsChecked = false;
+            ResetAll();
+        }
+
+        private void btnOrderAlphabetical_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _orderBy = UserControls.OrderBy.ReverseAlphabetical;
+            _cp.btnOrderReverseAlphabetical.IsChecked = true;
+            ResetAll();
+        }
+
+        private void btnOrderReverseAlphabetical_Checked(object sender, RoutedEventArgs e)
+        {
+            _orderBy = UserControls.OrderBy.ReverseAlphabetical;
+            _cp.btnOrderAlphabetical.IsChecked = false;
+            ResetAll();
+        }
+
+        private void btnOrderReverseAlphabetical_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _orderBy = UserControls.OrderBy.Alphabetical;
+            _cp.btnOrderAlphabetical.IsChecked = true;
+            ResetAll();
         }
 
         private ControlPanel _cp;
@@ -52,7 +97,35 @@ namespace RibbonApp.UserControls
             Search();
         }
 
+        public ObservableCollection<T> OrderBy(ObservableCollection<T> itemsToOrder)
+        {
+            if(_orderBy == UserControls.OrderBy.Alphabetical)
+            {
+                if (OrderByAlphabetical != null)
+                   return OrderByAlphabetical(itemsToOrder,GetComboBoxCriterionString());
+                else return itemsToOrder;
 
+            }
+            else if (_orderBy == UserControls.OrderBy.ReverseAlphabetical)
+            {
+                if (OrderByReverseAlphabetical != null)
+                    return OrderByReverseAlphabetical(itemsToOrder,GetComboBoxCriterionString());
+                else return itemsToOrder;
+            }
+            else
+            {
+                return itemsToOrder;
+            }
+            
+        }
+
+        private string GetComboBoxCriterionString()
+        {
+           return _cp.cbOrderBy.SelectedItem.ToString();
+        }
+
+        public Func<ObservableCollection<T>,string, ObservableCollection<T>> OrderByAlphabetical;
+        public Func<ObservableCollection<T>, string,ObservableCollection<T>> OrderByReverseAlphabetical;
 
         private void Search()
         {
@@ -67,7 +140,7 @@ namespace RibbonApp.UserControls
             if (!string.IsNullOrWhiteSpace(search))
             {
                 ObservableCollection<T> searchResult = SearchMethod(GetAllDataMethod(), search);
-                //  searchResult = new ObservableCollection<Customer>(searchResult.OrderByDescending(i => i.Name));
+               searchResult =  OrderBy(searchResult);
 
                 if (searchResult.Any())
                 {
@@ -105,7 +178,10 @@ namespace RibbonApp.UserControls
 
         private void ResetAll()
         {
+            _cp.cbOrderBy.ItemsSource = OrderByCriteria;
+
             var allData = GetAllDataMethod();
+            allData = OrderBy(allData);
             _totalRecords = allData.Count();
 
             _cp.cbNumberOfRecords.IsEnabled = true;
@@ -209,8 +285,9 @@ namespace RibbonApp.UserControls
         {
             //_totalRecords = GetAllDataMethod().Count();
             //UpdateLabel();
+           
             ResetAll();
-
+            
         }
 
         private void UpdateLabel()
@@ -244,5 +321,9 @@ namespace RibbonApp.UserControls
             _cp.lblpageInformation.Text = _pageNumber.ToString() + " / " + (totalPages).ToString();
         }
 
+
+        private OrderBy _orderBy = UserControls.OrderBy.Alphabetical;
     }
+
+    enum OrderBy { Alphabetical, ReverseAlphabetical }
 }

@@ -29,12 +29,37 @@ namespace RibbonApp.UserControls
             InitializeComponent();
         }
 
+        //private void cbOrderBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+
+        //}
+
+        //private void btnOrderAlphabetical_Checked(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void btnOrderAlphabetical_Unchecked(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void btnOrderReverseAlphabetical_Checked(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void btnOrderReverseAlphabetical_Unchecked(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
         //private void btnSearch_Click(object sender, RoutedEventArgs e)
         //{
         //    Search();            
         //}
 
-       
+
         //public ObservableCollection<Object> DataToTransform { get; set; }
 
         //public void Transform()
@@ -168,7 +193,7 @@ namespace RibbonApp.UserControls
         //{
         //    _pageNumber++;
         //     Search();
-          
+
         //}
 
         //private void btnLast_Click(object sender, RoutedEventArgs e)
@@ -188,7 +213,7 @@ namespace RibbonApp.UserControls
         //        _pageNumber = 1;
         //        Search();
         //    }
-           
+
         //}
 
         //private int _pageNumber = 1;
@@ -200,7 +225,7 @@ namespace RibbonApp.UserControls
         //    //_totalRecords = GetAllDataMethod().Count();
         //    //UpdateLabel();
         //    ResetAll();
-           
+
         //}
 
         //private void  UpdateLabel()

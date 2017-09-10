@@ -29,6 +29,16 @@ namespace RibbonApp.UserControls
             InitializeComponent();
         }
 
+        //private void btnOrderAlphabetical_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void btnOrderReverseAlphabetical_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
         //private void cbOrderBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
 

@@ -56,10 +56,12 @@ namespace RibbonApp.Pages
             genericContainer.SearchResultIsEmpty += () => { customersGrid.Visibility = Visibility.Hidden; tblockEmptySearchResult.Visibility = Visibility.Visible; };
             genericContainer.SearchResultIsNotEmpty += () => { customersGrid.Visibility = Visibility.Visible; tblockEmptySearchResult.Visibility = Visibility.Hidden; };
 
-            genericContainer.OrderByCriteria = new List<string>() { "Jméno", "Příjmení" };
+            genericContainer.OrderByCriteria = new List<string>() { "Id","Jméno", "Příjmení" };
 
             genericContainer.OrderByAlphabetical += (dataToSort, criterion) => 
-            {   if (criterion == "Jméno")
+            {
+               
+                if (criterion == "Jméno")
                 {
                     return new ObservableCollection<Customer>(dataToSort.OrderBy(c => c.Name));
                 }
@@ -67,11 +69,16 @@ namespace RibbonApp.Pages
                 {
                     return new ObservableCollection<Customer>(dataToSort.OrderBy(c => c.Surname));
                 }
+                else if (criterion == "Id")
+                {
+                    return new ObservableCollection<Customer>(dataToSort.OrderBy(c => c.Id));
+                }
                 else return dataToSort;
               };
 
             genericContainer.OrderByReverseAlphabetical += (dataToSort, criterion) =>
             {
+               
                 if (criterion == "Jméno")
                 {
                     return new ObservableCollection<Customer>(dataToSort.OrderByDescending(c => c.Name));
@@ -79,6 +86,10 @@ namespace RibbonApp.Pages
                 else if (criterion == "Příjmení")
                 {
                     return new ObservableCollection<Customer>(dataToSort.OrderByDescending(c => c.Surname));
+                }
+                else if (criterion == "Id")
+                {
+                    return new ObservableCollection<Customer>(dataToSort.OrderByDescending(c => c.Id));
                 }
                 else return dataToSort;
             };  

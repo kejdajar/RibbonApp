@@ -5,62 +5,39 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RibbonApp.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="500">
+             d:DesignHeight="200" d:DesignWidth="900">
     <Grid>
 
         <Border BorderThickness="3" BorderBrush="#F0F0F0" Padding="5">
-        <StackPanel>
+        <WrapPanel>
            
-        <DockPanel LastChildFill="True"  Margin="0 0 0 0">
-            <Button Style="{StaticResource standardButton}" x:Name="btnSearch"  Margin="0 0 20 0" Width="83">Hledat</Button>
-                    <Button Style="{StaticResource clearButton}" x:Name="btnClear" IsEnabled="{Binding ElementName=tbSearch, Path=Text.Length}"  Width="20" ToolTip="vyčistit vyhledávání">
+        <StackPanel Orientation="Horizontal"   Margin="0 0 5 5">
+            <Button Style="{StaticResource standardButton}" x:Name="btnSearch"  Margin="0 0 0 0" Width="83">Hledat</Button>
+                    
+            <TextBox x:Name="tbSearch"  Padding="1" FontSize="15" Width="160"></TextBox>
+            <Button Style="{StaticResource clearButton}" x:Name="btnClear" IsEnabled="{Binding ElementName=tbSearch, Path=Text.Length}"  Width="20" ToolTip="vyčistit vyhledávání">
                         <Button.Content>
                             <Image Margin="0" Source="pack://application:,,,/RibbonApp;component/Images/Icon/cross.png" Style="{StaticResource ImageFading}"></Image>
                         </Button.Content>
                     </Button>
-            <TextBox x:Name="tbSearch"  Padding="1" FontSize="15"></TextBox>
-        </DockPanel>
-        <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
-                    <Button Height="23" Name="btnFirst" Width="40"   Opacity="0.75" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0 0 3 0" ToolTip="začátek" >
-                        <Button.Content>
-                            <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/double-left-arrow.png" Style="{StaticResource ImageFading}"></Image>
-                        </Button.Content>
-                    </Button>
-                    <Button Height="23"  Name="btnPrev" Width="40" Opacity="0.75" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0 0 3 0" ToolTip="předchozí">
-                        <Button.Content>
-                            <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/left-arrow.png" Style="{StaticResource ImageFading}"></Image>
-                        </Button.Content>
-                    </Button>
-                    <TextBlock x:Name="lblpageInformation"  Height="auto" Width="auto" MinWidth="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="3" />
-                    <Button Height="23"  Name="btnNext" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40" Opacity="0.75" Margin="0 0 3 0" ToolTip="další">
-                        <Button.Content>
-                            <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/right-arrow.png" Style="{StaticResource ImageFading}"></Image> 
-                        </Button.Content>
-                        </Button>
-
-                    <Button Height="23" x:Name="btnLast" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40"  Opacity="0.75"  Margin=" 0 0 3 0" ToolTip="konec">
-                        <Button.Content>
-                            <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/double-right-arrow.png" Style="{StaticResource ImageFading}"></Image>
-                        </Button.Content>
-                    </Button>
-
-
-                    <ToggleButton Height="23"  IsChecked="True"  Name="btnOrderAlphabetical" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="23" Opacity="0.75" Margin="0 0 3 0" ToolTip="řadit A-Z">
+        </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 5 5">
+                    <ToggleButton Height="25" Padding="1"  IsChecked="True"  Name="btnOrderAlphabetical" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="25" Opacity="0.75" Margin="0 0 3 0" ToolTip="řadit sestupně">
                         <ToggleButton.Content>
-                            <Image Margin="0" Source="pack://application:,,,/RibbonApp;component/Images/Icon/order-alphabetical.png" Style="{StaticResource ImageFading}"></Image>
+                            <Image  Margin="0" Source="pack://application:,,,/RibbonApp;component/Images/Icon/order-alphabetical.png" Style="{StaticResource ImageFading}"></Image>
                         </ToggleButton.Content>
                     </ToggleButton>
 
-                    <ToggleButton Height="23"  Name="btnOrderReverseAlphabetical" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="23" Opacity="0.75" Margin="0 0 3 0" ToolTip="řadit Z-A">
+                    <ToggleButton Height="25"  Padding="1"  Name="btnOrderReverseAlphabetical" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="25" Opacity="0.75" Margin="0 0 3 0" ToolTip="řadit vzestupně">
                         <ToggleButton.Content>
-                            <Image Margin="0"  Source="pack://application:,,,/RibbonApp;component/Images/Icon/order-reverse-alphabetical.png" Style="{StaticResource ImageFading}"></Image>
+                            <Image Margin="0"   Source="pack://application:,,,/RibbonApp;component/Images/Icon/order-reverse-alphabetical.png" Style="{StaticResource ImageFading}"></Image>
                         </ToggleButton.Content>
                     </ToggleButton>
 
-                    <TextBlock VerticalAlignment="Center" Margin="0 0 3 0">Řadit dle: </TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="0 0 3 0">Řadit dle:</TextBlock>
                     <ComboBox x:Name="cbOrderBy" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="auto"  SelectedIndex="0"  Opacity="0.75" Margin="0 0 3 0" Padding="3.55" ToolTip="kritérium řazení" >
-                      
-                        
+
+
                     </ComboBox>
 
 
@@ -69,23 +46,50 @@
                     <TextBlock VerticalAlignment="Center" Margin="0 0 3 0">Počet na stránku:</TextBlock>
 
                     <ComboBox x:Name="cbNumberOfRecords" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="auto"  SelectedIndex="3"  Opacity="0.75" Margin="0 0 0 0" Padding="3.55" ToolTip="počet výsledků na stránku">
-                    <ComboBoxItem>1</ComboBoxItem>
-                    <ComboBoxItem>2</ComboBoxItem>
-                    <ComboBoxItem>5</ComboBoxItem>
-                    <ComboBoxItem>10</ComboBoxItem>
-                    <ComboBoxItem>20</ComboBoxItem>
-                    <ComboBoxItem>30</ComboBoxItem>
-                     <ComboBoxItem>100</ComboBoxItem>
-                    <ComboBoxItem>500</ComboBoxItem>
+                        <ComboBoxItem>1</ComboBoxItem>
+                        <ComboBoxItem>2</ComboBoxItem>
+                        <ComboBoxItem>5</ComboBoxItem>
+                        <ComboBoxItem>10</ComboBoxItem>
+                        <ComboBoxItem>20</ComboBoxItem>
+                        <ComboBoxItem>30</ComboBoxItem>
+                        <ComboBoxItem>100</ComboBoxItem>
+                        <ComboBoxItem>500</ComboBoxItem>
                         <ComboBoxItem>1000</ComboBoxItem>
                         <ComboBoxItem>10000</ComboBoxItem>
                     </ComboBox>
+                </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
+                    <Button Height="23" Name="btnFirst" Width="40"   Opacity="0.75" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 3 0" ToolTip="začátek" >
+                        <Button.Content>
+                            <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/double-left-arrow.png" Style="{StaticResource ImageFading}"></Image>
+                        </Button.Content>
+                    </Button>
+                    <Button Height="23"  Name="btnPrev" Width="40" Opacity="0.75" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 3 0" ToolTip="předchozí">
+                        <Button.Content>
+                            <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/left-arrow.png" Style="{StaticResource ImageFading}"></Image>
+                        </Button.Content>
+                    </Button>
+                    <TextBlock x:Name="lblpageInformation"  Height="auto" Width="auto" MinWidth="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3" />
+                    <Button Height="23"  Name="btnNext" VerticalAlignment="Center" HorizontalAlignment="Right" Width="40" Opacity="0.75" Margin="0 0 3 0" ToolTip="další">
+                        <Button.Content>
+                            <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/right-arrow.png" Style="{StaticResource ImageFading}"></Image> 
+                        </Button.Content>
+                        </Button>
+
+                    <Button Height="23" x:Name="btnLast" HorizontalAlignment="Right" VerticalAlignment="Center" Width="40"  Opacity="0.75"  Margin=" 0 0 3 0" ToolTip="konec">
+                        <Button.Content>
+                            <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/double-right-arrow.png" Style="{StaticResource ImageFading}"></Image>
+                        </Button.Content>
+                    </Button>
+
+
+                    
 
                   
 
 
                 </StackPanel>
-        </StackPanel>
+        </WrapPanel>
             </Border>
         </Grid>
     

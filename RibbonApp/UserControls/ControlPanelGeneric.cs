@@ -35,10 +35,14 @@ namespace RibbonApp.UserControls
             _cp.Loaded += UserControl_Loaded;
 
             //sorting
-            _cp.btnOrderAlphabetical.Checked += btnOrderAlphabetical_Checked;
-            _cp.btnOrderAlphabetical.Unchecked += btnOrderAlphabetical_Unchecked;
-            _cp.btnOrderReverseAlphabetical.Checked += btnOrderReverseAlphabetical_Checked;
-            _cp.btnOrderReverseAlphabetical.Unchecked += btnOrderReverseAlphabetical_Unchecked;
+            //_cp.btnOrderAlphabetical.Checked += btnOrderAlphabetical_Checked;
+            //_cp.btnOrderAlphabetical.Unchecked += btnOrderAlphabetical_Unchecked;
+            //_cp.btnOrderReverseAlphabetical.Checked += btnOrderReverseAlphabetical_Checked;
+            //_cp.btnOrderReverseAlphabetical.Unchecked += btnOrderReverseAlphabetical_Unchecked;
+
+            _cp.btnOrderAlphabetical.Click += btnOrderAlphabetical_Click;
+            _cp.btnOrderReverseAlphabetical.Click += btnOrderReverseAlphabetical_Click;
+
             _cp.cbOrderBy.SelectionChanged += cbOrderBy_SelectionChanged;
 
             _numberOfRecordsPerPage = Convert.ToInt32(((ComboBoxItem)_cp.cbNumberOfRecords.SelectedItem).Content);
@@ -53,33 +57,50 @@ namespace RibbonApp.UserControls
             ResetAll();
         }
 
-        private void btnOrderAlphabetical_Checked(object sender, RoutedEventArgs e)
+
+
+        private void btnOrderAlphabetical_Click(object sender, RoutedEventArgs e)
         {
             _orderBy = UserControls.OrderBy.Alphabetical;
             _cp.btnOrderReverseAlphabetical.IsChecked = false;
             ResetAll();
         }
 
-        private void btnOrderAlphabetical_Unchecked(object sender, RoutedEventArgs e)
-        {
-            _orderBy = UserControls.OrderBy.ReverseAlphabetical;
-            _cp.btnOrderReverseAlphabetical.IsChecked = true;
-            ResetAll();
-        }
-
-        private void btnOrderReverseAlphabetical_Checked(object sender, RoutedEventArgs e)
+        private void btnOrderReverseAlphabetical_Click(object sender, RoutedEventArgs e)
         {
             _orderBy = UserControls.OrderBy.ReverseAlphabetical;
             _cp.btnOrderAlphabetical.IsChecked = false;
             ResetAll();
         }
 
-        private void btnOrderReverseAlphabetical_Unchecked(object sender, RoutedEventArgs e)
-        {
-            _orderBy = UserControls.OrderBy.Alphabetical;
-            _cp.btnOrderAlphabetical.IsChecked = true;
-            ResetAll();
-        }
+
+        //private void btnOrderAlphabetical_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    _orderBy = UserControls.OrderBy.Alphabetical;
+        //    _cp.btnOrderReverseAlphabetical.IsChecked = false;
+        //    ResetAll();
+        //}
+
+        //private void btnOrderAlphabetical_Unchecked(object sender, RoutedEventArgs e)
+        //{
+        //    _orderBy = UserControls.OrderBy.ReverseAlphabetical;
+        //    _cp.btnOrderReverseAlphabetical.IsChecked = true;
+        //    ResetAll();
+        //}
+
+        //private void btnOrderReverseAlphabetical_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    _orderBy = UserControls.OrderBy.ReverseAlphabetical;
+        //    _cp.btnOrderAlphabetical.IsChecked = false;
+        //    ResetAll();
+        //}
+
+        //private void btnOrderReverseAlphabetical_Unchecked(object sender, RoutedEventArgs e)
+        //{
+        //    _orderBy = UserControls.OrderBy.Alphabetical;
+        //    _cp.btnOrderAlphabetical.IsChecked = true;
+        //    ResetAll();
+        //}
 
         private ControlPanel _cp;
 

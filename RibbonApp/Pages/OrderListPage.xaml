@@ -9,15 +9,21 @@
        xmlns:controls="clr-namespace:RibbonApp.UserControls"
       Title="OrderListPage">
 
-    <Grid>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Text="Objednávky" Style="{StaticResource header1}" Grid.Row="0"></TextBlock>
-        <controls:ControlPanel  x:Name="controlPanel"  Grid.Row="1" Grid.Column="0"></controls:ControlPanel>
-        <DataGrid Grid.Row="2"  Style="{StaticResource dataGridStyle}" IsReadOnly="True"
-                  CellStyle="{StaticResource datagridCell}"  x:Name="dgOrders" AutoGenerateColumns="True" CanUserAddRows="False" SelectionMode="Single"></DataGrid>
+        <controls:ControlPanel  x:Name="controlPanel"  Grid.Row="1" Grid.Column="0" Margin="0 0 0 10"></controls:ControlPanel>
+        <DataGrid Grid.Row="2"  Style="{StaticResource dataGridStyle}" IsReadOnly="True" AutoGenerateColumns="False"
+                  CellStyle="{StaticResource datagridCell}"  x:Name="dgOrders"  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Komentář" Binding="{Binding Comment}"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="*"></DataGridTemplateColumn> <!-- fake sloupec pro výběr celého řádku-->
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

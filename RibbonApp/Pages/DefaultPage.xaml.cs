@@ -1,4 +1,5 @@
 ﻿using RibbonApp.Database;
+using RibbonApp.Model;
 using RibbonApp.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace RibbonApp.Pages
         public DefaultPage()
         {
             InitializeComponent();
+            Refresh();
         }
 
         private void grid1_InitializingNewItem(object sender, InitializingNewItemEventArgs e)
@@ -43,7 +45,33 @@ namespace RibbonApp.Pages
         }
 
 
+        public void Refresh()
+        {
+            // Přístup do Db opět jen skrze DatabaseHelper třídu
+            List<Entity> allEntitiesInDb = Configuration.DatabaseHelper.GetAllEntities();
 
+            // ViewModel je spojovací článek mezi grafickým rozhraním (.xaml soubory) a datovými modely (složka Models)
+            // View model může provádět dodatečné formátování dat (např čas, měna apod.)
+            // Druhý parametr je funkce, která se provede pokaždé, když dojde ke změně alespoň jedné property itemu, který je v kolekci v datagridu.
+            // obj .... objekt, který byl upraven, typ EntityNotify; arg ... string se jménem property, např "Name" nebo "Date"
+            EntityViewModel viewModel = new EntityViewModel(allEntitiesInDb,
+            (obj, arg) =>
+            {
+                // --- zastaralé ---
+                // po změně jedné vlastnosti přepíše celý objekt znovu
+                //Configuration.DatabaseHelper.EditEntity(obj as EntityNotify); 
+                // ---zastaralé ---
+
+                // lépe: po změně jedné vlastnosti změní pouze danou vlastnost a zbytek nepřepisuje zbytečně
+                Configuration.DatabaseHelper.EditOnlySinglePropertyOfEntity(obj as EntityNotify, arg.PropertyName);
+            });
+
+
+            // Grafickému rozhraní pošleme ViewModel, z žádného jiného místa již do GUI data neposíláme
+            // Data, která zadá uživatel, se budou opět promítat jen do ViewModelu.  
+            //defaultPage = new DefaultPage(); // vytvoříme stránku, která se dosazuje do Frame v souboru MainWindow.xaml
+           this.DataContext = viewModel; // pošleme do stránky data skrze ViewModel
+        }
 
         //private void grid1_LostFocus(object sender, RoutedEventArgs e)
         //{

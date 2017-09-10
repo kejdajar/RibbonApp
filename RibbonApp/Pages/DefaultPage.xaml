@@ -9,11 +9,17 @@
       Title="DefaultPage">
 
     <StackPanel>
-        <DataGrid AutoGenerateColumns="True" x:Name="grid1" ItemsSource="{Binding Path=Data}"  
+        <DataGrid AutoGenerateColumns="False" x:Name="grid1" ItemsSource="{Binding Path=Data}"  
                   Style="{StaticResource dataGridStyle}" CellStyle="{StaticResource datagridCell}" 
                  InitializingNewItem="grid1_InitializingNewItem" SelectionMode="Single"
                   >
-
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Jméno" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Zkontrolováno" Binding="{Binding Check}"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Date}"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="*"></DataGridTemplateColumn>
+            </DataGrid.Columns>
         </DataGrid>
         
     </StackPanel>

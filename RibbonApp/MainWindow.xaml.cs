@@ -40,40 +40,20 @@ namespace RibbonApp
             // "this" představuje instanci této třídy - v jiných částích programu je potřeba reference na toto hlavní okno
             Configuration.Initialize(this);
 
-            // Přístup do Db opět jen skrze DatabaseHelper třídu
-            List<Entity> allEntitiesInDb = Configuration.DatabaseHelper.GetAllEntities();
+            defaultPage = new DefaultPage();
+        
 
-            // ViewModel je spojovací článek mezi grafickým rozhraním (.xaml soubory) a datovými modely (složka Models)
-            // View model může provádět dodatečné formátování dat (např čas, měna apod.)
-            // Druhý parametr je funkce, která se provede pokaždé, když dojde ke změně alespoň jedné property itemu, který je v kolekci v datagridu.
-            // obj .... objekt, který byl upraven, typ EntityNotify; arg ... string se jménem property, např "Name" nebo "Date"
-            EntityViewModel viewModel = new EntityViewModel(allEntitiesInDb,
-            (obj, arg) =>
-            {   
-                // --- zastaralé ---
-                // po změně jedné vlastnosti přepíše celý objekt znovu
-                //Configuration.DatabaseHelper.EditEntity(obj as EntityNotify); 
-                // ---zastaralé ---
-
-                // lépe: po změně jedné vlastnosti změní pouze danou vlastnost a zbytek nepřepisuje zbytečně
-                Configuration.DatabaseHelper.EditOnlySinglePropertyOfEntity(obj as EntityNotify, arg.PropertyName); 
-            });
-            
-
-            // Grafickému rozhraní pošleme ViewModel, z žádného jiného místa již do GUI data neposíláme
-            // Data, která zadá uživatel, se budou opět promítat jen do ViewModelu.  
-            //defaultPage = new DefaultPage(); // vytvoříme stránku, která se dosazuje do Frame v souboru MainWindow.xaml
-            defaultPage.DataContext = viewModel; // pošleme do stránky data skrze ViewModel
             frDefult.Navigate(defaultPage); // musíme říci rámu, že se má přepnout na danou stránku
 
         }
 
-       public DefaultPage defaultPage = new DefaultPage(); // hlavní stránka po zapnutní programu
-       public CustomersListPage customersListPage = new CustomersListPage(); // stránka se seznamem zákazníků
-       public OrderListPage orderListPage = new OrderListPage();
+        public DefaultPage defaultPage;  // hlavní stránka po zapnutní programu
+        public CustomersListPage customersListPage; // stránka se seznamem zákazníků
+        public OrderListPage orderListPage;
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+           
             frDefult.Navigate(defaultPage); // návrat na hlavní stránku           
         }       
 
@@ -109,7 +89,8 @@ namespace RibbonApp
         }      
 
         private void CustomersListBtn_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+            customersListPage = new CustomersListPage();
             frDefult.Navigate(customersListPage);
         }
 
@@ -125,6 +106,7 @@ namespace RibbonApp
 
         private void OrderListBtn_Click(object sender, RoutedEventArgs e)
         {
+            orderListPage = new OrderListPage();
             frDefult.Navigate(orderListPage);
         }
     }

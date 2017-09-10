@@ -35,15 +35,19 @@
             </GroupBox>
             <Grid Grid.Row="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" FontSize="20">Objednávky</TextBlock>
-            <DataGrid Grid.Row="1" x:Name="dgCustomerOrders" AutoGenerateColumns="True" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single"
+            <TextBlock Grid.Row="0" FontSize="22">Objednávky</TextBlock>
+            <DataGrid Grid.Row="1" x:Name="dgCustomerOrders" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single"
                       Style="{StaticResource dataGridStyle}"
                   CellStyle="{StaticResource datagridCell}" 
                       >
-
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" ></DataGridTextColumn>
+                        <DataGridTextColumn Header="Komentář" Binding="{Binding Comment}" ></DataGridTextColumn>
+                        <DataGridTemplateColumn Width="*"></DataGridTemplateColumn>
+                    </DataGrid.Columns>
             </DataGrid>
                 <TextBlock Grid.Row="1" FontStyle="Italic" x:Name="noneOrdersMessage" Visibility="Hidden" >Žádné objednávky nejsou k dispozici </TextBlock>
         </Grid>

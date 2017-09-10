@@ -11,7 +11,7 @@
      
       >
 
-    <Grid >
+    <Grid Margin="10">
        
         
         <Grid.RowDefinitions>
@@ -25,26 +25,31 @@
         </Grid.ColumnDefinitions>
  <GridSplitter Grid.Column="0" Grid.Row="0" Width="3" Grid.RowSpan="2" />
 
-        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="10 0 10 10">
-            <TextBlock FontSize="30"  Margin="10 0 0 0">Zákazníci</TextBlock>
-            <controls:ControlPanel x:Name="ControlPanel"></controls:ControlPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0 0 10 10">
+            <TextBlock FontSize="30"  Margin="0 0 0 0">Zákazníci</TextBlock>
+            <controls:ControlPanel x:Name="ControlPanel" Margin="0 5 0 0"></controls:ControlPanel>
         </StackPanel>
         
         
-        <DataGrid Grid.Row="1"  Margin="10 0 10 10" IsReadOnly="True"
+        <DataGrid Grid.Row="1"  Margin="0 0 10 10" IsReadOnly="True"
                   x:Name="customersGrid"  SelectionMode="Single"
-                  AutoGenerateColumns="True"
+                  AutoGenerateColumns="false"
                   ItemsSource="{Binding Path=Data}"  
                   Style="{StaticResource dataGridStyle}"
                   CellStyle="{StaticResource datagridCell}" 
                   CanUserAddRows="False"
                    SelectionChanged="customersGrid_SelectionChanged"
                   >
-
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Jméno" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Příjmení" Binding="{Binding Surname}"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="*"></DataGridTemplateColumn>
+            </DataGrid.Columns>
            
         </DataGrid>
         <TextBlock Grid.Row="1" Grid.Column="0" x:Name="tblockEmptySearchResult" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" FontStyle="Italic">žádný záznam nebyl nalezen</TextBlock>
         
-        <controls:CustomerEditUserControl Margin="10 0 10 10" x:Name="customerDetailsUserControl"  Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"></controls:CustomerEditUserControl>
+        <controls:CustomerEditUserControl Margin="10 0 0 0" x:Name="customerDetailsUserControl"  Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"></controls:CustomerEditUserControl>
     </Grid>
 </Page>

@@ -20,7 +20,7 @@
                     </Button>
             <TextBox x:Name="tbSearch"  Padding="1" FontSize="15"></TextBox>
         </DockPanel>
-        <StackPanel Orientation="Horizontal" Margin="0 2 0 0">
+        <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <Button Height="23" Name="btnFirst" Width="40"   Opacity="0.75" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0 0 3 0" ToolTip="začátek" >
                         <Button.Content>
                             <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/double-left-arrow.png" Style="{StaticResource ImageFading}"></Image>
@@ -31,7 +31,7 @@
                             <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/left-arrow.png" Style="{StaticResource ImageFading}"></Image>
                         </Button.Content>
                     </Button>
-                    <Label x:Name="lblpageInformation"  Height="auto" Width="auto" MinWidth="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="3" />
+                    <TextBlock x:Name="lblpageInformation"  Height="auto" Width="auto" MinWidth="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="3" />
                     <Button Height="23"  Name="btnNext" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40" Opacity="0.75" Margin="0 0 3 0" ToolTip="další">
                         <Button.Content>
                             <Image Margin="3" Source="pack://application:,,,/RibbonApp;component/Images/Icon/right-arrow.png" Style="{StaticResource ImageFading}"></Image> 

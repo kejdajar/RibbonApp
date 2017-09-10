@@ -81,7 +81,7 @@ namespace RibbonApp.UserControls
                 }
                 else
                 {
-                   _cp.lblpageInformation.Content = "0 výsledků";
+                   _cp.lblpageInformation.Text = "0 výsledků";
                     _cp.btnFirst.IsEnabled = false;
                     _cp.btnNext.IsEnabled = false;
                     _cp.btnLast.IsEnabled = false;
@@ -241,7 +241,7 @@ namespace RibbonApp.UserControls
             }
 
 
-            _cp.lblpageInformation.Content = _pageNumber.ToString() + " / " + (totalPages).ToString();
+            _cp.lblpageInformation.Text = _pageNumber.ToString() + " / " + (totalPages).ToString();
         }
 
     }

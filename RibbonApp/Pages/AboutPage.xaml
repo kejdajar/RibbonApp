@@ -9,7 +9,7 @@
       MinWidth="500"
       Title="AboutPage">
 
-    <Grid TextElement.FontSize="17" >
+    <Grid TextElement.FontSize="16" >
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -19,7 +19,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
-        <Border BorderThickness="0 0 1 0" BorderBrush="SteelBlue" Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Margin="0 0 0 20"/>
+        <Border BorderThickness="0 0 1 0" BorderBrush="#dbdbdb" Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Margin="0 0 0 20"/>
         
         <DockPanel  Grid.Column="0" Grid.Row="0" LastChildFill="True">
          <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/iconPng.png" DockPanel.Dock="Left" Width="50" Height="50" Margin="5" />

@@ -101,6 +101,8 @@ namespace RibbonApp
             newCustomerWindow.Owner = Configuration.MainWindow;
             newCustomerWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             newCustomerWindow.ShowDialog();
+
+            if (customersListPage != null) // okno nemuselo být ještě otevřeno
             customersListPage.ReloadDatagrid();
         }
 

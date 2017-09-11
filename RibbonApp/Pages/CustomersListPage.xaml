@@ -31,7 +31,7 @@
         </StackPanel>
         
         
-        <DataGrid Grid.Row="1"  Margin="0 0 10 0" IsReadOnly="True"
+        <DataGrid Grid.Row="1"  Margin="0 0 10 0" IsReadOnly="True" CanUserSortColumns="False"
                   x:Name="customersGrid"  SelectionMode="Single"
                   AutoGenerateColumns="false"
                   ItemsSource="{Binding Path=Data}"  

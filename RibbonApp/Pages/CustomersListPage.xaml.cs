@@ -39,8 +39,6 @@ namespace RibbonApp.Pages
         public ControlPanelGeneric<Customer> genericContainer;
         public void ReloadDatagrid()
         {
-           
-
             // Inicializace vyhledávače
             //ControlPanel.DataToTransform = data;
             //ControlPanel.GetAllDataMethod += () => { return new ObservableCollection<Customer>(Configuration.DatabaseHelper.GetAllCustomers()); };
@@ -55,7 +53,28 @@ namespace RibbonApp.Pages
             genericContainer.DataToTransform = data;
             genericContainer.GetAllDataMethod += () => { return new ObservableCollection<Customer>(Configuration.DatabaseHelper.GetAllCustomers()); };
 
-            genericContainer.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Customer>(dataGridDataSource.Where(c => (c.Name.ToLower() +" " + c.Surname.ToLower()).Contains(search.ToLower())).ToList()); };
+            //  genericContainer.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Customer>(dataGridDataSource.Where(c =>  (c.Name.ToLower() + " " + c.Surname.ToLower()).Contains(search.ToLower())).ToList());  };
+            
+            genericContainer.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Customer>(dataGridDataSource.Where(c => {
+
+                string customerData = c.Name.ToLower() + " " + c.Surname.ToLower();
+               
+                    List<string> keywords = search.Split(' ').ToList();
+                    foreach (string keyword in keywords)
+                    {
+                        if (customerData.Contains(keyword.ToLower().Trim()))
+                        {
+                            return true;
+                        }
+
+                    }
+                            
+
+                return false;
+
+
+            }));  };
+
             genericContainer.SearchResultIsEmpty += () => { customersGrid.Visibility = Visibility.Hidden; tblockEmptySearchResult.Visibility = Visibility.Visible; };
             genericContainer.SearchResultIsNotEmpty += () => { customersGrid.Visibility = Visibility.Visible; tblockEmptySearchResult.Visibility = Visibility.Hidden; };
 
@@ -110,6 +129,8 @@ namespace RibbonApp.Pages
             }
             
         }
+
+      
 
        
     }

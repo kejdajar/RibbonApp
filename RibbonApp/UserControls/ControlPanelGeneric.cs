@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 
 namespace RibbonApp.UserControls
 {
-    class ControlPanelGeneric<T>
+    public class ControlPanelGeneric<T>
     {
         public ControlPanelGeneric(ControlPanel controlPanel)
         {
@@ -148,7 +148,7 @@ namespace RibbonApp.UserControls
         public Func<ObservableCollection<T>,string, ObservableCollection<T>> OrderByAlphabetical;
         public Func<ObservableCollection<T>, string,ObservableCollection<T>> OrderByReverseAlphabetical;
 
-        private void Search()
+        public void Search(string searchString = null)
         {
            _cp.cbNumberOfRecords.IsEnabled = true;
             _cp.btnPrev.IsEnabled = true;
@@ -156,7 +156,9 @@ namespace RibbonApp.UserControls
             _cp.btnFirst.IsEnabled = true;
             _cp.btnLast.IsEnabled = true;
 
-            string search = _cp.tbSearch.Text;
+         
+           string search = _cp.tbSearch.Text;
+            
 
             if (!string.IsNullOrWhiteSpace(search))
             {

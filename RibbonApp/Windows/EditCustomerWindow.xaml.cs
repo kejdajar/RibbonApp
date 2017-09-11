@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using RibbonApp.Database;
+using System.Collections.ObjectModel;
 
 namespace RibbonApp.Windows
 {
@@ -50,8 +51,18 @@ namespace RibbonApp.Windows
             this.Close();
 
             // Možná lze aktualizaci GUI vyřešit lépe
-            Configuration.MainWindow.customersListPage.ReloadDatagrid();
+             Configuration.MainWindow.customersListPage.ReloadDatagrid();
+            //var itemsSource = Configuration.MainWindow.customersListPage.customersGrid.ItemsSource;
+            //var editedCustomer = ((IEnumerable<Customer>)itemsSource).Where(c => c.Id == editedCustomerData.Id).Single();
+            //ObservableCollection<Customer> source = ((ObservableCollection<Customer>)Configuration.MainWindow.customersListPage.customersGrid.ItemsSource);
+            //source.Remove(editedCustomer);
+            //source.Add(editedCustomerData);
+            //Configuration.MainWindow.customersListPage.genericContainer.Search();
+          
+
+            Configuration.MainWindow.customersListPage.customerDetailsUserControl.Customer = editedCustomerData;
             Configuration.MainWindow.customersListPage.customerDetailsUserControl.Reload();
+            
         }
     }
 

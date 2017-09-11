@@ -41,6 +41,35 @@ namespace RibbonApp.Pages
             genericContainer.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Order>(dataGridDataSource.Where(c => c.Comment.ToLower().Contains(search.ToLower()))); };
             genericContainer.SearchResultIsEmpty += () => { dgOrders.Visibility = Visibility.Hidden;  };
             genericContainer.SearchResultIsNotEmpty += () => {dgOrders.Visibility = Visibility.Visible; };
+            genericContainer.OrderByCriteria = new List<string> {"Komentář","Id"};
+            genericContainer.OrderByAlphabetical += (dataToSort, criterion) =>
+            {
+                if (criterion == "Komentář")
+                {
+                    return new ObservableCollection<Order>(dataToSort.OrderBy(o => o.Comment));
+                }
+                else if (criterion == "Id")
+                {
+                    return new ObservableCollection<Order>(dataToSort.OrderBy(o => o.Id));
+                }
+                else return dataToSort;
+            };
+
+            genericContainer.OrderByReverseAlphabetical += (dataToSort, criterion) =>
+            {
+                if (criterion == "Komentář")
+                {
+                    return new ObservableCollection<Order>(dataToSort.OrderByDescending(o => o.Comment));
+                }
+                else if (criterion == "Id")
+                {
+                    return new ObservableCollection<Order>(dataToSort.OrderByDescending(o => o.Id));
+                }
+                else return dataToSort;
+            };
+
+
+
             genericContainer.Transform();
 
             

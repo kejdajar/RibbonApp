@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RibbonApp.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" x:Name="Control" Loaded="Control_Loaded">
+             d:DesignHeight="400" d:DesignWidth="300" x:Name="Control" Loaded="Control_Loaded">
     <Grid >
         <Grid x:Name="mainContainer" Visibility="Visible">
         <Grid.RowDefinitions>
@@ -49,14 +49,26 @@
                         <DataGridTemplateColumn Width="*"></DataGridTemplateColumn>
                     </DataGrid.Columns>
             </DataGrid>
-                <TextBlock Grid.Row="1" FontStyle="Italic" x:Name="noneOrdersMessage" Visibility="Hidden" >Žádné objednávky nejsou k dispozici </TextBlock>
+                <GroupItem Grid.Row="1" x:Name="noneOrdersMessage" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel>
+
+                    <Image Width="20" Height="20"  Margin="10" Source="pack://application:,,,/RibbonApp;component/Images/Icon/empty-notification.png"></Image>
+                     <TextBlock  FontStyle="Italic"  FontSize="17">Žádné objednávky nejsou k dispozici </TextBlock>
+                </StackPanel>
+                </GroupItem>
+
+               
         </Grid>
         </Grid>
         
-         <Grid x:Name="noneUserContainer" Visibility="Hidden">
+         <GroupItem x:Name="noneUserContainer" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+
+                <Image Width="20" Height="20"  Margin="10" Source="pack://application:,,,/RibbonApp;component/Images/Icon/empty-notification.png"></Image>
+               <TextBlock  FontSize="17" FontStyle="Italic"> žádný zákazník nebyl zvolen </TextBlock>
+            </StackPanel>
             
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" FontStyle="Italic"> žádný zákazník nebyl zvolen </TextBlock>
-           </Grid>
+           </GroupItem>
     </Grid>
    
 </UserControl>

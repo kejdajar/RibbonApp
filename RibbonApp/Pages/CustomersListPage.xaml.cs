@@ -35,6 +35,8 @@ namespace RibbonApp.Pages
             ReloadDatagrid();
         }
 
+
+        public ControlPanelGeneric<Customer> genericContainer;
         public void ReloadDatagrid()
         {
            
@@ -49,10 +51,11 @@ namespace RibbonApp.Pages
 
             var data = new ObservableCollection<Customer>( Configuration.DatabaseHelper.GetAllCustomers());
             customersGrid.ItemsSource = data;
-            ControlPanelGeneric<Customer> genericContainer = new ControlPanelGeneric<Customer>(ControlPanel);
+            genericContainer = new ControlPanelGeneric<Customer>(ControlPanel);
             genericContainer.DataToTransform = data;
             genericContainer.GetAllDataMethod += () => { return new ObservableCollection<Customer>(Configuration.DatabaseHelper.GetAllCustomers()); };
-            genericContainer.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Customer>(dataGridDataSource.Where(c => c.Name.ToLower().Contains(search.ToLower()) || c.Surname.ToLower().Contains(search.ToLower())).ToList()); };
+
+            genericContainer.SearchMethod += (dataGridDataSource, search) => { return new ObservableCollection<Customer>(dataGridDataSource.Where(c => (c.Name.ToLower() +" " + c.Surname.ToLower()).Contains(search.ToLower())).ToList()); };
             genericContainer.SearchResultIsEmpty += () => { customersGrid.Visibility = Visibility.Hidden; tblockEmptySearchResult.Visibility = Visibility.Visible; };
             genericContainer.SearchResultIsNotEmpty += () => { customersGrid.Visibility = Visibility.Visible; tblockEmptySearchResult.Visibility = Visibility.Hidden; };
 
@@ -100,8 +103,12 @@ namespace RibbonApp.Pages
 
         private void customersGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            customerDetailsUserControl.Customer = (customersGrid.SelectedItem as Customer);
-            customerDetailsUserControl.Reload();
+            if(customersGrid.SelectedItem != null)
+            {
+                customerDetailsUserControl.Customer = (customersGrid.SelectedItem as Customer);
+                customerDetailsUserControl.Reload();
+            }
+            
         }
 
        

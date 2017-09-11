@@ -31,7 +31,7 @@
         </StackPanel>
         
         
-        <DataGrid Grid.Row="1"  Margin="0 0 10 10" IsReadOnly="True"
+        <DataGrid Grid.Row="1"  Margin="0 0 10 0" IsReadOnly="True"
                   x:Name="customersGrid"  SelectionMode="Single"
                   AutoGenerateColumns="false"
                   ItemsSource="{Binding Path=Data}"  
@@ -48,7 +48,15 @@
             </DataGrid.Columns>
            
         </DataGrid>
-        <TextBlock Grid.Row="1" Grid.Column="0" x:Name="tblockEmptySearchResult" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" FontStyle="Italic">žádný záznam nebyl nalezen</TextBlock>
+       
+        <GroupItem Grid.Row="1" Grid.Column="0" x:Name="tblockEmptySearchResult" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <StackPanel>
+            
+            <Image Width="20" Height="20"  Margin="10" Source="pack://application:,,,/RibbonApp;component/Images/Icon/empty-notification.png"></Image>
+                <TextBlock  FontSize="17" FontStyle="Italic">žádný záznam nebyl nalezen</TextBlock>
+            </StackPanel>
+        </GroupItem>
         
         <controls:CustomerEditUserControl Margin="10 0 0 0" x:Name="customerDetailsUserControl"  Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"></controls:CustomerEditUserControl>
     </Grid>

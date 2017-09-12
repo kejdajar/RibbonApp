@@ -42,6 +42,7 @@
             <DataGrid Grid.Row="1" x:Name="dgCustomerOrders" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single"
                       Style="{StaticResource dataGridStyle}"
                   CellStyle="{StaticResource datagridCell}" 
+                      GotFocus="dgCustomerOrders_GotFocus"
                       >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" ></DataGridTextColumn>

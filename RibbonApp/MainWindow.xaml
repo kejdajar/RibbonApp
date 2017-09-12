@@ -74,7 +74,7 @@
                 </Fluent:RibbonGroupBox>
 
 
-                <Fluent:RibbonGroupBox Header="Export">
+                <Fluent:RibbonGroupBox Header="Export" IsEnabled="False" x:Name="exportGroup">
                     <Fluent:Button Header="XML" x:Name="XMLButton" Click="XMLButton_Click">
                         <Fluent:Button.LargeIcon>
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/xml.png" />

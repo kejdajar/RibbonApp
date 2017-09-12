@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Objednávky" Style="{StaticResource header1}" Grid.Row="0"></TextBlock>
         <controls:ControlPanel  x:Name="controlPanel"  Grid.Row="1" Grid.Column="0" Margin="0 0 0 10"></controls:ControlPanel>
-        <DataGrid Grid.Row="2"  Style="{StaticResource dataGridStyle}" IsReadOnly="True" AutoGenerateColumns="False" CanUserSortColumns="False"
+        <DataGrid Grid.Row="2"  Style="{StaticResource dataGridStyle}" IsReadOnly="True" AutoGenerateColumns="False" CanUserSortColumns="False" GotFocus="dgOrders_GotFocus"
                   CellStyle="{StaticResource datagridCell}"  x:Name="dgOrders"  SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>

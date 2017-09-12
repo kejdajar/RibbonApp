@@ -80,5 +80,11 @@ namespace RibbonApp.Pages
             ReloadGrid();
             
         }
+
+        private void dgOrders_GotFocus(object sender, RoutedEventArgs e)
+        {
+            RibbonApp.Printing.PrintHelper.DataToExport = ((DataGrid)sender).ItemsSource;
+            RibbonApp.Printing.PrintHelper.ExportDataName = "CustomerOrdersDataGrid";
+        }
     }
 }

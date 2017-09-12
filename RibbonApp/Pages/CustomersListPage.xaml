@@ -38,7 +38,8 @@
                   Style="{StaticResource dataGridStyle}"
                   CellStyle="{StaticResource datagridCell}" 
                   CanUserAddRows="False"
-                   SelectionChanged="customersGrid_SelectionChanged"
+                  SelectionChanged="customersGrid_SelectionChanged"
+                  GotFocus="customersGrid_GotFocus"                
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>

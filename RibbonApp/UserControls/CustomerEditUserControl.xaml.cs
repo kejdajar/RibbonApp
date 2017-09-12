@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using RibbonApp.Database;
 using RibbonApp.Model;
 using RibbonApp.Windows;
+using System.Collections.ObjectModel;
 
 namespace RibbonApp.UserControls
 {
@@ -64,7 +65,7 @@ namespace RibbonApp.UserControls
             if(customer.Orders != null && customer.Orders.Count>0)
             {
                 dgCustomerOrders.Visibility = Visibility.Visible;
-                dgCustomerOrders.ItemsSource = customer.Orders;
+                dgCustomerOrders.ItemsSource = new ObservableCollection<Order>(customer.Orders);
             }
             else
             {
@@ -82,6 +83,12 @@ namespace RibbonApp.UserControls
             editCustomerWindow.Owner = RibbonApp.Database.Configuration.MainWindow;
             editCustomerWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             editCustomerWindow.ShowDialog();
+        }
+
+        private void dgCustomerOrders_GotFocus(object sender, RoutedEventArgs e)
+        {
+            RibbonApp.Printing.PrintHelper.DataToExport = ((DataGrid)sender).ItemsSource;
+            RibbonApp.Printing.PrintHelper.ExportDataName = "CustomerOrdersDataGrid";
         }
     }
 }

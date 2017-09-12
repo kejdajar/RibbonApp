@@ -36,7 +36,8 @@ namespace RibbonApp
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {         
+        {
+           
             // "this" představuje instanci této třídy - v jiných částích programu je potřeba reference na toto hlavní okno
             Configuration.Initialize(this);
 
@@ -64,20 +65,20 @@ namespace RibbonApp
 
         private void XMLButton_Click(object sender, RoutedEventArgs e)
         {
-            EntityViewModel vm = defaultPage.DataContext as EntityViewModel;          
+           // EntityViewModel vm = defaultPage.DataContext as EntityViewModel;          
             ExportWindow ew = new ExportWindow();
             ew.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ew.Data = vm.Data.ToList();
+          //  ew.Data = vm.Data.ToList();
             ew.ExportType = ExportType.XML;
             ew.ShowDialog();
         }
 
         private void HTMLButton_Click(object sender, RoutedEventArgs e)
         {
-            EntityViewModel vm = defaultPage.DataContext as EntityViewModel;
+           // EntityViewModel vm = defaultPage.DataContext as EntityViewModel;
             ExportWindow ew = new ExportWindow();
             ew.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ew.Data = vm.Data.ToList();
+           // ew.Data = vm.Data.ToList();
             ew.ExportType = ExportType.HTML;
             ew.ShowDialog();
         }

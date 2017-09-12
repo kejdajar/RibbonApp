@@ -17,24 +17,21 @@
 
 
     <Grid Margin="10" Width="400">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />           
-        </Grid.RowDefinitions>
         
-       
-
-
-
-        <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
 
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/editCustomer.png" Width="35" Height="35"></Image>
+            <DockPanel>
+                <Image  Source="pack://application:,,,/RibbonApp;component/Images/Icon/editCustomer.png" Width="35" Height="35"></Image>
                 <TextBlock x:Name="tblockNameOfCustomer" Text="Jméno zákazníka" Margin="10 0 0 0" Style="{StaticResource header1}" ></TextBlock>
-            </StackPanel>
+            <Button x:Name="btnDeleteCustomer" HorizontalAlignment="Right" Width="30" Height="30" Margin="5" ToolTip="odstranit zákazníka" Click="btnDeleteCustomer_Click">
+                <Button.Content>
+                <Image Width="20" Height="20" Margin="1" Source="pack://application:,,,/RibbonApp;component/Images/Icon/trash-bin.png" ></Image>
+            </Button.Content>
+            </Button>
+            </DockPanel>
             
 
             <StackPanel Grid.Row="1" TextElement.FontSize="15">
@@ -57,7 +54,7 @@
 
 
 
-        </Grid>
+       
 
 
 

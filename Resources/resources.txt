@@ -42,3 +42,9 @@ https://www.flaticon.com/free-icon/alphabetical-order_31283#term=order ascending
 
 order-reverse-alphabetical.png
 https://www.flaticon.com/free-icon/sort-from-a-to-z-in-alphabetical-ascending-order_31013#term=order ascending&page=1&position=6
+
+empty-notification.png
+https://www.flaticon.com/free-icon/stop-or-prohibition-sign_40153#term=slash&page=1&position=1
+
+trash-bin.png
+https://www.flaticon.com/free-icon/recycling-container_54421#term=trash icon&page=1&position=4

@@ -310,6 +310,7 @@
     <Content Include="CompactDbDll\sqlceoledb40.dll" />
     <Content Include="CompactDbDll\sqlceqp40.dll" />
     <Content Include="CompactDbDll\sqlcese40.dll" />
+    <Resource Include="Images\Icon\trash-bin.png" />
     <Resource Include="Images\Icon\empty-notification.png" />
     <Resource Include="Images\Icon\order-reverse-alphabetical.png" />
     <Resource Include="Images\Icon\order-alphabetical.png" />

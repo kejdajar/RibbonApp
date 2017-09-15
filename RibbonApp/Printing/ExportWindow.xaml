@@ -1,35 +1,16 @@
-﻿<Fluent:RibbonWindow 
-                    
-                     xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
-                    
-                   
-                    
-                   
-                   
-                  
-                     FlowDirection="LeftToRight"
-                  
+﻿<Fluent:RibbonWindow xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"  
+                     FlowDirection="LeftToRight"                  
                      MinWidth="80"
-                     MinHeight="60"
-                 
-                      
-                
-                     
-                     
-                     
-       x:Class="RibbonApp.Printing.ExportWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RibbonApp.Printing"
-        mc:Ignorable="d"
-        Loaded="Window_Loaded"
-        Title="Export Window" Height="400" Width="600">
-
-
-
-
+                     MinHeight="60"                        
+                     x:Class="RibbonApp.Printing.ExportWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:local="clr-namespace:RibbonApp.Printing"
+                     mc:Ignorable="d"
+                     Loaded="Window_Loaded"
+                     Title="Export" Height="400" Width="600">
 
     <Grid >
         <Grid.RowDefinitions>
@@ -40,91 +21,52 @@
         
         <Fluent:Ribbon Grid.Row="0">
 
-           
-
-
-
-            <!--Tabs
-             Přepínání pomocé IsSelected = true-->
+            <!--Tabs, přepínání pomocí IsSelected=true -->
             <Fluent:RibbonTabItem Header="Hlavní" >
-                <Fluent:RibbonGroupBox Header="Stránky">
-                    <Fluent:Button Header="Zpět" x:Name="BackButton" Click="BackButton_Click"
-                                  Icon="pack://application:,,,/RibbonApp;component/Images/Icon/previous.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/previous.png" />
-                    
-                </Fluent:RibbonGroupBox>
-
-                <Fluent:RibbonGroupBox Header="Export">
-                    <Fluent:ComboBox IsEditable="False"
-                                     InputWidth="150"
-                                     Header="Fonts"
-                                     ItemsSource="{Binding FontsViewModel.FontsData}"
-                                     KeyTip="FD" />
-                </Fluent:RibbonGroupBox>
-
-
-                <Fluent:RibbonGroupBox Header="Formát exportu">
-                    <Fluent:ToggleButton Header="XML"
-                                         GroupName="Group1" />
-                    <Fluent:ToggleButton Header="HTML"
-                                         GroupName="Group1" />
-                    <Fluent:ToggleButton Header="PDF"
-                                         GroupName="Group1"
-                                         IsChecked="{Binding Path=IsCheckedToggleButton3}" />
-
-                    <Fluent:DropDownButton Header="ToggleButton width test">
-                        <Grid ShowGridLines="True">
-                            <Grid.Resources>
-                                <Style TargetType="{x:Type Fluent:ToggleButton}">
-                                    <Setter Property="GroupName"
-                                            Value="MonthsGroup" />
-                                    <Setter Property="Width"
-                                            Value="100" />
-                                </Style>
-                            </Grid.Resources>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Fluent:ToggleButton Grid.Column="0">January</Fluent:ToggleButton>
-                            <Fluent:ToggleButton Grid.Column="1">February</Fluent:ToggleButton>
-                            <Fluent:ToggleButton Grid.Column="2">March</Fluent:ToggleButton>
-                            <Fluent:ToggleButton Grid.Column="3">April</Fluent:ToggleButton>
-                            <Fluent:ToggleButton Grid.Column="4">May</Fluent:ToggleButton>
-                            <Fluent:ToggleButton Grid.Column="5">June</Fluent:ToggleButton>
-                            <Fluent:ToggleButton Grid.Column="6">July</Fluent:ToggleButton>
-                            <Fluent:ToggleButton Grid.Column="7">August</Fluent:ToggleButton>
-                            <Fluent:ToggleButton Grid.Column="8">September</Fluent:ToggleButton>
-                            <Fluent:ToggleButton Grid.Column="9">October</Fluent:ToggleButton>
-                            <Fluent:ToggleButton Grid.Column="10">November</Fluent:ToggleButton>
-                            <Fluent:ToggleButton Grid.Column="11">December</Fluent:ToggleButton>
-                        </Grid>
-                    </Fluent:DropDownButton>
-                </Fluent:RibbonGroupBox>
-
-
-                <Fluent:RibbonGroupBox>
-                    <Fluent:Button Header="Button with rectangle as icon" >
-                        <Fluent:Button.Icon>
-                            <Rectangle Fill="Green"
-                                        />
-                        </Fluent:Button.Icon>
+                <Fluent:RibbonGroupBox Header="">
+                    <Fluent:Button Header="Zpět" x:Name="BackButton" Click="BackButton_Click"    >
                         <Fluent:Button.LargeIcon>
-                            <Rectangle Fill="Blue"
-                                      />
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/previous.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
+
                 </Fluent:RibbonGroupBox>
+                
+           
+
+                <Fluent:RibbonGroupBox Header="Formát">
+                    <Fluent:ToggleButton Header="XML" x:Name="toggleBtnXml" 
+                                         GroupName="Group1" >
+                        <Fluent:ToggleButton.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/xml.png" />
+                        </Fluent:ToggleButton.LargeIcon>
+                    </Fluent:ToggleButton>
+
+                    <Fluent:ToggleButton Header="HTML" x:Name="toggleBtnHtml" 
+                                         GroupName="Group1" >
+                        <Fluent:ToggleButton.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/html.png" />
+                        </Fluent:ToggleButton.LargeIcon>
+                    </Fluent:ToggleButton>
+
+
+                   
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="">
+                    <Fluent:Button Header="Tisk" x:Name="btnPrint" Click="btnPrint_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/printer.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Uložit" x:Name="btnSave" Click="btnSave_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Margin="1.5" Source="pack://application:,,,/RibbonApp;component/Images/Icon/save.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+
+                </Fluent:RibbonGroupBox>
+
 
             </Fluent:RibbonTabItem>
             

@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using System.IO;
 
 namespace RibbonApp.Printing
 {
@@ -30,11 +31,10 @@ namespace RibbonApp.Printing
         {           
             InitializeComponent();
             InitializePrintHelper();
-
         }
 
         private void InitializePrintHelper()
-        {
+        {          
             if (PrintHelper.ExportDataName == "CustomersDataGrid")
             {
                 printHelper.SetGenerateXmlFile += (object collection) => {
@@ -97,17 +97,28 @@ namespace RibbonApp.Printing
             }
         }
 
-        public ExportType ExportType { get; set; } = ExportType.XML; // Defaultně xml
+        public ExportType ExportType { get; set; }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            switch(ExportType)
+        {            
+            switch (ExportType)
             {
-                case ExportType.XML: Xml();break;
+                case ExportType.XML: toggleBtnXml.IsChecked = true; break;
+                case ExportType.HTML: toggleBtnHtml.IsChecked = true; break;
+            }
+
+            switch (ExportType)
+            {
+                case ExportType.XML: Xml(); break;
                 case ExportType.HTML: Html(); break;
                 case ExportType.PDF: Pdf(); break;
                 default: Xml(); break;
-            }            
+            }
+
+            // Události připojit až když budou toggle buttony nasteveny, jinak se spustí událost
+            // checked již při jejich nastavování v code-behid
+            toggleBtnHtml.Checked += toggleBtnHtml_Checked;
+            toggleBtnXml.Checked += toggleBtnXml_Checked;
         }
 
         private void Pdf()
@@ -131,10 +142,64 @@ namespace RibbonApp.Printing
         {
             this.Close();
         }
+
+        private void toggleBtnHtml_Checked(object sender, RoutedEventArgs e)
+        {
+        
+            ExportType = ExportType.HTML;
+            Html();
+        }
+
+        private void toggleBtnXml_Checked(object sender, RoutedEventArgs e)
+        {
+          
+            ExportType = ExportType.XML;
+            Xml();
+        }
+
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            mshtml.IHTMLDocument2 doc = webBrowser1.Document as mshtml.IHTMLDocument2;
+            doc.execCommand("Print", true, null);
+
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            switch(ExportType)
+            {
+                case ExportType.XML: SaveXml();break;
+                case ExportType.HTML: SaveHtml(); break;
+
+            }
+        }
+        private void SaveXml()
+        {
+            string xml = printHelper.XDocumentToFullString(printHelper.GenerateXmlFile());
+
+            Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
+            sfd.FileName = PrintHelper.ExportDataName;
+            sfd.Filter = "xml |*.xml";
+            if (sfd.ShowDialog() == true)
+                File.WriteAllText(sfd.FileName, xml);
+        }
+
+        private void SaveHtml()
+        {
+            XDocument ms = printHelper.GenerateXmlFile();
+            string html = printHelper.XDocumentToFullString(printHelper.TransformXslt(ms, xsltString));
+
+            Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
+            sfd.FileName = PrintHelper.ExportDataName;
+            sfd.Filter = "html |*.html";
+            if (sfd.ShowDialog() == true)
+                File.WriteAllText(sfd.FileName, html);
+
+        }
     }
 
     public enum ExportType
     {
-       XML, HTML, PDF
+       HTML,XML, PDF
     }
 }

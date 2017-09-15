@@ -70,6 +70,7 @@ namespace RibbonApp
             ew.WindowStartupLocation = WindowStartupLocation.CenterScreen;
           //  ew.Data = vm.Data.ToList();
             ew.ExportType = ExportType.XML;
+         
             ew.ShowDialog();
         }
 
@@ -80,6 +81,7 @@ namespace RibbonApp
             ew.WindowStartupLocation = WindowStartupLocation.CenterScreen;
            // ew.Data = vm.Data.ToList();
             ew.ExportType = ExportType.HTML;
+          
             ew.ShowDialog();
         }
 

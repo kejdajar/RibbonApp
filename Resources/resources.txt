@@ -48,3 +48,9 @@ https://www.flaticon.com/free-icon/stop-or-prohibition-sign_40153#term=slash&pag
 
 trash-bin.png
 https://www.flaticon.com/free-icon/recycling-container_54421#term=trash icon&page=1&position=4
+
+printer.png
+https://www.flaticon.com/free-icon/printer_553766#term=print&page=1&position=58
+
+save.png
+https://www.flaticon.com/free-icon/save_148730#term=save&page=1&position=2

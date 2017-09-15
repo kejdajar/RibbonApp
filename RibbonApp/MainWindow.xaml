@@ -16,8 +16,7 @@
                      WindowState="Normal"      
                      Loaded="Window_Loaded"                    
                      xmlns:sys="clr-namespace:System;assembly=mscorlib"   
-                     WindowStartupLocation="CenterScreen"
-                     
+                     WindowStartupLocation="CenterScreen"                     
                      >
 
     <Grid >
@@ -50,26 +49,32 @@
             <!-- Přepínání pomocé IsSelected = true-->
             <Fluent:RibbonTabItem Header="Hlavní" >
                 <Fluent:RibbonGroupBox Header="Úlohy">
-                    <Fluent:Button Header="Seznam" Click="Button_Click"
-                                  Icon="pack://application:,,,/RibbonApp;component/Images/Icon/edit.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/edit.png" />
-                    
-                
+                    <Fluent:Button Header="Seznam" Click="Button_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/edit.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
 
-                
-                    <Fluent:Button x:Name="CustomersListBtn" Header="Seznam zákazníků" Click="CustomersListBtn_Click"
-                                Icon="pack://application:,,,/RibbonApp;component/Images/Icon/customers.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/customers.png" />
-                   
-                    <Fluent:Button x:Name="CustomerAddBtn" Header="Nový zákazník" Click="CustomerAddBtn_Click"
-                                Icon="pack://application:,,,/RibbonApp;component/Images/Icon/customer.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/customer.png" />
-                
 
-               
-                    <Fluent:Button x:Name="OrderListBtn" Header="Objednávky" Click="OrderListBtn_Click"
-                                Icon="pack://application:,,,/RibbonApp;component/Images/Icon/orderList.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/orderList.png" />
+                    <Fluent:Button x:Name="CustomersListBtn" Header="Seznam zákazníků" Click="CustomersListBtn_Click"                           >
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/customers.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+
+                    <Fluent:Button x:Name="CustomerAddBtn" Header="Nový zákazník" Click="CustomerAddBtn_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/customer.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+
+
+
+                    <Fluent:Button x:Name="OrderListBtn" Header="Objednávky" Click="OrderListBtn_Click" >
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/orderList.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
 
                 </Fluent:RibbonGroupBox>
 
@@ -110,9 +115,12 @@
             <Fluent:RibbonTabItem Header="Pokročilé" >
                 <Fluent:RibbonGroupBox Header="Databáze">
                     <Fluent:Button x:Name="OpenDatabaseFolder" Header="Otevřít složku DB"
-                                 Click="OpenDatabaseFolder_Click"
-                                   Icon="pack://application:,,,/RibbonApp;component/Images/Icon/database.png"
-                                LargeIcon="pack://application:,,,/RibbonApp;component/Images/Icon/database.png" />
+                                 Click="OpenDatabaseFolder_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/database.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                                   
 
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>

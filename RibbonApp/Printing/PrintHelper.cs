@@ -15,14 +15,17 @@ namespace RibbonApp.Printing
 {
     class PrintHelper
     {
-
         public PrintHelper()
-        {
-          
-        }        
-
+        {          
+        } 
+        
+        // Každá tabulka má jiné sloupce a proto je potřeba napsat custom kód pro export každé tabulky zvlášť.
+        // ExportDataName se používá poté v konstrukci SWITCH, kde se tento custom kód píše. ExportDataName
+        // musí být unikátní pro každou další tabulku.
         public static string ExportDataName;
 
+        // Pokud někde v kódu naplním proměnnou DataToExport, tak se odemkne panel pro export.
+        // Pokud naplím hodnotou null, tak se panel zamkne.
         private static object _dataToExport;   
         public static object DataToExport
         {
@@ -39,8 +42,11 @@ namespace RibbonApp.Printing
             }
         }
 
-
+        // Funkce, která bere jako parametr data k exportu a vrací XDocument a je
+        // namíru napsaná danému datovému zdroji
         public Func<Object, XDocument> SetGenerateXmlFile;
+
+        // Zavolání funkce SetGenerateXmlFile(object kolekceDat)
         public XDocument GenerateXmlFile()
         {
            return SetGenerateXmlFile(_dataToExport);  

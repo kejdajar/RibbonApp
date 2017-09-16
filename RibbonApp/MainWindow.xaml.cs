@@ -85,6 +85,14 @@ namespace RibbonApp
             ew.ShowDialog();
         }
 
+        private void PDFButton_Click(object sender, RoutedEventArgs e)
+        {           
+            ExportWindow ew = new ExportWindow();
+            ew.WindowStartupLocation = WindowStartupLocation.CenterScreen;           
+            ew.ExportType = ExportType.PDF;
+            ew.ShowDialog();
+        }
+
         private void OpenDatabaseFolder_Click(object sender, RoutedEventArgs e)
         {
             string databaseFileFolder = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), RibbonApp.Database.Configuration.NameOfApplication);
@@ -114,5 +122,7 @@ namespace RibbonApp
             orderListPage = new OrderListPage();
             frDefult.Navigate(orderListPage);
         }
+
+        
     }
 }

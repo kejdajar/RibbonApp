@@ -48,9 +48,15 @@
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/html.png" />
                         </Fluent:ToggleButton.LargeIcon>
                     </Fluent:ToggleButton>
-
-
                    
+                    <Fluent:ToggleButton Header="PDF" x:Name="toggleBtnPdf" 
+                                         GroupName="Group1" >
+                        <Fluent:ToggleButton.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/pdf.png" />
+                        </Fluent:ToggleButton.LargeIcon>
+                    </Fluent:ToggleButton>
+
+
                 </Fluent:RibbonGroupBox>
 
                 <Fluent:RibbonGroupBox Header="">
@@ -101,6 +107,7 @@
         
         
         <WebBrowser Grid.Row="1" x:Name="webBrowser1" />
+        
         
     </Grid>
 

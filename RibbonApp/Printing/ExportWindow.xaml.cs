@@ -105,14 +105,14 @@ namespace RibbonApp.Printing
             {
                 case ExportType.XML: toggleBtnXml.IsChecked = true; break;
                 case ExportType.HTML: toggleBtnHtml.IsChecked = true; break;
+                case ExportType.PDF: toggleBtnPdf.IsChecked = true; break;
             }
 
             switch (ExportType)
             {
                 case ExportType.XML: Xml(); break;
                 case ExportType.HTML: Html(); break;
-                case ExportType.PDF: Pdf(); break;
-                default: Xml(); break;
+                case ExportType.PDF: Pdf(); break;             
             }
 
             // Události připojit až když budou toggle buttony nasteveny, jinak se spustí událost
@@ -123,7 +123,19 @@ namespace RibbonApp.Printing
 
         private void Pdf()
         {
-           // TODO: PDF export
+            XDocument ms1 = printHelper.GenerateXmlFile();
+            string html = printHelper.XDocumentToFullString(printHelper.TransformXslt(ms1, xsltString));
+
+            Byte[] res = null;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                var pdf = TheArtOfDev.HtmlRenderer.PdfSharp.PdfGenerator.GeneratePdf(html, PdfSharp.PageSize.A4);
+                pdf.Save(ms);
+                res = ms.ToArray();
+                string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "data.pdf");
+                File.WriteAllBytes(path, res);
+                webBrowser1.Navigate(path);
+            }
         }
 
         private void Html()
@@ -159,8 +171,8 @@ namespace RibbonApp.Printing
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
-            mshtml.IHTMLDocument2 doc = webBrowser1.Document as mshtml.IHTMLDocument2;
-            doc.execCommand("Print", true, null);
+            //mshtml.IHTMLDocument2 doc = webBrowser1.Document as mshtml.IHTMLDocument2;
+            //doc.execCommand("Print", true, null);
 
         }
 

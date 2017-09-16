@@ -92,6 +92,13 @@
                         </Fluent:Button.LargeIcon>
 
                     </Fluent:Button>
+
+                    <Fluent:Button Header="PDF" x:Name="PDFButton" Click="PDFButton_Click" >
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/pdf.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                    
                 </Fluent:RibbonGroupBox>
 
 

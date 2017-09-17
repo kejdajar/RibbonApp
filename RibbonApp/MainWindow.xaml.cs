@@ -68,8 +68,8 @@ namespace RibbonApp
             ExportWindow ew = new ExportWindow();
             ew.Owner = this;
             ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;       
-            ew.ExportType = ExportType.XML;         
-            ew.ShowDialog();
+            ew.ExportType = ExportType.XML;
+            ew.Show();
         }
 
         private void HTMLButton_Click(object sender, RoutedEventArgs e)
@@ -77,8 +77,8 @@ namespace RibbonApp
             ExportWindow ew = new ExportWindow();
             ew.Owner = this;
             ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;           
-            ew.ExportType = ExportType.HTML;          
-            ew.ShowDialog();
+            ew.ExportType = ExportType.HTML;
+            ew.Show();
         }
 
         private void PDFButton_Click(object sender, RoutedEventArgs e)
@@ -87,7 +87,7 @@ namespace RibbonApp
             ew.Owner = this;
             ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;         
             ew.ExportType = ExportType.PDF;
-            ew.ShowDialog();
+            ew.Show();
         }
 
         private void OpenDatabaseFolder_Click(object sender, RoutedEventArgs e)

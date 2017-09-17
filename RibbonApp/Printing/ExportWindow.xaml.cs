@@ -268,7 +268,7 @@ namespace RibbonApp.Printing
 
             if(ExportType == ExportType.HTML)
             {
-                webBrowser1.LoadCompleted += InvokePrint; // Tisknout můžeme, až když je okno prohlížeče načtené, jinak se vytiskne prázdná stránka
+                Print(doc);
             }
             
             //  Soubor .xml se vždy vytiskne jako prázdná stránka, proto je potřeba převést i XML na HTML pro tisk

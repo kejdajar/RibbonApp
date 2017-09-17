@@ -28,9 +28,9 @@
             <!--Tabs, přepínání pomocí IsSelected=true -->
             <Fluent:RibbonTabItem Header="Hlavní" >
                 <Fluent:RibbonGroupBox Header="">
-                    <Fluent:Button Header="Zpět" x:Name="BackButton" Click="BackButton_Click"    >
+                    <Fluent:Button Header="Zavřít" x:Name="BackButton" Click="BackButton_Click"    >
                         <Fluent:Button.LargeIcon>
-                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/previous.png" />
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/cancel.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
 

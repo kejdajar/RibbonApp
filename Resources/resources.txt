@@ -57,3 +57,6 @@ https://www.flaticon.com/free-icon/save_148730#term=save&page=1&position=2
 
 pdf.png
 https://www.flaticon.com/free-icon/pdf_136522#term=pdf&page=1&position=1
+
+cancel.png
+https://www.flaticon.com/free-icon/cancel_179429#term=close&page=1&position=28

@@ -64,31 +64,28 @@ namespace RibbonApp
         }
 
         private void XMLButton_Click(object sender, RoutedEventArgs e)
-        {
-           // EntityViewModel vm = defaultPage.DataContext as EntityViewModel;          
+        {            
             ExportWindow ew = new ExportWindow();
-            ew.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-          //  ew.Data = vm.Data.ToList();
-            ew.ExportType = ExportType.XML;
-         
+            ew.Owner = this;
+            ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;       
+            ew.ExportType = ExportType.XML;         
             ew.ShowDialog();
         }
 
         private void HTMLButton_Click(object sender, RoutedEventArgs e)
-        {
-           // EntityViewModel vm = defaultPage.DataContext as EntityViewModel;
+        {           
             ExportWindow ew = new ExportWindow();
-            ew.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-           // ew.Data = vm.Data.ToList();
-            ew.ExportType = ExportType.HTML;
-          
+            ew.Owner = this;
+            ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;           
+            ew.ExportType = ExportType.HTML;          
             ew.ShowDialog();
         }
 
         private void PDFButton_Click(object sender, RoutedEventArgs e)
         {           
             ExportWindow ew = new ExportWindow();
-            ew.WindowStartupLocation = WindowStartupLocation.CenterScreen;           
+            ew.Owner = this;
+            ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;         
             ew.ExportType = ExportType.PDF;
             ew.ShowDialog();
         }
@@ -123,6 +120,6 @@ namespace RibbonApp
             frDefult.Navigate(orderListPage);
         }
 
-        
+       
     }
 }

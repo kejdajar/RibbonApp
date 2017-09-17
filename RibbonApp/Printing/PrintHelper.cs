@@ -22,7 +22,7 @@ namespace RibbonApp.Printing
         // Každá tabulka má jiné sloupce a proto je potřeba napsat custom kód pro export každé tabulky zvlášť.
         // ExportDataName se používá poté v konstrukci SWITCH, kde se tento custom kód píše. ExportDataName
         // musí být unikátní pro každou další tabulku.
-        public static string ExportDataName;
+        public static ExportDataName ExportDataName;
 
         // Pokud někde v kódu naplním proměnnou DataToExport, tak se odemkne panel pro export.
         // Pokud naplím hodnotou null, tak se panel zamkne.
@@ -77,4 +77,6 @@ namespace RibbonApp.Printing
            
         }
     }
+
+    public enum ExportDataName { CustomersDataGrid, CustomerOrdersDataGrid }
 }

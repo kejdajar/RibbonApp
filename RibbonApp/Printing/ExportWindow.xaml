@@ -10,7 +10,9 @@
                      xmlns:local="clr-namespace:RibbonApp.Printing"
                      mc:Ignorable="d"
                      Loaded="Window_Loaded"
-                     Title="Export" Height="400" Width="600">
+                     Title="Export" Height="400" Width="600"
+                     Closed="RibbonWindow_Closed"
+                     >
 
     <Grid >
         <Grid.RowDefinitions>
@@ -21,6 +23,8 @@
         
         <Fluent:Ribbon Grid.Row="0">
 
+          
+            
             <!--Tabs, přepínání pomocí IsSelected=true -->
             <Fluent:RibbonTabItem Header="Hlavní" >
                 <Fluent:RibbonGroupBox Header="">
@@ -59,7 +63,7 @@
 
                 </Fluent:RibbonGroupBox>
 
-                <Fluent:RibbonGroupBox Header="">
+                <Fluent:RibbonGroupBox Header="" x:Name="groupBoxPrintSave">
                     <Fluent:Button Header="Tisk" x:Name="btnPrint" Click="btnPrint_Click">
                         <Fluent:Button.LargeIcon>
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/printer.png" />
@@ -103,12 +107,18 @@
                                   Content="random text"
                                   HorizontalAlignment="Left" />
         </Fluent:StatusBar>
+
+        
+            
+            
+            <WebBrowser Grid.Row="1" x:Name="webBrowser1" Margin="1" 
+                     />
+
+       
         
         
-        
-        <WebBrowser Grid.Row="1" x:Name="webBrowser1" />
-        
-        
+     
+
     </Grid>
 
 

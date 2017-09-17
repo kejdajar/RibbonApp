@@ -22,6 +22,9 @@ namespace RibbonApp.Database
         // Do složky s tímto názvem se bude ukládat Databázový soubor
         public static readonly string NameOfApplication = "RibbonApp";
 
+        // Cesta do %APPDATA%
+        public static readonly string AppDataPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), NameOfApplication);
+
         // Samotná databáze (Code-first třída, ze které se automatiky po spuštění vytvoří databáze)
         public static DatabaseContext Database { get; set; }
         

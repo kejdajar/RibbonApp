@@ -33,22 +33,17 @@ namespace RibbonApp.UserControls
 
         private void Control_Loaded(object sender, RoutedEventArgs e)
         {
-
-
-            Reload();
-           
+            Reload();           
         }
 
        public void Reload()
         {
-
             if (Customer == null)
             {
                 mainContainer.Visibility = Visibility.Hidden;
                 noneUserContainer.Visibility = Visibility.Visible;
                 return;
             }
-
 
             mainContainer.Visibility = Visibility.Visible;
             noneUserContainer.Visibility = Visibility.Hidden;

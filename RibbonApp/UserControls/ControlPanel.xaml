@@ -47,15 +47,13 @@
 
                     <ComboBox x:Name="cbNumberOfRecords" HorizontalAlignment="Left" VerticalAlignment="Bottom" MinWidth="60"  SelectedIndex="3"  Opacity="0.75" Margin="0 0 0 0" Padding="3.55" ToolTip="počet výsledků na stránku">
                         <ComboBoxItem>1</ComboBoxItem>
-                        <ComboBoxItem>2</ComboBoxItem>
                         <ComboBoxItem>5</ComboBoxItem>
-                        <ComboBoxItem>10</ComboBoxItem>
-                        <ComboBoxItem>20</ComboBoxItem>
+                        <ComboBoxItem>10</ComboBoxItem>                       
                         <ComboBoxItem>30</ComboBoxItem>
+                        <ComboBoxItem>50</ComboBoxItem>
                         <ComboBoxItem>100</ComboBoxItem>
-                        <ComboBoxItem>500</ComboBoxItem>
                         <ComboBoxItem>1000</ComboBoxItem>
-                        <ComboBoxItem>10000</ComboBoxItem>
+                        <ComboBoxItem>Vše</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
 

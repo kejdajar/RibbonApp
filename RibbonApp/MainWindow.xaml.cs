@@ -36,74 +36,75 @@ namespace RibbonApp
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-           
-            // "this" představuje instanci této třídy - v jiných částích programu je potřeba reference na toto hlavní okno
+        {           
+            // "this" představuje instanci této třídy - v jiných částech programu je potřeba reference na toto hlavní okno
             Configuration.Initialize(this);
 
-            defaultPage = new DefaultPage();
-        
-
-            frDefult.Navigate(defaultPage); // musíme říci rámu, že se má přepnout na danou stránku
-
+            // zatím prototyp pro zadávání informací do tabulky
+            defaultPage = new DefaultPage(); 
+            frDefult.Navigate(defaultPage);
         }
 
         public DefaultPage defaultPage;  // hlavní stránka po zapnutní programu
         public CustomersListPage customersListPage; // stránka se seznamem zákazníků
-        public OrderListPage orderListPage;
+        public OrderListPage orderListPage; // stránka se seznamem objednávek              
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnMainPage_Click(object sender, RoutedEventArgs e)
         {
-           
             frDefult.Navigate(defaultPage); // návrat na hlavní stránku           
-        }       
+        }
 
-        private void BtnShutDown_Click(object sender, RoutedEventArgs e)
+        private void btnShutDown_Click(object sender, RoutedEventArgs e)
         {
             this.Close(); // zavře celý program
-        }
+        }        
 
-        private void XMLButton_Click(object sender, RoutedEventArgs e)
-        {            
+        // XML export
+        private void btnXML_Click(object sender, RoutedEventArgs e)
+        {
             ExportWindow ew = new ExportWindow();
             ew.Owner = this;
-            ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;       
+            ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             ew.ExportType = ExportType.XML;
             ew.Show();
-        }
+        }        
 
-        private void HTMLButton_Click(object sender, RoutedEventArgs e)
-        {           
+        // HTML export
+        private void btnHtml_Click(object sender, RoutedEventArgs e)
+        {
             ExportWindow ew = new ExportWindow();
             ew.Owner = this;
-            ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;           
+            ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             ew.ExportType = ExportType.HTML;
             ew.Show();
-        }
+        }      
 
-        private void PDFButton_Click(object sender, RoutedEventArgs e)
-        {           
+        // PDF export
+        private void btnPDF_Click(object sender, RoutedEventArgs e)
+        {
             ExportWindow ew = new ExportWindow();
             ew.Owner = this;
-            ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;         
+            ew.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             ew.ExportType = ExportType.PDF;
             ew.Show();
         }
 
-        private void OpenDatabaseFolder_Click(object sender, RoutedEventArgs e)
+        // Otevření složky s databází
+        private void btnOpenDatabaseFolder_Click(object sender, RoutedEventArgs e)
         {
-            string databaseFileFolder = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), RibbonApp.Database.Configuration.NameOfApplication);
+            string databaseFileFolder = Configuration.AppDataPath;
             Process.Start(databaseFileFolder);
         }      
 
-        private void CustomersListBtn_Click(object sender, RoutedEventArgs e)
+        // Otevřít seznam zákazníků
+        private void customersListBtn_Click(object sender, RoutedEventArgs e)
         {
             customersListPage = new CustomersListPage();
             frDefult.Navigate(customersListPage);
         }
 
         // Přidání nového zákazníka
-        private void CustomerAddBtn_Click(object sender, RoutedEventArgs e)
+        private void customerAddBtn_Click(object sender, RoutedEventArgs e)
         {
             NewCustomerWindow newCustomerWindow = new NewCustomerWindow();
             newCustomerWindow.Owner = Configuration.MainWindow;
@@ -114,12 +115,12 @@ namespace RibbonApp
             customersListPage.ReloadDatagrid();
         }
 
-        private void OrderListBtn_Click(object sender, RoutedEventArgs e)
+        // Otevřít seznam objednávek
+        private void orderListBtn_Click(object sender, RoutedEventArgs e)
         {
             orderListPage = new OrderListPage();
             frDefult.Navigate(orderListPage);
         }
-
-       
+        
     }
 }

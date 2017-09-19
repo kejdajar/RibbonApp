@@ -5,8 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RibbonApp.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="300" x:Name="Control" Loaded="Control_Loaded">
-    <Grid >
+             d:DesignHeight="400"
+             d:DesignWidth="300"
+             x:Name="Control"
+             Loaded="Control_Loaded">
+    <Grid>
         <Grid x:Name="mainContainer" Visibility="Visible">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -14,9 +17,9 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock x:Name="tbNameOfCustomer" Text="Jméno zákazníka" FontSize="30"></TextBlock>
-         <GroupBox Header="Podrobné informace " Grid.Row="1" FontSize="15">
-            <StackPanel >
-               
+        
+            <GroupBox Header="Podrobné informace " Grid.Row="1" FontSize="15">
+            <StackPanel >                
             <DockPanel LastChildFill="True" >
                 <Label Content="Id" Width="80" FontWeight="SemiBold"></Label>
                 <TextBlock  x:Name="tbId"></TextBlock>
@@ -31,44 +34,48 @@
             </DockPanel>
                     <Button Style="{StaticResource standardButton}" Content="Upravit informace" Width="200" HorizontalAlignment="Left" x:Name="btnCustomerEdit" Click="btnCustomerEdit_Click" Margin="0 0 0 5"></Button>
                     <Button Style="{StaticResource standardButton}" Content="Upravit objednávky" Width="200" HorizontalAlignment="Left" x:Name="btnCustomerEditOrder"></Button>
-                </StackPanel>
+              
+            </StackPanel>             
             </GroupBox>
+            
             <Grid Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" FontSize="22">Objednávky</TextBlock>
-            <DataGrid Grid.Row="1" x:Name="dgCustomerOrders" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single"
+          
+                <DataGrid Grid.Row="1" x:Name="dgCustomerOrders"
+                      AutoGenerateColumns="False" 
+                      CanUserAddRows="False"
+                      IsReadOnly="True" 
+                      SelectionMode="Single"
                       Style="{StaticResource dataGridStyle}"
-                  CellStyle="{StaticResource datagridCell}" 
-                      GotFocus="dgCustomerOrders_GotFocus"
-                      >
+                      CellStyle="{StaticResource datagridCell}" 
+                      GotFocus="dgCustomerOrders_GotFocus" >
+                    
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" ></DataGridTextColumn>
                         <DataGridTextColumn Header="Komentář" Binding="{Binding Comment}" ></DataGridTextColumn>
                         <DataGridTemplateColumn Width="*"></DataGridTemplateColumn>
                     </DataGrid.Columns>
             </DataGrid>
+                
                 <GroupItem Grid.Row="1" x:Name="noneOrdersMessage" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel>
-
                     <Image Width="20" Height="20"  Margin="10" Source="pack://application:,,,/RibbonApp;component/Images/Icon/empty-notification.png"></Image>
-                     <TextBlock  FontStyle="Italic"  FontSize="17">Žádné objednávky nejsou k dispozici </TextBlock>
+                    <TextBlock  FontStyle="Italic"  FontSize="17">Žádné objednávky nejsou k dispozici </TextBlock>
                 </StackPanel>
                 </GroupItem>
-
                
         </Grid>
         </Grid>
         
          <GroupItem x:Name="noneUserContainer" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
-
-                <Image Width="20" Height="20"  Margin="10" Source="pack://application:,,,/RibbonApp;component/Images/Icon/empty-notification.png"></Image>
+               <Image Width="20" Height="20"  Margin="10" Source="pack://application:,,,/RibbonApp;component/Images/Icon/empty-notification.png"></Image>
                <TextBlock  FontSize="17" FontStyle="Italic"> žádný zákazník nebyl zvolen </TextBlock>
-            </StackPanel>
-            
+            </StackPanel>            
            </GroupItem>
     </Grid>
    

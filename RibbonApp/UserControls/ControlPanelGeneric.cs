@@ -19,10 +19,21 @@ using System.Windows.Shapes;
 
 namespace RibbonApp.UserControls
 {
+    enum OrderBy { Alphabetical, ReverseAlphabetical } // Řazení
+
+    /// <summary>
+    /// Třída umožňující používat řazení a stránkování nad různými datovými kolekcemi. 
+    /// </summary>
+    /// <typeparam name="T">Typ 'T' specifikuje typ kolekce.</typeparam>
     public class ControlPanelGeneric<T>
     {
+        /// <summary>
+        /// ControlPanel je parametr, který představuje UserControl pro stránkování a řazení.
+        /// </summary>
+        /// <param name="controlPanel"></param>
         public ControlPanelGeneric(ControlPanel controlPanel)
         {
+            // Události UserControlu jsou řešeny v této třídě, ne ve třídě user controlu (protože user control nemůže být generický)
             this._cp = controlPanel;
             _cp.btnFirst.Click += btnFirst_Click;
             _cp.btnNext.Click += btnNext_Click;
@@ -32,32 +43,50 @@ namespace RibbonApp.UserControls
             _cp.btnClear.Click += btnClear_Click;
             _cp.btnSearch.Click += btnSearch_Click;
             _cp.tbSearch.KeyDown += tbSearch_KeyDown;
-            _cp.Loaded += UserControl_Loaded;
+            _cp.Loaded += UserControl_Loaded;           
 
-            //sorting
-            //_cp.btnOrderAlphabetical.Checked += btnOrderAlphabetical_Checked;
-            //_cp.btnOrderAlphabetical.Unchecked += btnOrderAlphabetical_Unchecked;
-            //_cp.btnOrderReverseAlphabetical.Checked += btnOrderReverseAlphabetical_Checked;
-            //_cp.btnOrderReverseAlphabetical.Unchecked += btnOrderReverseAlphabetical_Unchecked;
-
+            // Události řazení
             _cp.btnOrderAlphabetical.Click += btnOrderAlphabetical_Click;
             _cp.btnOrderReverseAlphabetical.Click += btnOrderReverseAlphabetical_Click;
-
             _cp.cbOrderBy.SelectionChanged += cbOrderBy_SelectionChanged;
 
             _numberOfRecordsPerPage = Convert.ToInt32(((ComboBoxItem)_cp.cbNumberOfRecords.SelectedItem).Content);
-
         }
 
+        // User control, který vykresluje tlačítka pro řazení a stránkování. Je získán z konstruktoru.
+        private ControlPanel _cp;
+        
+        // Pomocné proměnné
+        private int _pageNumber = 1; // aktuální číslo stránky
+        private int _totalRecords; // celkový počet záznamů k zobrazení
+        private int _numberOfRecordsPerPage; // počet záznamů na stránku
+        private OrderBy _orderBy = UserControls.OrderBy.Alphabetical; // jak se bude řadit
+
+        // Podle čeho řadit
         public List<string> OrderByCriteria { get; set; }
 
+        // Data, která budeme řadit, filtrovat, stránkovat ...
+        // Změny se promítnou v GUI automaticky, protože se jedná o ObservableCollection
+        public ObservableCollection<T> DataToTransform { get; set; }
+
+        // Tyto funkce se plní z vnějšku. Spouští se při řazení.
+        public Func<ObservableCollection<T>, string, ObservableCollection<T>> OrderByAlphabetical;
+        public Func<ObservableCollection<T>, string, ObservableCollection<T>> OrderByReverseAlphabetical;
+
+        // Události, které se spustí, když je vrácen výsledek/popřípadě pokud nic nevyhovuje hledání.
+        public event Action SearchResultIsEmpty;
+        public event Action SearchResultIsNotEmpty;
+
+        // Metoda, která získává data z databáze
+        public Func<ObservableCollection<T>> GetAllDataMethod;
+
+        // Metoda, která se provede, když je stisknuto tlačítko "Vyhledat"
+        public Func<ObservableCollection<T>, string, ObservableCollection<T>> SearchMethod;
 
         private void cbOrderBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ResetAll();
         }
-
-
 
         private void btnOrderAlphabetical_Click(object sender, RoutedEventArgs e)
         {
@@ -73,47 +102,12 @@ namespace RibbonApp.UserControls
             ResetAll();
         }
 
-
-        //private void btnOrderAlphabetical_Checked(object sender, RoutedEventArgs e)
-        //{
-        //    _orderBy = UserControls.OrderBy.Alphabetical;
-        //    _cp.btnOrderReverseAlphabetical.IsChecked = false;
-        //    ResetAll();
-        //}
-
-        //private void btnOrderAlphabetical_Unchecked(object sender, RoutedEventArgs e)
-        //{
-        //    _orderBy = UserControls.OrderBy.ReverseAlphabetical;
-        //    _cp.btnOrderReverseAlphabetical.IsChecked = true;
-        //    ResetAll();
-        //}
-
-        //private void btnOrderReverseAlphabetical_Checked(object sender, RoutedEventArgs e)
-        //{
-        //    _orderBy = UserControls.OrderBy.ReverseAlphabetical;
-        //    _cp.btnOrderAlphabetical.IsChecked = false;
-        //    ResetAll();
-        //}
-
-        //private void btnOrderReverseAlphabetical_Unchecked(object sender, RoutedEventArgs e)
-        //{
-        //    _orderBy = UserControls.OrderBy.Alphabetical;
-        //    _cp.btnOrderAlphabetical.IsChecked = true;
-        //    ResetAll();
-        //}
-
-        private ControlPanel _cp;
-
-
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            Search();
-        }
+            CallSearchMethod();
+        }        
 
-
-        public ObservableCollection<T> DataToTransform { get; set; }
-
-        public void Transform()
+        public void CallSearchMethod()
         {
             Search();
         }
@@ -140,30 +134,28 @@ namespace RibbonApp.UserControls
             
         }
 
+        // Získat to, dle čeho se bude řadit
         private string GetComboBoxCriterionString()
         {
            return _cp.cbOrderBy.SelectedItem.ToString();
         }
 
-        public Func<ObservableCollection<T>,string, ObservableCollection<T>> OrderByAlphabetical;
-        public Func<ObservableCollection<T>, string,ObservableCollection<T>> OrderByReverseAlphabetical;
-
         public void Search(string searchString = null)
         {
-           _cp.cbNumberOfRecords.IsEnabled = true;
+            // Počáteční inicializace
+            _cp.cbNumberOfRecords.IsEnabled = true;
             _cp.btnPrev.IsEnabled = true;
             _cp.btnNext.IsEnabled = true;
             _cp.btnFirst.IsEnabled = true;
             _cp.btnLast.IsEnabled = true;
-
-         
-           string search = _cp.tbSearch.Text;
-            
+          
+            // Co se má vyhledávat
+           string search = _cp.tbSearch.Text;            
 
             if (!string.IsNullOrWhiteSpace(search))
             {
                 ObservableCollection<T> searchResult = SearchMethod(GetAllDataMethod(), search);
-               searchResult =  OrderBy(searchResult);
+                searchResult =  OrderBy(searchResult);
 
                 if (searchResult.Any())
                 {
@@ -195,10 +187,10 @@ namespace RibbonApp.UserControls
                 ResetAll();
             }
         }
-
-        public event Action SearchResultIsEmpty;
-        public event Action SearchResultIsNotEmpty;
-
+       
+        /// <summary>
+        /// Resetuje všechno do výchozího stavu.
+        /// </summary>
         private void ResetAll()
         {
             _cp.cbOrderBy.ItemsSource = OrderByCriteria;
@@ -206,7 +198,6 @@ namespace RibbonApp.UserControls
             var allData = GetAllDataMethod();
             allData = OrderBy(allData);
             _totalRecords = allData.Count();
-
             _cp.cbNumberOfRecords.IsEnabled = true;
             _cp.btnPrev.IsEnabled = true;
             _cp.btnNext.IsEnabled = true;
@@ -217,10 +208,15 @@ namespace RibbonApp.UserControls
             {
                 SearchResultIsNotEmpty();
             }
+
             _cp.tbSearch.Text = string.Empty;
             Pagination(allData);
         }
 
+        /// <summary>
+        /// Metoda zajišťující stránkování. Jako parametr bere data, která se mají stránkovat (tzn. např. již seřazená/filtrovaná data).
+        /// </summary>
+        /// <param name="data"></param>
         public void Pagination(ObservableCollection<T> data)
         {
             int howManyItemsToSkip = 0;
@@ -228,7 +224,6 @@ namespace RibbonApp.UserControls
             {
                 howManyItemsToSkip = (_pageNumber - 1) * _numberOfRecordsPerPage;
             }
-
 
             ObservableCollection<T> singlePage = new ObservableCollection<T>(data.Skip(howManyItemsToSkip).Take(_numberOfRecordsPerPage));
             DataToTransform.Clear();
@@ -240,10 +235,7 @@ namespace RibbonApp.UserControls
             UpdateLabel();
         }
 
-
-        public Func<ObservableCollection<T>> GetAllDataMethod;
-        public Func<ObservableCollection<T>, string, ObservableCollection<T>> SearchMethod;
-
+        // Vyhledávání se spustí i po stisknutí Enter
         private void tbSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -253,44 +245,57 @@ namespace RibbonApp.UserControls
             }
         }
 
+        // Vyčeštění vyhledávání
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             _cp.tbSearch.Text = string.Empty;
-            _pageNumber = 1;
-            //  Search();
+            _pageNumber = 1;        
             ResetAll();
         }
 
+        // Tlačítko <<
         private void btnFirst_Click(object sender, RoutedEventArgs e)
         {
             _pageNumber = 1;
             Search();
         }
 
+        // Tlačítko <
         private void btnPrev_Click(object sender, RoutedEventArgs e)
         {
             _pageNumber--;
             Search();
         }
 
+        // Tlačítko >
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             _pageNumber++;
             Search();
-
         }
 
+        // Tlačítko >>
         private void btnLast_Click(object sender, RoutedEventArgs e)
         {
             double divide = Convert.ToDouble(_totalRecords) / Convert.ToDouble(_numberOfRecordsPerPage);
-            double totalPages = Math.Ceiling(divide);
+            double totalPages = Math.Ceiling(divide); // zaokrouhlení nahoru, aby se přidala další stránka, i když nebude celá naplněna
             _pageNumber = Convert.ToInt32(totalPages);
             Search();
         }
 
+        // Změna počtu záznamů na stránku
         private void cbNumberOfRecords_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _numberOfRecordsPerPage = Convert.ToInt32(((ComboBoxItem)_cp.cbNumberOfRecords.SelectedItem).Content);
+            string comboBoxNumberOfItemsPerPage = ((ComboBoxItem)_cp.cbNumberOfRecords.SelectedItem).Content.ToString();
+            if(comboBoxNumberOfItemsPerPage.Trim() == "Vše")
+            {
+                _numberOfRecordsPerPage = _totalRecords;
+            }
+            else
+            {
+                _numberOfRecordsPerPage = Convert.ToInt32(((ComboBoxItem)_cp.cbNumberOfRecords.SelectedItem).Content);
+            }
+            
 
             if (GetAllDataMethod != null)
             {
@@ -298,21 +303,17 @@ namespace RibbonApp.UserControls
                 Search();
             }
 
-        }
+        }       
 
-        private int _pageNumber = 1;
-        private int _totalRecords;
-        private int _numberOfRecordsPerPage;
-
+        // Po načtení resetovat na výchozí hodnoty
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            //_totalRecords = GetAllDataMethod().Count();
-            //UpdateLabel();
-           
-            ResetAll();
-            
+            ResetAll();            
         }
 
+        /// <summary>
+        /// Metoda aktualizující GUI.
+        /// </summary>
         private void UpdateLabel()
         {
             double divide = Convert.ToDouble(_totalRecords) / Convert.ToDouble(_numberOfRecordsPerPage);
@@ -340,13 +341,9 @@ namespace RibbonApp.UserControls
                 _cp.btnPrev.IsEnabled = true;
             }
 
-
             _cp.lblpageInformation.Text = _pageNumber.ToString() + " / " + (totalPages).ToString();
         }
-
-
-        private OrderBy _orderBy = UserControls.OrderBy.Alphabetical;
+       
     }
-
-    enum OrderBy { Alphabetical, ReverseAlphabetical }
+   
 }

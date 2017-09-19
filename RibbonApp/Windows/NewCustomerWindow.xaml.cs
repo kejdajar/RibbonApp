@@ -26,15 +26,9 @@ namespace RibbonApp.Windows
         public NewCustomerWindow()
         {           
             InitializeComponent();
-        }
+        } 
 
-        
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
+        // Přidání nového zákazníka
         private void btnNewCustomer_Click(object sender, RoutedEventArgs e)
         {
             Customer newCustomer = new Customer() { Name = tbName.Text, Surname = tbSurname.Text , Orders = new List<Order>() { } };

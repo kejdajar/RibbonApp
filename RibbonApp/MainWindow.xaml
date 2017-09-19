@@ -16,8 +16,7 @@
                      WindowState="Normal"      
                      Loaded="Window_Loaded"                    
                      xmlns:sys="clr-namespace:System;assembly=mscorlib"   
-                     WindowStartupLocation="CenterScreen"                       
-                     >
+                     WindowStartupLocation="CenterScreen">
 
     <Grid >
         <Grid.RowDefinitions>
@@ -27,8 +26,6 @@
         </Grid.RowDefinitions>
 
         <Fluent:Ribbon Grid.Row="0">
-
-
             <!--Backstage-->
             <Fluent:Ribbon.Menu>
                 <Fluent:Backstage Header="Soubor">
@@ -39,7 +36,7 @@
                             <Frame Source="Pages/AboutPage.xaml" HorizontalAlignment="Left" ></Frame>
                         </Fluent:BackstageTabItem>
                         <!--<Fluent:Button Header="Zpět" />-->
-                        <Fluent:Button Header="Ukončit program" x:Name="BtnShutDown" Click="BtnShutDown_Click" />
+                        <Fluent:Button Header="Ukončit program" x:Name="btnShutDown" Click="btnShutDown_Click" />
                     </Fluent:BackstageTabControl>
                 </Fluent:Backstage>
             </Fluent:Ribbon.Menu>
@@ -49,28 +46,27 @@
             <!-- Přepínání pomocé IsSelected = true-->
             <Fluent:RibbonTabItem Header="Hlavní" >
                 <Fluent:RibbonGroupBox Header="Úlohy">
-                    <Fluent:Button Header="Seznam" Click="Button_Click">
+                   
+                    <Fluent:Button Header="Seznam" x:Name="btnMainPage" Click="btnMainPage_Click">
                         <Fluent:Button.LargeIcon>
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/edit.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
 
 
-                    <Fluent:Button x:Name="CustomersListBtn" Header="Seznam zákazníků" Click="CustomersListBtn_Click"                           >
+                    <Fluent:Button x:Name="customersListBtn" Header="Seznam zákazníků" Click="customersListBtn_Click">
                         <Fluent:Button.LargeIcon>
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/customers.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
 
-                    <Fluent:Button x:Name="CustomerAddBtn" Header="Nový zákazník" Click="CustomerAddBtn_Click">
+                    <Fluent:Button x:Name="customerAddBtn" Header="Nový zákazník" Click="customerAddBtn_Click">
                         <Fluent:Button.LargeIcon>
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/customer.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
 
-
-
-                    <Fluent:Button x:Name="OrderListBtn" Header="Objednávky" Click="OrderListBtn_Click" >
+                    <Fluent:Button x:Name="orderListBtn" Header="Objednávky" Click="orderListBtn_Click" >
                         <Fluent:Button.LargeIcon>
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/orderList.png" />
                         </Fluent:Button.LargeIcon>
@@ -80,40 +76,26 @@
 
 
                 <Fluent:RibbonGroupBox Header="Export" IsEnabled="False" x:Name="exportGroup">
-                    <Fluent:Button Header="XML" x:Name="XMLButton" Click="XMLButton_Click">
+                    <Fluent:Button Header="XML" x:Name="btnXML" Click="btnXML_Click">
                         <Fluent:Button.LargeIcon>
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/xml.png" />
                         </Fluent:Button.LargeIcon>                    
 
                     </Fluent:Button>
-                    <Fluent:Button Header="HTML" x:Name="HTMLButton" Click="HTMLButton_Click">
+                    <Fluent:Button Header="HTML" x:Name="btnHtml" Click="btnHtml_Click">
                         <Fluent:Button.LargeIcon>
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/html.png" />
                         </Fluent:Button.LargeIcon>
 
                     </Fluent:Button>
 
-                    <Fluent:Button Header="PDF" x:Name="PDFButton" Click="PDFButton_Click" >
+                    <Fluent:Button Header="PDF" x:Name="btnPDF" Click="btnPDF_Click" >
                         <Fluent:Button.LargeIcon>
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/pdf.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                     
                 </Fluent:RibbonGroupBox>
-
-
-                <!--<Fluent:RibbonGroupBox>
-                    <Fluent:Button Header="Button with rectangle as icon" >
-                        <Fluent:Button.Icon>
-                            <Rectangle Fill="Green"
-                                        />
-                        </Fluent:Button.Icon>
-                        <Fluent:Button.LargeIcon>
-                            <Rectangle Fill="Blue"
-                                      />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                </Fluent:RibbonGroupBox>-->
                 
             </Fluent:RibbonTabItem>
 
@@ -121,46 +103,36 @@
 
             <Fluent:RibbonTabItem Header="Pokročilé" >
                 <Fluent:RibbonGroupBox Header="Databáze">
-                    <Fluent:Button x:Name="OpenDatabaseFolder" Header="Otevřít složku DB"
-                                 Click="OpenDatabaseFolder_Click">
+                    
+                    <Fluent:Button x:Name="btnOpenDatabaseFolder" Header="Otevřít složku DB" Click="btnOpenDatabaseFolder_Click">                                
                         <Fluent:Button.LargeIcon>
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/database.png" />
                         </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
-                                   
+                    </Fluent:Button>                                   
 
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
 
-
-
         </Fluent:Ribbon>
 
         <!-- Frame je kontejner, kam se dosazují instance stránek (jsou ve složce Pages) -->
-        <Frame x:Name="frDefult" NavigationUIVisibility="Hidden" Grid.Row="1"></Frame>
-       
-
+        <Frame x:Name="frDefult" NavigationUIVisibility="Hidden" Grid.Row="1"></Frame>       
 
         <Fluent:StatusBar HorizontalAlignment="Stretch"
                           VerticalAlignment="Bottom"
-                          Grid.Row="2"
-                          >
-            <Fluent:StatusBarItem Title="Words Width"
-                                  Value="150"
-                                  HorizontalAlignment="Left">
+                          Grid.Row="2" >
+                         
+            <Fluent:StatusBarItem Title="random title"  Value="150" HorizontalAlignment="Left">
                 <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dd/MM/yyyy  }'}"/>
             </Fluent:StatusBarItem>
 
             <Separator HorizontalAlignment="Left" />
 
-            <Fluent:StatusBarItem Title="Selected Words"
-                                  Value="15"
-                                  ToolTip="random hint"
+            <Fluent:StatusBarItem Title="test value" Value="15"
+                                   ToolTip="random hint"                                
                                   Content="random text"
                                   HorizontalAlignment="Left" />
         </Fluent:StatusBar>
     </Grid>
-
-
-
+    
 </Fluent:RibbonWindow>

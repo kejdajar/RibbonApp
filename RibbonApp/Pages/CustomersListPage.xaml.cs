@@ -116,7 +116,7 @@ namespace RibbonApp.Pages
                 else return dataToSort;
             };  
 
-            genericContainer.Transform();
+            genericContainer.CallSearchMethod();
 
         }
 

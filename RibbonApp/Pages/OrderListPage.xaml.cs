@@ -70,7 +70,7 @@ namespace RibbonApp.Pages
 
 
 
-            genericContainer.Transform();
+            genericContainer.CallSearchMethod();
 
             
         }

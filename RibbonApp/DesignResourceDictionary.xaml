@@ -41,8 +41,7 @@
                   Value="Bold" />
             </Style>
         </Style.Resources>
-    </Style>
-    
+    </Style>    
     
     
     <!-- Nadpisy -->
@@ -74,17 +73,14 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-
-
     
+    <!--Obrázek disabled tlačítka bude zešedivěn -->
         <Style x:Key="ImageFading" TargetType="Image">
             <Style.Triggers>
                 <Trigger Property="IsEnabled" Value="False">
                     <Setter Property="Opacity" Value="0.25"></Setter>
                 </Trigger>
             </Style.Triggers>
-        </Style>
- 
+        </Style> 
 
 </ResourceDictionary>

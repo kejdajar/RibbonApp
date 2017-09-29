@@ -16,7 +16,12 @@
                      WindowState="Normal"      
                      Loaded="Window_Loaded"                    
                      xmlns:sys="clr-namespace:System;assembly=mscorlib"   
-                     WindowStartupLocation="CenterScreen">
+                     WindowStartupLocation="CenterScreen"
+                     
+                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                 xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+                 xmlns:s="clr-namespace:System;assembly=mscorlib"
+                     >
 
     <Grid >
         <Grid.RowDefinitions>
@@ -121,8 +126,63 @@
 
         </Fluent:Ribbon>
 
+
+        <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/bigbackground.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50" MaxWidth="500" MaxHeight="500" Grid.Row="1" ></Image>
+
+
+        <xcad:DockingManager Grid.Row="1" x:Name="dockManager"
+                           AllowMixedOrientation="True"                          
+                           >
+            <xcad:DockingManager.DocumentHeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding IconSource}" Margin="0,0,4,0"/>
+                        <TextBlock Text="{Binding Title}" />
+                    </StackPanel>
+                </DataTemplate>
+            </xcad:DockingManager.DocumentHeaderTemplate>
+           
+            <xcad:LayoutRoot x:Name="_layoutRoot">
+               <xcad:LayoutPanel Orientation="Horizontal">
+                   
+                    <xcad:LayoutDocumentPaneGroup  >
+                        <xcad:LayoutDocumentPane x:Name="documentTabs">
+                            <!-- <xcad:LayoutDocument ContentId="document1" Title="Document 1" IconSource="pack://application:,,,/RibbonApp;component/Images/Interface/paste.png" >
+                                --><!--<Button Content="Document 1 Content" HorizontalAlignment="Center" VerticalAlignment="Center"/>--><!--
+                                <Frame x:Name="frDefult" NavigationUIVisibility="Hidden"></Frame>
+                            </xcad:LayoutDocument>
+                            <xcad:LayoutDocument ContentId="document2" Title="Document 2" IconSource="pack://application:,,,/RibbonApp;component/Images/Interface/paste.png">
+                                <TextBox Text="Document 2 Content" AcceptsReturn="True"/>
+                            </xcad:LayoutDocument>-->
+                        </xcad:LayoutDocumentPane>
+                    </xcad:LayoutDocumentPaneGroup >
+                 
+                </xcad:LayoutPanel>
+
+                
+                
+                
+                
+                <!--<xcad:LayoutRoot.LeftSide>
+                    <xcad:LayoutAnchorSide>
+                        <xcad:LayoutAnchorGroup>
+                            <xcad:LayoutAnchorable Title="Agenda" ContentId="agenda" IconSource="pack://application:,,,/RibbonApp;component/Images/Interface/paste.png">
+                                <TextBlock Text="Agenda Content" Margin="10" FontSize="18" FontWeight="Black" TextWrapping="Wrap"/>
+                            </xcad:LayoutAnchorable>
+                            <xcad:LayoutAnchorable Title="Contacts" ContentId="contacts" IconSource="pack://application:,,,/RibbonApp;component/Images/Interface/paste.png" >
+                                <TextBlock Text="Contacts Content" Margin="10" FontSize="18" FontWeight="Black" TextWrapping="Wrap"/>
+                            </xcad:LayoutAnchorable>
+                        </xcad:LayoutAnchorGroup>
+                    </xcad:LayoutAnchorSide>
+                </xcad:LayoutRoot.LeftSide>-->
+                
+            </xcad:LayoutRoot>
+        </xcad:DockingManager>
+
+
+
         <!-- Frame je kontejner, kam se dosazují instance stránek (jsou ve složce Pages) -->
-        <Frame x:Name="frDefult" NavigationUIVisibility="Hidden" Grid.Row="1"></Frame>       
+   
 
         <Fluent:StatusBar HorizontalAlignment="Stretch"
                           VerticalAlignment="Bottom"

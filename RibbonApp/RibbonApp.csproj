@@ -300,7 +300,12 @@
   <ItemGroup>
     <Resource Include="iconIco.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Xceed.Wpf.AvalonDock\Xceed.Wpf.AvalonDock.csproj">
+      <Project>{db81988f-e0f2-45a0-a1fd-8c37f3d35244}</Project>
+      <Name>Xceed.Wpf.AvalonDock</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icon\iconPng.png" />
   </ItemGroup>
@@ -327,6 +332,7 @@
     <Content Include="CompactDbDll\sqlceoledb40.dll" />
     <Content Include="CompactDbDll\sqlceqp40.dll" />
     <Content Include="CompactDbDll\sqlcese40.dll" />
+    <Resource Include="Images\Icon\bigbackground.png" />
     <Resource Include="Images\Icon\reset.png" />
     <Resource Include="Images\Icon\cancel.png" />
     <Resource Include="Images\Icon\pdf.png" />

@@ -39,6 +39,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3D369E74342835FA00A4A2F7BB9F4CDC"
+        "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_400AE23465F149149657FBC88D6126EB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -64,6 +70,12 @@
         "Entry"
         {
         "MsmKey" = "8:_54DC13FF7F510C038E730FD8136449BC"
+        "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_56C9A57D099D117401E0EB5149B5E074"
         "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -95,6 +107,12 @@
         {
         "MsmKey" = "8:_94020ED194CDDAE3432A7474A3A89131"
         "OwnerKey" = "8:_C7F6AC1A72A25F0655B1EDB720A22735"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_AE3859A6C983FF799DD11F8B49FF21FE"
+        "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -147,6 +165,24 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F62068FF0F9FA71824FE915FD59CA08B"
+        "OwnerKey" = "8:_56C9A57D099D117401E0EB5149B5E074"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F62068FF0F9FA71824FE915FD59CA08B"
+        "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F62068FF0F9FA71824FE915FD59CA08B"
+        "OwnerKey" = "8:_3D369E74342835FA00A4A2F7BB9F4CDC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_FAB7E1F1E8884D1AAA5AF597DA24A384"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -155,6 +191,30 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3D369E74342835FA00A4A2F7BB9F4CDC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_56C9A57D099D117401E0EB5149B5E074"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F62068FF0F9FA71824FE915FD59CA08B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_AE3859A6C983FF799DD11F8B49FF21FE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -268,6 +328,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -369,6 +437,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3D369E74342835FA00A4A2F7BB9F4CDC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PdfSharp.Charting, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_3D369E74342835FA00A4A2F7BB9F4CDC"
+                    {
+                    "Name" = "8:PdfSharp.Charting.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:PdfSharp.Charting.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_400AE23465F149149657FBC88D6126EB"
             {
             "SourcePath" = "8:..\\RibbonApp\\CompactDbDll\\sqlceqp40.dll"
@@ -451,6 +550,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_56C9A57D099D117401E0EB5149B5E074"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:HtmlRenderer.PdfSharp, Version=1.5.0.6, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_56C9A57D099D117401E0EB5149B5E074"
+                    {
+                    "Name" = "8:HtmlRenderer.PdfSharp.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:HtmlRenderer.PdfSharp.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_684DF22FAD791C414D048E3C070E3669"
             {
             "AssemblyRegister" = "3:1"
@@ -516,6 +646,37 @@
                     }
                 }
             "SourcePath" = "8:EntityFramework.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AE3859A6C983FF799DD11F8B49FF21FE"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:HtmlRenderer, Version=1.5.0.5, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_AE3859A6C983FF799DD11F8B49FF21FE"
+                    {
+                    "Name" = "8:HtmlRenderer.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:HtmlRenderer.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
@@ -697,6 +858,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F62068FF0F9FA71824FE915FD59CA08B"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PdfSharp, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F62068FF0F9FA71824FE915FD59CA08B"
+                    {
+                    "Name" = "8:PdfSharp.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:PdfSharp.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FAB7E1F1E8884D1AAA5AF597DA24A384"
             {
             "SourcePath" = "8:..\\RibbonApp\\CompactDbDll\\sqlceer40EN.dll"
@@ -772,9 +964,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:SetupProject"
+        "ProductName" = "8:RibbonApp"
         "ProductCode" = "8:{82B9C09E-A805-4B0A-A65E-FCF8BCF0A534}"
-        "PackageCode" = "8:{AED61666-2F15-4D7D-85E9-F348BCF82C2A}"
+        "PackageCode" = "8:{36EEFE09-6C95-4447-9681-99B230FD824A}"
         "UpgradeCode" = "8:{4B441289-0AAF-415C-88D8-D6FC15F6FF22}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -782,12 +974,12 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "Manufacturer" = "8:RibbonApp"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:SetupProject"
+        "Title" = "8:RibbonApp Instalace"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
+        "ARPCONTACT" = "8:J.Kejda, V. Frič"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"

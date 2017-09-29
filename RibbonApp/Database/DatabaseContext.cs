@@ -19,7 +19,7 @@ namespace RibbonApp.Database
     public class DatabaseContext : DbContext
     {
         // Databáze bude vytvořena v C:\Users\user_name\Data\Roaming\name_of_application\database.sdf
-        public DatabaseContext() : base(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), RibbonApp.Database.Configuration.NameOfApplication,"database.sdf"))
+        public DatabaseContext() : base(System.IO.Path.Combine(RibbonApp.Database.Configuration.AppDataPath,"database.sdf"))
         {
 
         }

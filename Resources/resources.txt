@@ -60,3 +60,7 @@ https://www.flaticon.com/free-icon/pdf_136522#term=pdf&page=1&position=1
 
 cancel.png
 https://www.flaticon.com/free-icon/cancel_179429#term=close&page=1&position=28
+
+reset.png
+https://www.flaticon.com/free-icon/settings_503851#term=reset&page=1&position=3
+

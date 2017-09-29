@@ -108,7 +108,13 @@
                         <Fluent:Button.LargeIcon>
                             <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/database.png" />
                         </Fluent:Button.LargeIcon>
-                    </Fluent:Button>                                   
+                    </Fluent:Button>
+
+                    <Fluent:Button x:Name="btnResetDatabase" Header="Resetovat DB" ToolTip="Vymaže databázi a založí novou." Click="btnResetDatabase_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/reset.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
 
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>

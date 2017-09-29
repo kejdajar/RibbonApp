@@ -327,6 +327,7 @@
     <Content Include="CompactDbDll\sqlceoledb40.dll" />
     <Content Include="CompactDbDll\sqlceqp40.dll" />
     <Content Include="CompactDbDll\sqlcese40.dll" />
+    <Resource Include="Images\Icon\reset.png" />
     <Resource Include="Images\Icon\cancel.png" />
     <Resource Include="Images\Icon\pdf.png" />
     <Resource Include="Images\Icon\save.png" />

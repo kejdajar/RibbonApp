@@ -121,6 +121,36 @@ namespace RibbonApp
             orderListPage = new OrderListPage();
             frDefult.Navigate(orderListPage);
         }
-        
+
+        // Reset databáze
+        private void btnResetDatabase_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Opravdu chcete smazat obsah databáze? Tento krok je nevratný. \n Aplikace bude automaticky restartována.", "Varování", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    string path = System.IO.Path.Combine(Configuration.AppDataPath, "database.sdf");
+                    if (File.Exists(path))
+                    {
+                        File.Delete(path);
+                        Configuration.Initialize(this);
+
+                        System.Windows.Forms.Application.Restart();
+                        System.Windows.Application.Current.Shutdown();
+                       
+                    }
+                }
+                catch 
+                {
+                    MessageBox.Show("Databáze nemohla být resetována, protože je momentálně využívána jiným procesem.","Upozornění",MessageBoxButton.OK,MessageBoxImage.Information);
+                }
+            }
+            else
+            {
+                return;
+            }
+
+        }
     }
 }

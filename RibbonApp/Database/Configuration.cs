@@ -54,10 +54,19 @@ namespace RibbonApp.Database
 
         private static void CreateFolderForDatabase()
         {
-            string databasePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),NameOfApplication); // %APPDATA%
-            if(!Directory.Exists(databasePath))
+            string databasePath = AppDataPath; // %APPDATA%
+            try
             {
-                Directory.CreateDirectory(databasePath);
+                if (!Directory.Exists(databasePath))
+                {
+                    Directory.CreateDirectory(databasePath);
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Windows.MessageBox.Show("Nebylo možné vytvořit složku pro databázi: \n"
+                + databasePath + ". \n Podrobnosti chyby: " + ex.Message, "Závažná chyba",System.Windows.MessageBoxButton.OK,System.Windows.MessageBoxImage.Error);
+                MainWindow.Close();
             }
         }
 

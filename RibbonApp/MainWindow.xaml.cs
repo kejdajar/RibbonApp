@@ -22,6 +22,7 @@ using System.IO;
 using System.Xml.Linq;
 using System.Diagnostics;
 using RibbonApp.Windows;
+using Xceed.Wpf.AvalonDock.Layout;
 
 namespace RibbonApp
 {
@@ -42,16 +43,21 @@ namespace RibbonApp
 
             // zatím prototyp pro zadávání informací do tabulky
             defaultPage = new DefaultPage(); 
-            frDefult.Navigate(defaultPage);
+            //frDefult.Navigate(defaultPage);
         }
 
         public DefaultPage defaultPage;  // hlavní stránka po zapnutní programu
         public CustomersListPage customersListPage; // stránka se seznamem zákazníků
-        public OrderListPage orderListPage; // stránka se seznamem objednávek              
+        public OrderListPage orderListPage; // stránka se seznamem objednávek         
+
+       LayoutDocument defaultPageDockDocument;
+       LayoutDocument customerListDockDocument;
+       LayoutDocument orderListPageDockDocument;
 
         private void btnMainPage_Click(object sender, RoutedEventArgs e)
         {
-            frDefult.Navigate(defaultPage); // návrat na hlavní stránku           
+            // frDefult.Navigate(defaultPage); // návrat na hlavní stránku         
+            AddDockedDocument("Hlavní stránka", defaultPage, ref defaultPageDockDocument);
         }
 
         private void btnShutDown_Click(object sender, RoutedEventArgs e)
@@ -100,8 +106,14 @@ namespace RibbonApp
         private void customersListBtn_Click(object sender, RoutedEventArgs e)
         {
             customersListPage = new CustomersListPage();
-            frDefult.Navigate(customersListPage);
+            // frDefult.Navigate(customersListPage);
+
+            AddDockedDocument("Seznam zákazníků",customersListPage, ref customerListDockDocument);
+          
         }
+
+
+       
 
         // Přidání nového zákazníka
         private void customerAddBtn_Click(object sender, RoutedEventArgs e)
@@ -119,7 +131,8 @@ namespace RibbonApp
         private void orderListBtn_Click(object sender, RoutedEventArgs e)
         {
             orderListPage = new OrderListPage();
-            frDefult.Navigate(orderListPage);
+            AddDockedDocument("Seznam objednávek", orderListPage, ref orderListPageDockDocument);
+            //  frDefult.Navigate(orderListPage);
         }
 
         // Reset databáze
@@ -151,6 +164,24 @@ namespace RibbonApp
                 return;
             }
 
+        }
+
+        private void AddDockedDocument(string title, Page pageToShow, ref LayoutDocument documentToInit)
+        {
+            Frame frame = new Frame();
+            frame.Navigate(pageToShow);
+            documentToInit = new LayoutDocument();
+            documentToInit.Title = title;
+            documentToInit.Content = frame;
+            BitmapImage logo = new BitmapImage();
+            logo.BeginInit();
+            logo.UriSource = new Uri("pack://application:,,,/RibbonApp;component/Images/Interface/paste.png");
+            logo.DecodePixelWidth = 16;
+            logo.DecodePixelHeight = 16;
+            logo.EndInit();
+            documentToInit.IconSource = logo;
+            documentTabs.Children.Add(documentToInit);
+            documentToInit.IsSelected = true;
         }
     }
 }

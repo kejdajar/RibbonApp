@@ -35,8 +35,8 @@
             <Fluent:Ribbon.Menu>
                 <Fluent:Backstage Header="Soubor">
                     <Fluent:BackstageTabControl>
-                        <Fluent:BackstageTabItem Header="Nový" />
-                        <Fluent:BackstageTabItem Header="Tisk" />
+                        <!--<Fluent:BackstageTabItem Header="Nový" />-->
+                        <!--<Fluent:BackstageTabItem Header="Tisk" />-->
                         <Fluent:BackstageTabItem Header="O programu" >
                             <Frame Source="Pages/AboutPage.xaml" HorizontalAlignment="Left" ></Frame>
                         </Fluent:BackstageTabItem>
@@ -127,11 +127,11 @@
         </Fluent:Ribbon>
 
 
-        <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/bigbackground.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50" MaxWidth="500" MaxHeight="500" Grid.Row="1" ></Image>
+       
 
 
-        <xcad:DockingManager Grid.Row="1" x:Name="dockManager"
-                           AllowMixedOrientation="True"                          
+        <xcad:DockingManager Grid.Row="1" x:Name="dockManager" Margin="0 6 0 0"
+                           AllowMixedOrientation="True"      DocumentClosed="dockManager_DocumentClosed"                 
                            >
             <xcad:DockingManager.DocumentHeaderTemplate>
                 <DataTemplate>
@@ -145,18 +145,34 @@
             <xcad:LayoutRoot x:Name="_layoutRoot">
                <xcad:LayoutPanel Orientation="Horizontal">
                    
-                    <xcad:LayoutDocumentPaneGroup  >
+                    <xcad:LayoutDocumentPaneGroup>
                         <xcad:LayoutDocumentPane x:Name="documentTabs">
-                            <!-- <xcad:LayoutDocument ContentId="document1" Title="Document 1" IconSource="pack://application:,,,/RibbonApp;component/Images/Interface/paste.png" >
-                                --><!--<Button Content="Document 1 Content" HorizontalAlignment="Center" VerticalAlignment="Center"/>--><!--
-                                <Frame x:Name="frDefult" NavigationUIVisibility="Hidden"></Frame>
+
+                            <xcad:LayoutDocument ContentId="mainPage" Title="" CanClose="False" CanFloat="False">
+                                <xcad:LayoutDocument.IconSource>
+                                    <BitmapImage UriSource="pack://application:,,,/RibbonApp;component/Images/Icon/home.png" DecodePixelWidth="16" DecodePixelHeight="16"></BitmapImage>
+                                </xcad:LayoutDocument.IconSource>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                <Image Opacity="0.2" Grid.Column="1" Source="pack://application:,,,/RibbonApp;component/Images/Icon/bigbackground.png" HorizontalAlignment="Center" VerticalAlignment="Center"  MaxWidth="500" MaxHeight="500" Margin="10"></Image>
+                                    <Border Grid.Column="0" BorderThickness="1" BorderBrush="DarkGray">
+                                        <Border.Background>
+                                            <SolidColorBrush Color="LightGray" Opacity="0.5"></SolidColorBrush>
+                                        </Border.Background>                                       
+                                        <StackPanel >
+                                            <Label>Ribbon Application v. 1.0.0 </Label>
+                                            <Button Content="Otevřít nápovědu" Style="{StaticResource standardButton}"></Button>
+                                        </StackPanel>
+                                    </Border>                                 
+                                </Grid>
                             </xcad:LayoutDocument>
-                            <xcad:LayoutDocument ContentId="document2" Title="Document 2" IconSource="pack://application:,,,/RibbonApp;component/Images/Interface/paste.png">
-                                <TextBox Text="Document 2 Content" AcceptsReturn="True"/>
-                            </xcad:LayoutDocument>-->
+
                         </xcad:LayoutDocumentPane>
                     </xcad:LayoutDocumentPaneGroup >
-                 
+
                 </xcad:LayoutPanel>
 
                 
@@ -189,15 +205,15 @@
                           Grid.Row="2" >
                          
             <Fluent:StatusBarItem Title="random title"  Value="150" HorizontalAlignment="Left">
-                <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dd/MM/yyyy  }'}"/>
+                <TextBlock Margin="5 0 0 0" Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dd/MM/yyyy  }'}"/>
             </Fluent:StatusBarItem>
 
             <Separator HorizontalAlignment="Left" />
 
-            <Fluent:StatusBarItem Title="test value" Value="15"
+            <!--<Fluent:StatusBarItem Title="test value" Value="15"
                                    ToolTip="random hint"                                
                                   Content="random text"
-                                  HorizontalAlignment="Left" />
+                                  HorizontalAlignment="Left" />-->
         </Fluent:StatusBar>
     </Grid>
     

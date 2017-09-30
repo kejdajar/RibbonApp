@@ -3192,8 +3192,8 @@ namespace Xceed.Wpf.AvalonDock
                 {
                     if (!IsNavigatorWindowActive)
                     {
-                        ShowNavigatorWindow();
-                        e.Handled = true;
+                        //ShowNavigatorWindow();
+                        //e.Handled = true;
                     }
                 }
             }

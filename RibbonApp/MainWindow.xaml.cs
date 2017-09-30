@@ -57,7 +57,7 @@ namespace RibbonApp
         private void btnMainPage_Click(object sender, RoutedEventArgs e)
         {
             // frDefult.Navigate(defaultPage); // návrat na hlavní stránku         
-            AddDockedDocument("Hlavní stránka", defaultPage, ref defaultPageDockDocument);
+            AddDockedDocument("Seznam", defaultPage, ref defaultPageDockDocument);
         }
 
         private void btnShutDown_Click(object sender, RoutedEventArgs e)
@@ -182,6 +182,20 @@ namespace RibbonApp
             documentToInit.IconSource = logo;
             documentTabs.Children.Add(documentToInit);
             documentToInit.IsSelected = true;
+            documentToInit.ContentId = title;
+
+            //if(title == "Hlavní stránka")
+            //{
+            //    documentToInit.CanClose = false;
+            //    documentToInit.CanFloat = false;
+            //}
+        
+        }
+
+        private void dockManager_DocumentClosed(object sender, Xceed.Wpf.AvalonDock.DocumentClosedEventArgs e)
+        {
+            // zde vynucujeme vyčištění paměti od nepoužívaných objektů
+            System.GC.Collect();
         }
     }
 }

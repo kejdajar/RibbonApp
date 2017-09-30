@@ -51,6 +51,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4097647FFE554AC7974E633519224C30"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_43F2E03A8F35745FDA3D2F16414C248A"
+        "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_4BAB8F6BB57685F2EBAF25E615E9F492"
         "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
         "MsmSig" = "8:_UNDEFINED"
@@ -191,6 +203,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_43F2E03A8F35745FDA3D2F16414C248A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -486,6 +504,57 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4097647FFE554AC7974E633519224C30"
+            {
+            "SourcePath" = "8:..\\RibbonApp\\iconIco.ico"
+            "TargetName" = "8:iconIco.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_43F2E03A8F35745FDA3D2F16414C248A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_43F2E03A8F35745FDA3D2F16414C248A"
+                    {
+                    "Name" = "8:Xceed.Wpf.AvalonDock.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Xceed.Wpf.AvalonDock.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4BAB8F6BB57685F2EBAF25E615E9F492"
@@ -1097,7 +1166,7 @@
             "Target" = "8:_DF7EA59ED18448148A535A5DCA13C6CD"
             "Folder" = "8:_021BB9DF74A342F1B59C1B46D90E28DE"
             "WorkingFolder" = "8:_F967AADFD0DE4EC39C02FBB217EA18A6"
-            "Icon" = "8:"
+            "Icon" = "8:_4097647FFE554AC7974E633519224C30"
             "Feature" = "8:"
             }
         }

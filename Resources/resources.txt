@@ -64,3 +64,9 @@ https://www.flaticon.com/free-icon/cancel_179429#term=close&page=1&position=28
 reset.png
 https://www.flaticon.com/free-icon/settings_503851#term=reset&page=1&position=3
 
+home.png
+https://www.flaticon.com/free-icon/home_25694#term=home&page=1&position=6
+
+bigbackground.png
+https://www.flaticon.com/free-icon/nuts-and-bolts_71220#term=cog&page=1&position=43
+

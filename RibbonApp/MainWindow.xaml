@@ -50,7 +50,7 @@
             <!--Tabs-->
             <!-- Přepínání pomocé IsSelected = true-->
             <Fluent:RibbonTabItem Header="Hlavní" >
-                <Fluent:RibbonGroupBox Header="Úlohy">
+                <Fluent:RibbonGroupBox Header="Zobrazit okno">
                    
                     <Fluent:Button Header="Seznam" x:Name="btnMainPage" Click="btnMainPage_Click">
                         <Fluent:Button.LargeIcon>
@@ -65,11 +65,6 @@
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
 
-                    <Fluent:Button x:Name="customerAddBtn" Header="Nový zákazník" Click="customerAddBtn_Click">
-                        <Fluent:Button.LargeIcon>
-                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/customer.png" />
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
 
                     <Fluent:Button x:Name="orderListBtn" Header="Objednávky" Click="orderListBtn_Click" >
                         <Fluent:Button.LargeIcon>
@@ -78,7 +73,14 @@
                     </Fluent:Button>
 
                 </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Akce">
 
+                    <Fluent:Button x:Name="customerAddBtn" Header="Nový zákazník" Click="customerAddBtn_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/customer.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
 
                 <Fluent:RibbonGroupBox Header="Export" IsEnabled="False" x:Name="exportGroup">
                     <Fluent:Button Header="XML" x:Name="btnXML" Click="btnXML_Click">

@@ -51,6 +51,16 @@ namespace RibbonApp.UserControls
             _cp.cbOrderBy.SelectionChanged += cbOrderBy_SelectionChanged;
 
             _numberOfRecordsPerPage = Convert.ToInt32(((ComboBoxItem)_cp.cbNumberOfRecords.SelectedItem).Content);
+
+            string comboBoxSelection = ((ComboBoxItem)_cp.cbNumberOfRecords.SelectedItem).Content.ToString();
+            if (comboBoxSelection.Trim() == "Vše")
+            {
+                _numberOfRecordsPerPage = DataToTransform.Count();
+            }
+            else
+            {
+                _numberOfRecordsPerPage = Convert.ToInt32(comboBoxSelection);
+            }
         }
 
         // User control, který vykresluje tlačítka pro řazení a stránkování. Je získán z konstruktoru.

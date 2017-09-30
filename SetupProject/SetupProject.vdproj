@@ -1035,7 +1035,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:RibbonApp"
         "ProductCode" = "8:{82B9C09E-A805-4B0A-A65E-FCF8BCF0A534}"
-        "PackageCode" = "8:{36EEFE09-6C95-4447-9681-99B230FD824A}"
+        "PackageCode" = "8:{AA60E9B5-5282-4C29-8B6B-D5F539E535FE}"
         "UpgradeCode" = "8:{4B441289-0AAF-415C-88D8-D6FC15F6FF22}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1157,7 +1157,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C1A2B3B225A54E9DA66463429050CB2E"
             {
-            "Name" = "8:Appka"
+            "Name" = "8:RibbonApp"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"

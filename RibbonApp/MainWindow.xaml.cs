@@ -42,7 +42,7 @@ namespace RibbonApp
             Configuration.Initialize(this);
 
             // zatím prototyp pro zadávání informací do tabulky
-            defaultPage = new DefaultPage(); 
+        
             //frDefult.Navigate(defaultPage);
         }
 
@@ -54,11 +54,7 @@ namespace RibbonApp
        LayoutDocument customerListDockDocument;
        LayoutDocument orderListPageDockDocument;
 
-        private void btnMainPage_Click(object sender, RoutedEventArgs e)
-        {
-            // frDefult.Navigate(defaultPage); // návrat na hlavní stránku         
-            AddDockedDocument("Seznam", defaultPage, ref defaultPageDockDocument);
-        }
+      
 
         private void btnShutDown_Click(object sender, RoutedEventArgs e)
         {
@@ -106,14 +102,24 @@ namespace RibbonApp
         private void customersListBtn_Click(object sender, RoutedEventArgs e)
         {
             customersListPage = new CustomersListPage();
-            // frDefult.Navigate(customersListPage);
-
-            AddDockedDocument("Seznam zákazníků",customersListPage, ref customerListDockDocument);
-          
+            customersListBtn.IsEnabled = false;
+            AddDockedDocument("Seznam zákazníků",customersListPage, ref customerListDockDocument);          
+        }
+        private void btnMainPage_Click(object sender, RoutedEventArgs e)
+        {          
+            defaultPage = new DefaultPage();
+            btnMainPage.IsEnabled = false;
+            AddDockedDocument("Seznam", defaultPage, ref defaultPageDockDocument);
         }
 
+        // Otevřít seznam objednávek
+        private void orderListBtn_Click(object sender, RoutedEventArgs e)
+        {
+            orderListPage = new OrderListPage();
+            orderListBtn.IsEnabled = false;
+            AddDockedDocument("Seznam objednávek", orderListPage, ref orderListPageDockDocument);         
+        }
 
-       
 
         // Přidání nového zákazníka
         private void customerAddBtn_Click(object sender, RoutedEventArgs e)
@@ -127,13 +133,7 @@ namespace RibbonApp
             customersListPage.ReloadDatagrid();
         }
 
-        // Otevřít seznam objednávek
-        private void orderListBtn_Click(object sender, RoutedEventArgs e)
-        {
-            orderListPage = new OrderListPage();
-            AddDockedDocument("Seznam objednávek", orderListPage, ref orderListPageDockDocument);
-            //  frDefult.Navigate(orderListPage);
-        }
+      
 
         // Reset databáze
         private void btnResetDatabase_Click(object sender, RoutedEventArgs e)
@@ -166,7 +166,7 @@ namespace RibbonApp
 
         }
 
-        private void AddDockedDocument(string title, Page pageToShow, ref LayoutDocument documentToInit)
+        private void AddDockedDocument(string title,Page pageToShow, ref LayoutDocument documentToInit)
         {
             Frame frame = new Frame();
             frame.Navigate(pageToShow);
@@ -194,7 +194,13 @@ namespace RibbonApp
 
         private void dockManager_DocumentClosed(object sender, Xceed.Wpf.AvalonDock.DocumentClosedEventArgs e)
         {
-            // zde vynucujeme vyčištění paměti od nepoužívaných objektů
+            // zde vynucujeme vyčištění paměti od nepoužívaných objektů        
+            switch(e.Document.ContentId)
+            {
+                case "Seznam": btnMainPage.IsEnabled = true; break;
+                case "Seznam zákazníků": customersListBtn.IsEnabled = true; break;
+                case "Seznam objednávek": orderListBtn.IsEnabled = true; break;
+            }
             System.GC.Collect();
         }
     }

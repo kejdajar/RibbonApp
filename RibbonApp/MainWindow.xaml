@@ -148,7 +148,7 @@
                     <xcad:LayoutDocumentPaneGroup>
                         <xcad:LayoutDocumentPane x:Name="documentTabs">
 
-                            <xcad:LayoutDocument ContentId="mainPage" Title="" CanClose="False" CanFloat="False">
+                            <xcad:LayoutDocument ContentId="mainPage" Title="Domů" CanClose="False" CanFloat="False">
                                 <xcad:LayoutDocument.IconSource>
                                     <BitmapImage UriSource="pack://application:,,,/RibbonApp;component/Images/Icon/home.png" DecodePixelWidth="16" DecodePixelHeight="16"></BitmapImage>
                                 </xcad:LayoutDocument.IconSource>

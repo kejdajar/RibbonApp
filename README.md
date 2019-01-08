@@ -24,3 +24,10 @@ Jedná se o prototyp systému pro evidenci zkontrolovaných položek, jejich už
 </p>
 
 Aplikace využívá technologii WPF, databázi SQL Server Compact Edition a knihovnu Xceed.Wpf.AvalonDock.
+
+## Instalace
+Instalaci na Windows je možné provést stažením instalátoru ze sekce <a href="https://github.com/kejdajar/RibbonApp/releases" title="instalátor"> Release</a>. 
+
+<p float="left">
+  <img  src="https://github.com/kejdajar/RibbonApp/blob/master/Resources/instalace.jpg" width="32%" height="220px" /> 
+</p>

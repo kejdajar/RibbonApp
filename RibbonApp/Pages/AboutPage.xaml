@@ -44,18 +44,10 @@
 
             <DockPanel LastChildFill="True">
                 <Image Source="pack://application:,,,/RibbonApp;component/Images/Icon/point.png" Width="13" Grid.Column="0"></Image>
-                <Label FontWeight="DemiBold" FontSize="17" HorizontalAlignment="Center" Grid.Column="0">Autoři:</Label>
-
-                <Grid >
-                <Grid.ColumnDefinitions>
-                   
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                
-                <Label Grid.Column="0" HorizontalAlignment="Center">Vojtěch Frič</Label>
-                <Label Grid.Column="1" HorizontalAlignment="Center">Bc. Jaromír Kejda</Label>
-            </Grid>
+                <Label FontWeight="DemiBold" FontSize="17" HorizontalAlignment="Center" Grid.Column="0">Autor:</Label>
+                                              
+                <Label >Bc. Jaromír Kejda</Label>
+            
 </DockPanel>
         </StackPanel>
     </Grid>

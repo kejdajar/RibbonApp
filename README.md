@@ -1,4 +1,6 @@
 # RibbonApp
+**Disclaimer:** _This repository has been archived and is no longer actively maintained. No future updates, fixes, or support will be provided._ 
+
 Jedná se o prototyp systému pro evidenci zkontrolovaných položek, jejich uživatelů a zakázek. Tato aplikace měla být součástí očekávaného komerčního projektu třetí strany, který nebyl nakonec realizován. Množství funkcionalit není dokončeno, nebo obsahuje pouze testovací data.
 
 ## Features 
